@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tela de login da plataforma Prepila Dyson para monitoramento e gestão inteligente de energia solar espacial.">
+  <title>Login | Prepila Dyson</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="home-link" href="index.html" aria-label="Voltar para a página inicial">
+      <span aria-hidden="true">⌂</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="login-page">
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="brand-area">
+        <img class="brand-logo" src="../../assets/images/Icon.png" alt="Logo Prepila Dyson">
+        <h1 id="login-title">Faça seu login</h1>
+        <p class="subtitle">Acesse o painel de controle da energia solar espacial.</p>
+      </img>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="userLogin">E-mail ou ID do usuário</label>
+          <input type="text" id="userLogin" name="userLogin" autocomplete="username" placeholder="ex: operador@prepila.com" required>
+          <small class="error-message" id="userLoginError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Digite sua senha" required minlength="6">
+            <button class="show-password" type="button" aria-label="Mostrar senha">○</button>
+          </div>
+
+          <div class="form-row">
+            <label class="remember-option">
+              <input type="checkbox" name="remember">
+              <span>Lembrar acesso</span>
+            </label>
+
+
+            <a class="forgot-link" href="recuperar-senha.html">Esqueceu a senha?</a>
+          </div>
+
+          <small class="error-message" id="passwordError"></small>
+        </div>
+
+        <button class="primary-button" type="submit">Conecte-se</button>
+        <p class="form-feedback" id="formFeedback" role="status"></p>
+      </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Prepila Dyson — FIAP Global Solution</p>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
