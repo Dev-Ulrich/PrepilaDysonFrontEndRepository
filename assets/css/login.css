@@ -74,14 +74,11 @@ body {
   letter-spacing: 0.08em;
   padding: 10px 14px;
   border-radius: 999px;
-  transition: all 0.3s ease;
 }
 
 .main-nav a:hover {
   color: var(--text);
-  background: rgba(39, 223, 255, 0.18);
-  box-shadow: 0 0 12px rgba(39, 223, 255, 0.25);
-  transform: scale(1.05);
+  background: rgba(39, 223, 255, 0.12);
 }
 
 .menu-toggle {
@@ -245,15 +242,10 @@ input.invalid {
 .forgot-link {
   color: var(--muted);
   text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
 }
 
 .forgot-link:hover {
   color: var(--cyan);
-  text-shadow: 0 0 8px rgba(39, 223, 255, 0.5);
-  transform: translateY(-2px);
 }
 
 .error-message {
