@@ -32,22 +32,16 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
         <h1 id="hero-title">Prepila Dyson</h1>
-        <p>Onde o sol nunca se põe</p>
-      </div>
-    </section>
-
-    <section class="about-solution" aria-labelledby="about-title">
-      <div class="about-content">
-        <h2 id="about-title">
-          O Prepila Dyson é uma plataforma especializada em monitoramento,
-          análise operacional e inteligência estratégica para infraestruturas de
+        <p class="hero-subtitle">Onde o sol nunca se põe</p>
+        <p class="hero-description">
+          Plataforma inteligente para monitoramento, controle e otimização de sistemas
           Space-Based Solar Power (SBSP).
-        </h2>
-        <a href="solucao.html" class="about-button">Saiba mais</a>
+        </p>
+        <a href="../public/sobre.html" class="hero-button">Saiba mais</a>
       </div>
     </section>
 
-    <section class="solution-section" aria-labelledby="solution-title">
+    <section class="solution-section glass-section" id="solucao" aria-labelledby="solution-title">
       <div class="section-title">
         <span></span>
         <h2 id="solution-title">Conheça nossa solução</h2>
@@ -55,65 +49,95 @@
       </div>
 
       <div class="carousel-area">
-        <button class="carousel-btn" id="prevBtn" aria-label="Imagem anterior">&#10094;</button>
+        <button class="carousel-btn" id="prevBtn" aria-label="Slide anterior">&#10094;</button>
 
         <div class="cards-wrapper">
           <article class="solution-card">
-            <img src="../../assets/images/slide-monitoramento.jpg" alt="Centro de monitoramento espacial">
+            <img src="../../assets/images/dashboard-prepila-dyson.png" alt="Monitoramento em tempo real">
             <div>
               <h3>Monitoramento em tempo real</h3>
-              <p>Acompanhe operações, satélites e estações receptoras com precisão.</p>
+              <p>Acompanhe operações, satélites e estações receptoras com alta precisão operacional.</p>
             </div>
           </article>
 
           <article class="solution-card">
-            <img src="../../assets/images/slide-otimizacao.jpg" alt="Satélite transmitindo energia para a Terra">
+            <img src="../../assets/images/Bg-Index2.png" alt="Otimização energética">
             <div>
               <h3>Otimização energética</h3>
-              <p>Controle o fluxo de energia solar espacial com dados inteligentes.</p>
+              <p>Otimize o fluxo de energia com dados em tempo real e inteligência analítica.</p>
             </div>
           </article>
 
           <article class="solution-card">
-            <img src="../../assets/images/slide-futuro.jpg" alt="Cidade futurista recebendo energia">
+            <img src="../../assets/images/Bg-Login.png" alt="Energia para o futuro">
             <div>
               <h3>Energia para o futuro</h3>
-              <p>Uma camada de gestão para infraestruturas SBSP modernas.</p>
+              <p>Integração moderna para infraestrutura SBSP escalável, segura e sustentável.</p>
             </div>
           </article>
         </div>
 
-        <button class="carousel-btn" id="nextBtn" aria-label="Próxima imagem">&#10095;</button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Próximo slide">&#10095;</button>
       </div>
 
       <div class="dots" id="dots"></div>
+    </section>
+
+    <section class="about-solution glass-section" id="sobre" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2 id="about-title">Sobre a solução</h2>
+          <p>
+            O Prepila Dyson é uma plataforma especializada em monitoramento, controle e
+            inteligência operacional para ecossistemas de Space-Based Solar Power.
+          </p>
+          <p>
+            Unimos observabilidade em tempo real, análise estratégica e otimização contínua
+            para elevar a eficiência energética com segurança e previsibilidade.
+          </p>
+          <a href="solucao.html" class="about-button">Veja sobre</a>
+        </div>
+
+        <div class="about-media">
+          <img src="../../assets/images/dashboard-prepila-dyson.png" alt="Dashboard Prepila Dyson">
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-content">
-      <div>
+      <div class="footer-brand">
         <img src="../../assets/images/Icon.png" alt="Logo Prepila Dyson">
-        <p>Plataforma de inteligência operacional para energia solar espacial.</p>
+        <h3>Prepila Dyson</h3>
+        <p class="footer-slogan">Onde o Sol Nunca se Põe</p>
+        <p>
+          Plataforma de inteligência operacional para
+          monitoramento, controle e otimização de
+          energia solar espacial.
+        </p>
       </div>
 
-      <nav>
+      <nav class="footer-nav">
         <h3>Navegação</h3>
-        <a href="index.html">Home</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="faq.html">FAQ</a>
-        <a href="integrantes.html">Integrantes</a>
-        <a href="contato.html">Contato</a>
+        <a href="index.html">🏠 Home</a>
+        <a href="sobre.html">📖 Sobre</a>
+        <a href="faq.html">❓ FAQ</a>
+        <a href="integrantes.html">👥 Integrantes</a>
+        <a href="contato.html">✉️ Contato</a>
       </nav>
 
-      <div>
+      <div class="footer-project">
         <h3>Projeto</h3>
         <p>Prepila Dyson</p>
         <p>FIAP Global Solution 2026</p>
+        <div class="footer-satellite" aria-hidden="true"></div>
       </div>
     </div>
 
-    <p class="copyright">© 2026 Prepila Dyson — Todos os direitos reservados.</p>
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <p class="copyright">© 2026 Prepila Dyson<br>FIAP Global Solution • ADS 1º Semestre<br>Desenvolvido pela Equipe Prepila Dyson</p>
   </footer>
 
   <script src="../../assets/js/index.js"></script>
