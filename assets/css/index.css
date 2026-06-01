@@ -20,21 +20,30 @@ body {
   min-height: 100vh;
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--bg);
+  background:
+    url("../images/Bg-Index.png");
   overflow-x: hidden;
+  padding-top: 86px;
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: 999;
   width: 100%;
   min-height: 86px;
   padding: 16px 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: transparent;
+  border-bottom: none;
+}
+
+.header.scrolled {
+  background: var(--dark-blue);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
 .logo-area img {
@@ -51,14 +60,14 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  gap: 42px;
+  gap: 54px;
 }
 
 .navbar a {
   color: var(--text);
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
@@ -88,6 +97,21 @@ body {
   padding: 9px 18px;
 }
 
+.login-link::after {
+  display: none;
+}
+
+.login-link:hover {
+  background: var(--cyan);
+  color: #04101f;
+  box-shadow: 0 0 18px rgba(73, 207, 255, 0.65);
+  text-shadow: none;
+}
+
+.login-link:hover::after {
+  display: none;
+}
+
 .menu-btn {
   display: none;
   width: 44px;
@@ -110,10 +134,8 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 120px 7% 80px;
+  padding: 120px 7% 120px;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.12)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(2, 10, 24, 0.92)),
     url("../images/Bg-Index.png");
   background-size: cover;
   background-position: center;
@@ -122,16 +144,6 @@ body {
 .hero-content {
   margin-top: -160px;
   max-width: 760px;
-}
-
-.hero-content::before {
-  content: "";
-  display: block;
-  width: 54px;
-  height: 4px;
-  margin-bottom: 28px;
-  background: var(--cyan);
-  box-shadow: 0 0 18px var(--cyan);
 }
 
 .hero h1 {
@@ -143,21 +155,32 @@ body {
 }
 
 .hero p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 18px;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
   color: var(--text);
 }
 
+.hero p::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--orange);
+  box-shadow: 0 0 18px rgba(255, 159, 47, 0.95);
+}
+
 .about-solution {
   position: relative;
   background:
-    linear-gradient(135deg, rgba(2, 10, 24, 0.92), rgba(4, 19, 38, 0.94)),
     url("../images/Bg-Login.png");
   background-size: cover;
   background-position: center;
   padding: 80px 7%;
-  border-top: 2px solid rgba(73, 207, 255, 0.35);
-  border-bottom: 2px solid rgba(73, 207, 255, 0.35);
+
   overflow: hidden;
 }
 
@@ -168,7 +191,7 @@ body {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(ellipse at 40% 50%, rgba(73, 207, 255, 0.1) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 40% 50%, rgba(255, 171, 47, 0.08) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -232,7 +255,12 @@ body {
 .solution-section {
   position: relative;
   padding: 80px 6% 100px;
-  background: linear-gradient(180deg, rgba(2, 7, 18, 0.8) 0%, rgba(4, 19, 38, 0.95) 50%, rgba(2, 10, 24, 0.9) 100%);
+  background:
+    linear-gradient(180deg, rgba(2, 7, 18, 0.72) 0%, rgba(4, 19, 38, 0.78) 40%, rgba(2, 10, 24, 0.9) 100%),
+    url("../images/Bg-Index2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-top: 2px solid rgba(73, 207, 255, 0.25);
 }
 
@@ -418,7 +446,7 @@ body {
 
   .navbar {
     position: absolute;
-    top: 78px;
+    top: 86px;
     right: 6%;
     width: min(310px, 88vw);
     display: none;
@@ -426,13 +454,17 @@ body {
     align-items: stretch;
     gap: 16px;
     padding: 20px;
-    background: rgba(2, 8, 22, 0.97);
-    border: 1px solid var(--border);
+    background: #000000;
+    border: 1px solid rgba(73,207,255,0.08);
     border-radius: 18px;
   }
 
   .navbar.open {
     display: flex;
+  }
+
+  .navbar a {
+    font-size: 1rem;
   }
 
   .hero {
@@ -478,6 +510,10 @@ body {
 
   .hero h1 {
     font-size: 3rem;
+  }
+
+  .navbar a {
+    font-size: 0.95rem;
   }
 
   .section-title {

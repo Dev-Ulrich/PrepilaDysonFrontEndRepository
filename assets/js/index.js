@@ -142,3 +142,22 @@ prevBtn.addEventListener('click', () => {
 createDots();
 updateCards();
 restartAutoSlide();
+
+// Header background toggle on scroll
+(function () {
+  const headerEl = document.querySelector('.header');
+
+  function updateHeaderBackground() {
+    if (!headerEl) return;
+    if (window.scrollY === 0) {
+      headerEl.classList.remove('scrolled');
+    } else {
+      headerEl.classList.add('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+  window.addEventListener('load', updateHeaderBackground);
+  // initial check
+  updateHeaderBackground();
+})();
