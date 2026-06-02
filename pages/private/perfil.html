@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Perfil administrativo da plataforma Prepila Dyson.">
+  <title>Perfil | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/perfil.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="administracao.html">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="perfil.html" aria-current="page">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">👤</span>
+          <h1>Perfil</h1>
+        </div>
+
+        <div class="header-actions" aria-label="Acoes do usuario">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="admin-level" type="button" aria-label="Nível de acesso">
+            <span aria-hidden="true">🛡️</span>
+            <span>Nível: Administrador</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="profile-hero" aria-labelledby="profile-title">
+        <div class="profile-identity">
+          <div class="avatar-ring">
+            <span class="profile-emoji" aria-label="Foto de perfil temporaria">👨‍💼</span>
+            <span class="presence-indicator" aria-label="Online"></span>
+          </div>
+
+          <h2 id="profile-title">Administrador Prepila Dyson</h2>
+          <span class="role-pill">👑 Administrador</span>
+          <p>ID: PD-ADM-001 <button class="copy-button" type="button" aria-label="Copiar ID" data-copy="PD-ADM-001">📋</button></p>
+        </div>
+
+        <div class="profile-details">
+          <div class="section-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">👤</span>
+              <h3>Meu Perfil</h3>
+            </div>
+            <a class="outline-button" href="editar-perfil.html">✏️ Editar perfil</a>
+          </div>
+
+          <dl class="detail-list">
+            <div>
+              <dt>✉️ Email</dt>
+              <dd>admPrepilaDyson@fiap.com.br <button class="copy-button" type="button" aria-label="Copiar email" data-copy="admPrepilaDyson@fiap.com.br">📋</button></dd>
+            </div>
+            <div>
+              <dt>🏢 Organização</dt>
+              <dd>Prepila Dyson</dd>
+            </div>
+            <div>
+              <dt>💼 Cargo</dt>
+              <dd>Administrador Prepila Dyson</dd>
+            </div>
+            <div>
+              <dt>📅 Membro desde</dt>
+              <dd>02/06/2026</dd>
+            </div>
+            <div>
+              <dt>🛡️ Nível de acesso</dt>
+              <dd><span class="role-chip">👑 Administrador</span></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="status-grid" aria-label="Resumo do perfil">
+          <article class="status-card">
+            <span aria-hidden="true">🕒</span>
+            <div>
+              <strong>Último acesso</strong>
+              <small>02/06/2026 14:32</small>
+            </div>
+          </article>
+          <article class="status-card">
+            <span aria-hidden="true">✅</span>
+            <div>
+              <strong>Status</strong>
+              <small class="success-text">Ativo</small>
+            </div>
+          </article>
+          <article class="status-card">
+            <span aria-hidden="true">💻</span>
+            <div>
+              <strong>Sessões ativas</strong>
+              <small>2 dispositivos</small>
+            </div>
+          </article>
+          <article class="status-card">
+            <span aria-hidden="true">🔐</span>
+            <div>
+              <strong>MFA</strong>
+              <small class="success-text">Ativo</small>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="permissions-panel" aria-labelledby="permissions-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🔐</span>
+            <h2 id="permissions-title">Permissões de acesso</h2>
+            <p>Gerencie o nível de acesso às funcionalidades do sistema.</p>
+          </div>
+          <button class="ghost-button" type="button">Visão detalhada ↗</button>
+        </div>
+
+        <div class="permissions-table" role="table" aria-label="Permissões de acesso">
+          <div class="table-row table-head" role="row">
+            <span role="columnheader">Módulo</span>
+            <span role="columnheader">Permissão</span>
+            <span role="columnheader">Nível</span>
+            <span role="columnheader">Status</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">🏠 Dashboard</span>
+            <span role="cell">Acesso completo ao painel principal</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">⚙️ Operações</span>
+            <span role="cell">Gerenciar e executar operações</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">📡 Monitoramento</span>
+            <span role="cell">Visualizar e gerenciar monitoramentos</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">🚨 Alertas</span>
+            <span role="cell">Configurar e gerenciar alertas</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">💡 Recomendações</span>
+            <span role="cell">Visualizar recomendações do sistema</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">📊 Relatórios</span>
+            <span role="cell">Gerar e exportar relatórios</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+          <div class="table-row" role="row">
+            <span role="cell">📄 Contratos</span>
+            <span role="cell">Gerenciar contratos e documentos</span>
+            <span role="cell"><em>Total</em></span>
+            <span role="cell" class="success-text">🟢 Liberado</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificação crítica</h2>
+          <p>Um alerta operacional precisa da sua atenção.</p>
+        </div>
+      </div>
+
+      <article class="notification-message">
+        <strong>🚨 Alerta de estabilidade energética</strong>
+        <p>O módulo de monitoramento identificou variação acima do esperado no fluxo de captação. Revise os alertas para acompanhar a ocorrência.</p>
+        <small>Recebido em 02/06/2026 às 14:32</small>
+      </article>
+
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="alertas.html">Ir para lá</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/perfil.js"></script>
+</body>
+</html>
