@@ -762,6 +762,22 @@ body::after {
   text-shadow: 0 0 12px rgba(0, 180, 255, 0.6);
 }
 
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.footer .footer-github img {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(73, 207, 255, 0.35));
+}
+
 .footer-satellite {
   width: 120px;
   height: 80px;

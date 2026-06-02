@@ -67,16 +67,15 @@ if (menuBtn && navbar) {
 
 function createDots() {
   if (!dotsContainer) return;
-  const totalGroups = Math.ceil(slides.length / 3);
   dotsContainer.innerHTML = "";
 
-  for (let index = 0; index < totalGroups; index++) {
+  for (let index = 0; index < slides.length; index++) {
     const dot = document.createElement("button");
     dot.classList.add("dot");
-    dot.setAttribute("aria-label", `Ir para grupo ${index + 1}`);
+    dot.setAttribute("aria-label", `Ir para slide ${index + 1}`);
 
     dot.addEventListener("click", () => {
-      currentIndex = index * 3;
+      currentIndex = index;
       updateCards();
       restartAutoSlide();
     });
@@ -88,10 +87,9 @@ function createDots() {
 function updateDots() {
   if (!dotsContainer) return;
   const dots = document.querySelectorAll(".dot");
-  const activeDot = Math.floor(currentIndex / 3);
 
   dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === activeDot);
+    dot.classList.toggle("active", index === currentIndex);
   });
 }
 
@@ -126,7 +124,7 @@ function updateCards() {
 }
 
 function nextSlide() {
-  currentIndex += 3;
+  currentIndex += 1;
   if (currentIndex >= slides.length) {
     currentIndex = 0;
   }
@@ -134,9 +132,9 @@ function nextSlide() {
 }
 
 function prevSlide() {
-  currentIndex -= 3;
+  currentIndex -= 1;
   if (currentIndex < 0) {
-    currentIndex = slides.length - 3;
+    currentIndex = slides.length - 1;
   }
   updateCards();
 }

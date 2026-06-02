@@ -83,7 +83,10 @@ function togglePasswordVisibility() {
   showPasswordButton.setAttribute('aria-label', isPassword ? 'Ocultar senha' : 'Mostrar senha');
 }
 
-menuButton.addEventListener('click', toggleMenu);
+if (menuButton && mainMenu) {
+  menuButton.addEventListener('click', toggleMenu);
+}
+
 loginForm.addEventListener('submit', handleLogin);
 userInput.addEventListener('input', validateUser);
 passwordInput.addEventListener('input', validatePassword);
