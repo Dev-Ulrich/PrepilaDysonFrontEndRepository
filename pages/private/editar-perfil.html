@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edicao do perfil administrativo da plataforma Prepila Dyson.">
+  <title>Editar Perfil | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/editar-perfil.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="perfil.html" aria-current="page">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">✏️</span>
+          <h1>Editar Perfil</h1>
+        </div>
+
+        <div class="header-actions" aria-label="Acoes do usuario">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="admin-level" type="button" aria-label="Nível de acesso">
+            <span aria-hidden="true">🛡️</span>
+            <span>Nível: Administrador</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <form class="edit-profile-layout" id="editProfileForm">
+        <section class="edit-avatar-panel" aria-labelledby="avatar-title">
+          <div class="avatar-ring edit-avatar">
+            <span class="profile-emoji" aria-label="Foto de perfil temporaria">👨‍💼</span>
+            <span class="presence-indicator" aria-label="Online"></span>
+          </div>
+
+          <h2 id="avatar-title">Administrador Prepila Dyson</h2>
+          <span class="role-pill">👑 Administrador</span>
+
+          <div class="emoji-options" aria-label="Escolher emoji do perfil">
+            <label>
+              <input type="radio" name="avatarEmoji" value="👨‍💼" checked>
+              <span>👨‍💼</span>
+            </label>
+            <label>
+              <input type="radio" name="avatarEmoji" value="🧑‍💻">
+              <span>🧑‍💻</span>
+            </label>
+            <label>
+              <input type="radio" name="avatarEmoji" value="🛰️">
+              <span>🛰️</span>
+            </label>
+            <label>
+              <input type="radio" name="avatarEmoji" value="⚡">
+              <span>⚡</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="edit-form-panel" aria-labelledby="edit-profile-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">👤</span>
+              <h2 id="edit-profile-title">Dados do perfil</h2>
+              <p>Atualize as informações exibidas na conta administrativa.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Nome de exibição</span>
+              <input type="text" name="displayName" value="Administrador Prepila Dyson" autocomplete="name" required>
+            </label>
+
+            <label class="form-field">
+              <span>Usuário</span>
+              <input type="text" name="username" value="admPrepilaDyson" autocomplete="username" required>
+            </label>
+
+            <label class="form-field">
+              <span>Email</span>
+              <input type="email" name="email" value="admPrepilaDyson@fiap.com.br" autocomplete="email" required>
+            </label>
+
+            <label class="form-field">
+              <span>Telefone</span>
+              <input type="tel" name="phone" value="+55 11 90000-2026" autocomplete="tel">
+            </label>
+
+            <label class="form-field">
+              <span>Organização</span>
+              <input type="text" name="organization" value="Prepila Dyson" readonly>
+            </label>
+
+            <label class="form-field">
+              <span>Cargo</span>
+              <input type="text" name="position" value="Administrador Prepila Dyson">
+            </label>
+
+            <label class="form-field form-field-wide">
+              <span>Bio</span>
+              <textarea name="bio" rows="4">Responsável pela administração da plataforma Prepila Dyson e pelo acompanhamento dos recursos de monitoramento energético.</textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="edit-form-panel" aria-labelledby="security-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🔐</span>
+              <h2 id="security-title">Segurança e preferências</h2>
+              <p>Configure dados operacionais do acesso administrativo.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Nível de acesso</span>
+              <select name="accessLevel">
+                <option selected>Administrador</option>
+                <option>Operador</option>
+                <option>Leitura</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>Status</span>
+              <select name="status">
+                <option selected>Ativo</option>
+                <option>Pendente</option>
+                <option>Suspenso</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>MFA</span>
+              <select name="mfa">
+                <option selected>Ativo</option>
+                <option>Inativo</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>Idioma</span>
+              <select name="language">
+                <option selected>Português do Brasil</option>
+                <option>English</option>
+                <option>Español</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="toggle-list">
+            <label>
+              <input type="checkbox" checked>
+              <span>Receber notificações críticas por email</span>
+            </label>
+            <label>
+              <input type="checkbox" checked>
+              <span>Manter sessões autorizadas em dois dispositivos</span>
+            </label>
+            <label>
+              <input type="checkbox">
+              <span>Exigir confirmação antes de operações sensíveis</span>
+            </label>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <a class="ghost-button" href="perfil.html">Cancelar</a>
+          <button class="outline-button" type="reset">Restaurar</button>
+          <button class="primary-action" type="submit">💾 Salvar alterações</button>
+          <p class="form-status" id="editProfileStatus" role="status"></p>
+        </div>
+      </form>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificação crítica</h2>
+          <p>Um alerta operacional precisa da sua atenção.</p>
+        </div>
+      </div>
+
+      <article class="notification-message">
+        <strong>🚨 Alerta de estabilidade energética</strong>
+        <p>O módulo de monitoramento identificou variação acima do esperado no fluxo de captação. Revise os alertas para acompanhar a ocorrência.</p>
+        <small>Recebido em 02/06/2026 às 14:32</small>
+      </article>
+
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="alertas.html">Ir para lá</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/editar-perfil.js"></script>
+</body>
+</html>
