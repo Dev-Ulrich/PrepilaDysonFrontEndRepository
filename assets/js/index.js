@@ -11,32 +11,32 @@ let autoSlide;
 
 const slides = [
   {
-    image: "../../assets/images/Monitoramento-Img.png",
+    image: "../../assets/images/carrosel/Monitoramento-Img.png",
     title: "Monitoramento em tempo real",
     text: "Acompanhe operações, satélites e estações receptoras com alta precisão operacional."
   },
   {
-    image: "../../assets/images/OtimizaçãoEnergetica-Img.png",
+    image: "../../assets/images/carrosel/OtimizaçãoEnergetica-Img.png",
     title: "Otimização energética",
     text: "Otimize o fluxo de energia com dados em tempo real e inteligência analítica."
   },
   {
-    image: "../../assets/images/EnergiaDoFuturo-Img.png",
+    image: "../../assets/images/carrosel/EnergiaDoFuturo-Img.png",
     title: "Energia para o futuro",
     text: "Integração moderna para infraestrutura SBSP escalável, segura e sustentável."
   },
   {
-    image: "../../assets/images/Alertas-Operacionais-Img.png",
+    image: "../../assets/images/carrosel/Alertas-Operacionais-Img.png",
     title: "Alertas operacionais",
     text: "Identifique anomalias e riscos com respostas rápidas e guiadas por dados."
   },
   {
-    image: "../../assets/images/IA-Img.png",
+    image: "../../assets/images/carrosel/IA-Img.png",
     title: "Recomendações com IA",
     text: "Receba insights para decisões táticas e estratégicas em todo o ecossistema SBSP."
   },
   {
-    image: "../../assets/images/Relatorios-Analitico-Img.png",
+    image: "../../assets/images/carrosel/Relatorios-Analitico-Img.png",
     title: "Relatórios analíticos",
     text: "Visualize históricos, indicadores e performance com visão executiva da operação."
   }

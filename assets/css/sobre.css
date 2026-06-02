@@ -28,7 +28,7 @@ body {
   overflow-x: hidden;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(1, 9, 20, 0.9)),
-    url("../images/Bg-Index.png") center top / cover fixed no-repeat;
+    url("../images/backgrounds/Bg-Index.png") center top / cover fixed no-repeat;
 }
 
 body::before {

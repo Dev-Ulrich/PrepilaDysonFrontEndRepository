@@ -21,7 +21,7 @@ body {
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
   background:
-    url("../../../assets/images/Bg-Login.png") center/cover no-repeat fixed,
+    url("../../../assets/images/backgrounds/Bg-Login.png") center/cover no-repeat fixed,
     linear-gradient(180deg, #02040d 0%, #05081a 50%, #02040d 100%);
   overflow-x: hidden;
 }
