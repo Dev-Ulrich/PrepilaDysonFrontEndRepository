@@ -1,0 +1,124 @@
+const sidebar = document.querySelector('#privateSidebar');
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebarBackdrop = document.querySelector('[data-close-sidebar]');
+const editProfileForm = document.querySelector('#editProfileForm');
+const editProfileStatus = document.querySelector('#editProfileStatus');
+const profileEmoji = document.querySelector('.profile-emoji');
+const emojiInputs = document.querySelectorAll('input[name="avatarEmoji"]');
+const notificationButton = document.querySelector('.notification-button');
+const notificationModal = document.querySelector('#notificationModal');
+const notificationCount = document.querySelector('.notification-count');
+const closeNotificationButton = document.querySelector('[data-close-notification]');
+const readNotificationButton = document.querySelector('[data-read-notification]');
+
+const loggedUser = {
+  username: 'admPrepilaDyson',
+  displayName: 'Administrador Prepila Dyson',
+  loggedAt: new Date().toISOString()
+};
+
+sessionStorage.setItem('prepila-auth-user', JSON.stringify(loggedUser));
+
+function setSidebarState(isOpen) {
+  document.body.classList.toggle('sidebar-open', isOpen);
+
+  if (sidebarToggle) {
+    sidebarToggle.setAttribute('aria-expanded', String(isOpen));
+  }
+}
+
+if (sidebarToggle && sidebar) {
+  sidebarToggle.addEventListener('click', () => {
+    setSidebarState(!document.body.classList.contains('sidebar-open'));
+  });
+}
+
+if (sidebarBackdrop) {
+  sidebarBackdrop.addEventListener('click', () => {
+    setSidebarState(false);
+  });
+}
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    setSidebarState(false);
+    closeNotificationModal();
+  }
+});
+
+function openNotificationModal() {
+  if (notificationModal) {
+    notificationModal.hidden = false;
+    document.body.classList.add('modal-open');
+    closeNotificationButton?.focus();
+  }
+}
+
+function closeNotificationModal() {
+  if (notificationModal) {
+    notificationModal.hidden = true;
+    document.body.classList.remove('modal-open');
+  }
+}
+
+emojiInputs.forEach((input) => {
+  input.addEventListener('change', () => {
+    if (profileEmoji) {
+      profileEmoji.textContent = input.value;
+    }
+  });
+});
+
+if (notificationButton) {
+  notificationButton.addEventListener('click', openNotificationModal);
+}
+
+if (closeNotificationButton) {
+  closeNotificationButton.addEventListener('click', closeNotificationModal);
+}
+
+if (notificationModal) {
+  notificationModal.addEventListener('click', (event) => {
+    if (event.target === notificationModal) {
+      closeNotificationModal();
+    }
+  });
+}
+
+if (readNotificationButton) {
+  readNotificationButton.addEventListener('click', () => {
+    if (notificationCount) {
+      notificationCount.textContent = '0';
+      notificationCount.classList.add('is-read');
+    }
+
+    readNotificationButton.textContent = '✓✓ Lido';
+    closeNotificationModal();
+  });
+}
+
+if (editProfileForm && editProfileStatus) {
+  editProfileForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(editProfileForm);
+    const updatedUser = {
+      username: formData.get('username'),
+      displayName: formData.get('displayName'),
+      loggedAt: new Date().toISOString()
+    };
+
+    sessionStorage.setItem('prepila-auth-user', JSON.stringify(updatedUser));
+    editProfileStatus.textContent = 'Alterações salvas.';
+  });
+
+  editProfileForm.addEventListener('reset', () => {
+    window.setTimeout(() => {
+      if (profileEmoji) {
+        profileEmoji.textContent = '👨‍💼';
+      }
+
+      editProfileStatus.textContent = '';
+    });
+  });
+}
