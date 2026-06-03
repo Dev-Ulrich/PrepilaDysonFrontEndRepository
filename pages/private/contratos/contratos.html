@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestão de contratos e planos da plataforma Prepila Dyson.">
+  <title>Contratos | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/contrato/contratos.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao.html">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="contratos.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header contracts-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title contracts-title">
+          <span aria-hidden="true">📄</span>
+          <div>
+            <h1>Contratos</h1>
+            <p>Gerencie e acompanhe todos os contratos e planos da sua organização.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de contratos">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <a class="primary-action" href="novo-contrato.html">＋ Novo contrato</a>
+        </div>
+      </header>
+
+      <section class="contract-metrics" aria-label="Resumo de contratos">
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">📋</span>
+          <div>
+            <small>Total de contratos</small>
+            <strong>25</strong>
+            <p>18 ativos · 7 inativos</p>
+          </div>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">🗓️</span>
+          <div>
+            <small>Planos mensais</small>
+            <strong>11</strong>
+            <p>Em execução</p>
+          </div>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">📅</span>
+          <div>
+            <small>Planos anuais</small>
+            <strong>14</strong>
+            <p>Em execução</p>
+          </div>
+        </article>
+        <article class="metric-card revenue-card">
+          <span class="metric-icon" aria-hidden="true">💵</span>
+          <div>
+            <small>Receita mensal (MRR)</small>
+            <strong>US$ 3.450,000</strong>
+            <p class="success-text">↑ +12.4% vs mês anterior</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="contracts-panel" aria-labelledby="contracts-management-title">
+        <div class="panel-heading contract-panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🗂️</span>
+            <h2 id="contracts-management-title">Gestão de contratos</h2>
+          </div>
+          <div class="contract-tools">
+            <label class="contract-search">
+              <span aria-hidden="true">🔍</span>
+              <input class="contract-search-input" type="search" placeholder="Buscar contrato...">
+            </label>
+            <div class="contract-actions-tools">
+              <button class="ghost-button filter-button" type="button" data-filter-contracts>🔎 Filtros: todos</button>
+              <button class="icon-button table-options-button" type="button" aria-label="Opções da tabela" data-open-table-options>⋮</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="contracts-table" role="table" aria-label="Gestão de contratos">
+          <div class="contract-row contract-head" role="row">
+            <span role="columnheader">Organização</span>
+            <span role="columnheader">Plano</span>
+            <span role="columnheader">Status</span>
+            <span role="columnheader">Validade</span>
+            <span role="columnheader">Valor</span>
+            <span role="columnheader">Ações</span>
+          </div>
+          <div class="contract-row" role="row" data-contract-row data-contract-name="ESA" data-contract-status="ativo">
+            <span role="cell">
+              <strong class="org-avatar">ESA</strong>
+              <span><b>ESA</b><small>European Space Agency</small></span>
+            </span>
+            <span role="cell"><em>SaaS anual</em><small>ID: CT-2026-0012</small></span>
+            <span role="cell"><strong class="status-pill active" data-contract-status-pill>● Ativo</strong></span>
+            <span role="cell" data-contract-validity>📅 15/09/2026 <small>271 dias restantes</small></span>
+            <span role="cell"><b>US$ 2.200,000</b><span class="sparkline up"></span></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Mais ações ESA" data-contract-actions="ESA">⋮</button></span>
+          </div>
+          <div class="contract-row" role="row" data-contract-row data-contract-name="JAXA" data-contract-status="ativo">
+            <span role="cell">
+              <strong class="org-avatar">JAXA</strong>
+              <span><b>JAXA</b><small>Agência Espacial Japonesa</small></span>
+            </span>
+            <span role="cell"><em>SaaS anual</em><small>ID: CT-2026-0008</small></span>
+            <span role="cell"><strong class="status-pill active" data-contract-status-pill>● Ativo</strong></span>
+            <span role="cell" data-contract-validity>📅 31/12/2026 <small>378 dias restantes</small></span>
+            <span role="cell"><b>US$ 2.500,000</b><span class="sparkline up"></span></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Mais ações JAXA" data-contract-actions="JAXA">⋮</button></span>
+          </div>
+          <div class="contract-row" role="row" data-contract-row data-contract-name="NASA" data-contract-status="ativo">
+            <span role="cell">
+              <strong class="org-avatar">NASA</strong>
+              <span><b>NASA</b><small>National Aeronautics</small></span>
+            </span>
+            <span role="cell"><em>SaaS anual</em><small>ID: CT-2026-0005</small></span>
+            <span role="cell"><strong class="status-pill active" data-contract-status-pill>● Ativo</strong></span>
+            <span role="cell" data-contract-validity>🔄 Renovação mensal <small>Automática</small></span>
+            <span role="cell"><b>US$ 250,000/mês</b><span class="sparkline up"></span></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Mais ações NASA" data-contract-actions="NASA">⋮</button></span>
+          </div>
+          <div class="contract-row" role="row" data-contract-row data-contract-name="SpaceX" data-contract-status="vencendo">
+            <span role="cell">
+              <strong class="org-avatar">SPX</strong>
+              <span><b>SpaceX</b><small>Exploration Technologies</small></span>
+            </span>
+            <span role="cell"><em>SaaS anual</em><small>ID: CT-2026-0017</small></span>
+            <span role="cell"><strong class="status-pill warning" data-contract-status-pill>● Vencendo</strong></span>
+            <span role="cell" data-contract-validity>📅 10/07/2026 <small>40 dias restantes</small></span>
+            <span role="cell"><b>US$ 1.800,000</b><span class="sparkline neutral"></span></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Mais ações SpaceX" data-contract-actions="SpaceX">⋮</button></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contracts-dashboard" aria-label="Resumo financeiro e atividades">
+        <article class="contracts-panel finance-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">📈</span>
+              <h2>Resumo financeiro</h2>
+            </div>
+            <div class="period-filter" data-finance-period>
+              <span>Período</span>
+              <button type="button" data-period="1">1m</button>
+              <button type="button" data-period="3">3m</button>
+              <button type="button" data-period="6">6m</button>
+              <button type="button" data-period="9">9m</button>
+              <button class="active" type="button" data-period="12">12m</button>
+              <button type="button" data-period="24">24m</button>
+            </div>
+          </div>
+
+          <div class="finance-content">
+            <div class="finance-stack">
+              <article>
+                <small>MRR (Receita mensal)</small>
+                <strong>US$ 3.450,000</strong>
+                <span class="success-text">↑ +12.4%</span>
+              </article>
+              <article>
+                <small>ARR (Receita anual)</small>
+                <strong>US$ 38.900,000</strong>
+                <span class="success-text">↑ +18.7%</span>
+              </article>
+            </div>
+            <div class="line-chart" aria-label="Gráfico de receita mensal" data-finance-chart>
+              <span style="--x: 6%; --y: 72%"></span>
+              <span style="--x: 17%; --y: 58%"></span>
+              <span style="--x: 28%; --y: 46%"></span>
+              <span style="--x: 39%; --y: 34%"></span>
+              <span style="--x: 50%; --y: 39%"></span>
+              <span style="--x: 61%; --y: 26%"></span>
+              <span style="--x: 72%; --y: 35%"></span>
+              <span style="--x: 83%; --y: 21%"></span>
+              <span style="--x: 94%; --y: 12%"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="contracts-panel activities-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🕒</span>
+              <h2>Atividades recentes</h2>
+            </div>
+          </div>
+
+          <div class="activity-list">
+            <article>
+              <span class="activity-dot success-text">✓</span>
+              <div><strong>Contrato ESA renovado com sucesso</strong><small>Plano SaaS anual</small></div>
+              <time>Hoje, 14:32</time>
+            </article>
+            <article>
+              <span class="activity-dot">📄</span>
+              <div><strong>Novo contrato criado: SpaceX</strong><small>Plano SaaS anual</small></div>
+              <time>Hoje, 11:08</time>
+            </article>
+            <article>
+              <span class="activity-dot warning-text">!</span>
+              <div><strong>Contrato JAXA vence em 40 dias</strong><small>Plano SaaS anual</small></div>
+              <time>Ontem, 18:45</time>
+            </article>
+            <article>
+              <span class="activity-dot success-text">$</span>
+              <div><strong>Pagamento recebido: ESA</strong><small>US$ 2.200,000</small></div>
+              <time>02/06/2026</time>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="contracts-panel expiring-panel" aria-labelledby="expiring-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">⏳</span>
+            <h2 id="expiring-title">Contratos próximos do vencimento</h2>
+          </div>
+          <button class="ghost-button" type="button" data-export-report>⬇ Exportar relatório</button>
+        </div>
+
+        <div class="expiring-list">
+          <article>
+            <span class="org-avatar">ESA</span>
+            <strong>ESA - SaaS anual</strong>
+            <time>📅 15/09/2026</time>
+            <span class="progress-bar"><i style="width: 48%"></i></span>
+            <small>271 dias restantes</small>
+            <button class="ghost-button" type="button" data-detail-contract="ESA">Detalhes ›</button>
+          </article>
+          <article>
+            <span class="org-avatar">JAXA</span>
+            <strong>JAXA - SaaS anual</strong>
+            <time>📅 31/12/2026</time>
+            <span class="progress-bar accent"><i style="width: 62%"></i></span>
+            <small>378 dias restantes</small>
+            <button class="ghost-button" type="button" data-detail-contract="JAXA">Detalhes ›</button>
+          </article>
+          <article>
+            <span class="org-avatar">NASA</span>
+            <strong>NASA - SaaS anual</strong>
+            <time>🔄 Renovação mensal</time>
+            <span class="progress-bar"><i style="width: 40%"></i></span>
+            <small>Renovação automática</small>
+            <button class="ghost-button" type="button" data-detail-contract="NASA">Detalhes ›</button>
+          </article>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificação crítica</h2>
+          <p>Um alerta operacional precisa da sua atenção.</p>
+        </div>
+      </div>
+
+      <article class="notification-message">
+        <strong>🚨 Alerta de estabilidade energética</strong>
+        <p>O módulo de monitoramento identificou variação acima do esperado no fluxo de captação. Revise os alertas para acompanhar a ocorrência.</p>
+        <small>Recebido em 02/06/2026 às 14:32</small>
+      </article>
+
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas.html">Ir para lá</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="tableOptionsModal" role="dialog" aria-modal="true" aria-labelledby="tableOptionsTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar opções da tabela" data-close-table-options>×</button>
+
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🗂️</span>
+        <div>
+          <h2 id="tableOptionsTitle">Opções da tabela</h2>
+          <p>Escolha uma ação para a gestão de contratos.</p>
+        </div>
+      </div>
+
+      <div class="actions-list">
+        <button type="button" data-table-action="Colunas reorganizadas.">📐 Reorganizar colunas</button>
+        <button type="button" data-table-action="Tabela atualizada com sucesso.">🔄 Atualizar tabela</button>
+        <button type="button" data-table-action="Visualização compacta ativada.">▦ Visualização compacta</button>
+        <button type="button" data-table-action="Dados da tabela exportados.">⬇ Exportar tabela</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="contractActionsModal" role="dialog" aria-modal="true" aria-labelledby="contractActionsTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar ações do contrato" data-close-contract-actions>×</button>
+
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">📄</span>
+        <div>
+          <h2 id="contractActionsTitle">Ações do contrato</h2>
+          <p id="contractActionsSubtitle">Selecione uma ação para o contrato.</p>
+        </div>
+      </div>
+
+      <div class="actions-list">
+        <button type="button" data-contract-modal-action="visualizar">👁️ Visualizar contrato</button>
+        <button type="button" data-contract-modal-action="editar">✏️ Editar contrato</button>
+        <button type="button" data-contract-modal-action="renovar">🔄 Renovar contrato</button>
+        <button class="danger-action" type="button" data-contract-modal-action="suspender">⛔ Suspender contrato</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="contractsToast" role="status" hidden></p>
+
+  <script src="/assets/js/contrato/contratos.js"></script>
+</body>
+</html>
