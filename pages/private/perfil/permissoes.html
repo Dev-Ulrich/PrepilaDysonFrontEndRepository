@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Permissoes detalhadas do perfil administrativo da plataforma Prepila Dyson.">
+  <title>Permissões | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/perfil/permissoes.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao.html">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="perfil.html" aria-current="page">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">🔐</span>
+          <h1>Permissões</h1>
+        </div>
+
+        <div class="header-actions" aria-label="Acoes do usuario">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <a class="ghost-button" href="perfil.html">← Voltar</a>
+        </div>
+      </header>
+
+      <section class="permissions-overview" aria-label="Resumo de permissões">
+        <article class="permission-card">
+          <span aria-hidden="true">👑</span>
+          <div>
+            <small>Nível atual</small>
+            <strong>Administrador</strong>
+            <p>Acesso total ao ambiente privado.</p>
+          </div>
+        </article>
+        <article class="permission-card">
+          <span aria-hidden="true">✅</span>
+          <div>
+            <small>Módulos liberados</small>
+            <strong>7</strong>
+            <p>Todos os módulos críticos habilitados.</p>
+          </div>
+        </article>
+        <article class="permission-card">
+          <span aria-hidden="true">🔐</span>
+          <div>
+            <small>Autenticação</small>
+            <strong>MFA ativo</strong>
+            <p>Validação reforçada em operações sensíveis.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="permissions-panel permission-detail-panel" aria-labelledby="detail-permissions-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🧾</span>
+            <h2 id="detail-permissions-title">Matriz detalhada</h2>
+            <p>Permissões concedidas para o perfil administrador.</p>
+          </div>
+          <button class="ghost-button" type="button" data-export-permissions>⬇ Exportar permissões</button>
+        </div>
+
+        <div class="permissions-matrix" role="table" aria-label="Matriz detalhada de permissões">
+          <div class="matrix-row matrix-head" role="row">
+            <span role="columnheader">Módulo</span>
+            <span role="columnheader">Visualizar</span>
+            <span role="columnheader">Criar</span>
+            <span role="columnheader">Editar</span>
+            <span role="columnheader">Excluir</span>
+            <span role="columnheader">Exportar</span>
+            <span role="columnheader">Escopo</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">🏠 Dashboard</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">⚙️ Operações</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">📡 Monitoramento</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">🚨 Alertas</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">💡 Recomendações</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">📊 Relatórios</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+          <div class="matrix-row" role="row">
+            <span role="cell">📄 Contratos</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>✅</span><span>Total</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="permissions-grid">
+        <article class="permissions-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🛡️</span>
+              <h2>Políticas aplicadas</h2>
+              <p>Regras de segurança vinculadas ao perfil.</p>
+            </div>
+          </div>
+
+          <div class="policy-list">
+            <span>✅ MFA obrigatório para ações administrativas</span>
+            <span>✅ Sessões limitadas a 2 dispositivos ativos</span>
+            <span>✅ Registro de auditoria em alterações críticas</span>
+            <span>✅ Exportações identificadas pelo usuário logado</span>
+          </div>
+        </article>
+
+        <article class="permissions-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🕒</span>
+              <h2>Auditoria recente</h2>
+              <p>Últimas ações relacionadas às permissões.</p>
+            </div>
+          </div>
+
+          <div class="audit-list">
+            <article><strong>Permissões revisadas</strong><small>Hoje, 14:32 · Administrador Prepila Dyson</small></article>
+            <article><strong>MFA confirmado</strong><small>Hoje, 12:05 · Login administrativo</small></article>
+            <article><strong>Relatório exportado</strong><small>02/06/2026 · Módulo Relatórios</small></article>
+          </div>
+        </article>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificação crítica</h2>
+          <p>Um alerta operacional precisa da sua atenção.</p>
+        </div>
+      </div>
+
+      <article class="notification-message">
+        <strong>🚨 Alerta de estabilidade energética</strong>
+        <p>O módulo de monitoramento identificou variação acima do esperado no fluxo de captação. Revise os alertas para acompanhar a ocorrência.</p>
+        <small>Recebido em 02/06/2026 às 14:32</small>
+      </article>
+
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas.html">Ir para lá</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="permissionsToast" role="status" hidden></p>
+
+  <script src="/assets/js/perfil/permissoes.js"></script>
+</body>
+</html>
