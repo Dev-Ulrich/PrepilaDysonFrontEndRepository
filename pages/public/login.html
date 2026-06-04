@@ -50,7 +50,7 @@
             </label>
 
 
-            <a class="forgot-link" href="recuperar-senha.html">Esqueceu a senha?</a>
+            <button class="forgot-link" type="button" aria-haspopup="dialog" aria-controls="forgotPasswordModal" data-open-forgot-password>Esqueceu a senha?</button>
           </div>
 
           <small class="error-message" id="passwordError"></small>
@@ -65,6 +65,23 @@
   <footer class="footer">
     <p>© 2026 Prepila Dyson — FIAP Global Solution</p>
   </footer>
+
+  <div class="support-modal" id="forgotPasswordModal" role="dialog" aria-modal="true" aria-labelledby="forgotPasswordTitle" hidden>
+    <div class="support-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar aviso" data-close-forgot-password>×</button>
+
+      <div class="support-heading">
+        <span aria-hidden="true">🔐</span>
+        <div>
+          <h2 id="forgotPasswordTitle">Recuperação de senha</h2>
+          <p>Entre em contato com um administrador ou com a equipe da Prepila Dyson pelo email:</p>
+        </div>
+      </div>
+
+      <a class="support-email" href="mailto:admPrepilaDyson@fiap.com.br">admPrepilaDyson@prepiladyson.com.br</a>
+      <button class="primary-button modal-action" type="button" data-close-forgot-password>Entendi</button>
+    </div>
+  </div>
 
   <script src="/assets/js/login.js"></script>
 </body>

@@ -8,6 +8,9 @@ const passwordError = document.querySelector('#passwordError');
 const feedback = document.querySelector('#formFeedback');
 const showPasswordButton = document.querySelector('.show-password');
 const rememberInput = document.querySelector('input[name="remember"]');
+const forgotPasswordButton = document.querySelector('[data-open-forgot-password]');
+const forgotPasswordModal = document.querySelector('#forgotPasswordModal');
+const closeForgotPasswordButtons = document.querySelectorAll('[data-close-forgot-password]');
 
 const users = [
   { username: 'admPrepilaDyson', password: 'PrepilaDyson2026', displayName: 'Administrador Prepila Dyson' },
@@ -113,9 +116,51 @@ function togglePasswordVisibility() {
   showPasswordButton.setAttribute('aria-label', isPassword ? 'Ocultar senha' : 'Mostrar senha');
 }
 
+function openForgotPasswordModal() {
+  if (!forgotPasswordModal) {
+    return;
+  }
+
+  forgotPasswordModal.hidden = false;
+  document.body.classList.add('modal-open');
+  forgotPasswordModal.querySelector('[data-close-forgot-password]')?.focus();
+}
+
+function closeForgotPasswordModal() {
+  if (!forgotPasswordModal) {
+    return;
+  }
+
+  forgotPasswordModal.hidden = true;
+  document.body.classList.remove('modal-open');
+  forgotPasswordButton?.focus();
+}
+
 if (menuButton && mainMenu) {
   menuButton.addEventListener('click', toggleMenu);
 }
+
+if (forgotPasswordButton) {
+  forgotPasswordButton.addEventListener('click', openForgotPasswordModal);
+}
+
+closeForgotPasswordButtons.forEach((button) => {
+  button.addEventListener('click', closeForgotPasswordModal);
+});
+
+if (forgotPasswordModal) {
+  forgotPasswordModal.addEventListener('click', (event) => {
+    if (event.target === forgotPasswordModal) {
+      closeForgotPasswordModal();
+    }
+  });
+}
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeForgotPasswordModal();
+  }
+});
 
 loginForm.addEventListener('submit', handleLogin);
 userInput.addEventListener('input', validateUser);
