@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monitoramento de alertas operacionais da plataforma Prepila Dyson.">
+  <title>Alertas | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/alertas/alertas.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard.html"><span class="nav-icon" aria-hidden="true">🏠</span><span>Início</span></a>
+        <a class="nav-item" href="/pages/private/administracao.html"><span class="nav-icon" aria-hidden="true">💼</span><span>Administração</span></a>
+        <a class="nav-item" href="/pages/private/operacoes.html"><span class="nav-icon" aria-hidden="true">⚙️</span><span>Operações</span></a>
+        <a class="nav-item" href="/pages/private/monitoramento.html"><span class="nav-icon" aria-hidden="true">📡</span><span>Monitoramento</span></a>
+        <a class="nav-item" href="alertas.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes.html"><span class="nav-icon" aria-hidden="true">💡</span><span>Recomendações</span></a>
+        <a class="nav-item" href="/pages/private/relatorios.html"><span class="nav-icon" aria-hidden="true">📊</span><span>Relatórios</span></a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html"><span class="nav-icon" aria-hidden="true">📄</span><span>Contratos</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">🚨</span>
+          <div>
+            <h1>Alertas</h1>
+            <p>Monitore alertas críticos, anomalias e eventos que exigem ação.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de alertas">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="admin-level" type="button" data-open-settings aria-haspopup="dialog" aria-controls="settingsModal">
+            <span aria-hidden="true">⚙️</span>
+            <span>Configurações de alertas</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="alerts-toolbar" aria-label="Filtros de alertas">
+        <div class="severity-tabs" data-severity-tabs>
+          <button class="active" type="button" data-filter-priority="todos">Todos</button>
+          <button type="button" data-filter-priority="critico">Críticos <strong>3</strong></button>
+          <button type="button" data-filter-priority="alto">Altos <strong>5</strong></button>
+          <button type="button" data-filter-priority="medio">Médios <strong>8</strong></button>
+          <button type="button" data-filter-priority="baixo">Baixos <strong>12</strong></button>
+        </div>
+
+        <div class="toolbar-actions">
+          <button class="ghost-button" type="button" data-cycle-status>🔎 Filtros</button>
+          <label class="alert-search">
+            <span aria-hidden="true">🔍</span>
+            <input type="search" placeholder="Buscar alertas..." data-alert-search>
+          </label>
+        </div>
+      </section>
+
+      <section class="recommendation-list" aria-label="Alertas recomendados">
+        <article class="recommendation-card critical" data-top-alert data-priority="critico" data-alert-name="Ajustar alinhamento orbital">
+          <span class="recommendation-icon" aria-hidden="true">🛰️</span>
+          <div class="recommendation-content">
+            <time>Hoje, 14:32</time>
+            <h2>Ajustar alinhamento orbital</h2>
+            <p>Satélite 205-07 apresenta desvio de 1,84% no vetor de posição. Correção recomendada: -0,32°.</p>
+            <div class="tag-row"><strong class="tag critical">Crítico</strong><strong class="tag blue">Satélite</strong></div>
+          </div>
+          <div class="recommendation-actions">
+            <button class="apply-button" type="button" data-quick-action="aplicar">Aplicar</button>
+            <button class="outline-button" type="button" data-quick-action="descartar">Descartar</button>
+            <button class="details-link" type="button" data-open-alert="Ajustar alinhamento orbital">Ver detalhes ›</button>
+          </div>
+        </article>
+
+        <article class="recommendation-card high" data-top-alert data-priority="alto" data-alert-name="Redistribuir energia entre estações">
+          <span class="recommendation-icon" aria-hidden="true">⚡</span>
+          <div class="recommendation-content">
+            <time>Hoje, 10:15</time>
+            <h2>Redistribuir energia entre estações</h2>
+            <p>Demanda acima da previsão em 12% na estação do setor sul. Transferir 230 unidades da Estação CD-01 para EN-03.</p>
+            <div class="tag-row"><strong class="tag high">Alto</strong><strong class="tag blue">Energia</strong></div>
+          </div>
+          <div class="recommendation-actions">
+            <button class="apply-button" type="button" data-quick-action="aplicar">Aplicar</button>
+            <button class="outline-button" type="button" data-quick-action="descartar">Descartar</button>
+            <button class="details-link" type="button" data-open-alert="Redistribuir energia entre estações">Ver detalhes ›</button>
+          </div>
+        </article>
+
+        <article class="recommendation-card medium" data-top-alert data-priority="medio" data-alert-name="Otimizar janela de transmissão">
+          <span class="recommendation-icon" aria-hidden="true">🎚️</span>
+          <div class="recommendation-content">
+            <time>Hoje, 09:47</time>
+            <h2>Otimizar janela de transmissão</h2>
+            <p>Condições ideais detectadas. Iniciar transmissão às 14:30 nas próximas 30 min para rota comercial.</p>
+            <div class="tag-row"><strong class="tag medium">Médio</strong><strong class="tag blue">Transmissão</strong></div>
+          </div>
+          <div class="recommendation-actions">
+            <button class="apply-button" type="button" data-quick-action="aplicar">Aplicar</button>
+            <button class="outline-button" type="button" data-quick-action="descartar">Descartar</button>
+            <button class="details-link" type="button" data-open-alert="Otimizar janela de transmissão">Ver detalhes ›</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="alerts-panel" aria-labelledby="alerts-list-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">📋</span>
+            <h2 id="alerts-list-title">Lista de alertas</h2>
+          </div>
+        </div>
+
+        <div class="alerts-table" role="table" aria-label="Lista de alertas">
+          <div class="alert-row alert-head" role="row">
+            <span role="columnheader">Alerta</span>
+            <span role="columnheader">Categoria</span>
+            <span role="columnheader">Prioridade</span>
+            <span role="columnheader">Status</span>
+            <span role="columnheader">Data/Hora</span>
+            <span role="columnheader">Ações</span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="critico" data-status="ativo" data-alert-name="Anomalia de sinal no satélite 205-07">
+            <span role="cell"><strong class="alert-avatar critical">🛰️</strong><span><b>Anomalia de sinal no satélite 205-07</b><small>Perda intermitente de pacote detectada.</small></span></span>
+            <span role="cell">🛰️ Satélite</span>
+            <span role="cell"><strong class="priority critical">Crítico</strong></span>
+            <span role="cell"><strong class="status active">● Ativo</strong></span>
+            <span role="cell">Hoje, 14:32</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver anomalia de sinal" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações anomalia de sinal" data-alert-actions>⋮</button></span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="alto" data-status="ativo" data-alert-name="Sobrecarga no transformador TR-02">
+            <span role="cell"><strong class="alert-avatar high">⚡</strong><span><b>Sobrecarga no transformador TR-02</b><small>Carga atual acima de 95%.</small></span></span>
+            <span role="cell">⚡ Energia</span>
+            <span role="cell"><strong class="priority high">Alto</strong></span>
+            <span role="cell"><strong class="status active">● Ativo</strong></span>
+            <span role="cell">Hoje, 13:05</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver sobrecarga" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações sobrecarga" data-alert-actions>⋮</button></span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="alto" data-status="ativo" data-alert-name="Pressão fora do limite na estação EN-03">
+            <span role="cell"><strong class="alert-avatar high">⚠️</strong><span><b>Pressão fora do limite na estação EN-03</b><small>Pressão registrada: 8,7 bar.</small></span></span>
+            <span role="cell">🏢 Estação</span>
+            <span role="cell"><strong class="priority high">Alto</strong></span>
+            <span role="cell"><strong class="status active">● Ativo</strong></span>
+            <span role="cell">Hoje, 11:42</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver pressão" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações pressão" data-alert-actions>⋮</button></span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="medio" data-status="ativo" data-alert-name="Janela de transmissão disponível">
+            <span role="cell"><strong class="alert-avatar medium">🎚️</strong><span><b>Janela de transmissão disponível</b><small>Condições ideais por 30 minutos.</small></span></span>
+            <span role="cell">📡 Transmissão</span>
+            <span role="cell"><strong class="priority medium">Médio</strong></span>
+            <span role="cell"><strong class="status warning">● Ativo</strong></span>
+            <span role="cell">Hoje, 09:47</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver janela" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações janela" data-alert-actions>⋮</button></span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="baixo" data-status="pendente" data-alert-name="Atualização de firmware disponível">
+            <span role="cell"><strong class="alert-avatar low">ℹ️</strong><span><b>Atualização de firmware disponível</b><small>Nova versão v3.2.1 para controladores.</small></span></span>
+            <span role="cell">⚙️ Sistema</span>
+            <span role="cell"><strong class="priority low">Baixo</strong></span>
+            <span role="cell"><strong class="status pending">● Pendente</strong></span>
+            <span role="cell">Ontem, 18:30</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver firmware" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações firmware" data-alert-actions>⋮</button></span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="baixo" data-status="resolvido" data-alert-name="Backup concluído com sucesso">
+            <span role="cell"><strong class="alert-avatar success">✓</strong><span><b>Backup concluído com sucesso</b><small>Backup automático diário realizado.</small></span></span>
+            <span role="cell">⚙️ Sistema</span>
+            <span role="cell"><strong class="priority low">Baixo</strong></span>
+            <span role="cell"><strong class="status resolved">● Resolvido</strong></span>
+            <span role="cell">Ontem, 02:15</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver backup" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações backup" data-alert-actions>⋮</button></span>
+          </div>
+
+          <div class="alert-row" role="row" data-alert-row data-priority="baixo" data-status="pendente" data-alert-name="Manutenção preventiva agendada">
+            <span role="cell"><strong class="alert-avatar low">ℹ️</strong><span><b>Manutenção preventiva agendada</b><small>Manutenção programada para EN-04.</small></span></span>
+            <span role="cell">🛠️ Manutenção</span>
+            <span role="cell"><strong class="priority low">Baixo</strong></span>
+            <span role="cell"><strong class="status pending">● Pendente</strong></span>
+            <span role="cell">01/06/2026 16:20</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver manutenção" data-view-alert>👁️</button><button class="icon-button" type="button" aria-label="Ações manutenção" data-alert-actions>⋮</button></span>
+          </div>
+        </div>
+
+        <div class="table-footer">
+          <p data-alert-count>Exibindo 1 a 7 de 28 alertas</p>
+          <div class="pagination" aria-label="Paginação">
+            <button type="button" disabled>‹</button>
+            <button class="active" type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button">4</button>
+            <button type="button">›</button>
+          </div>
+          <select aria-label="Quantidade por página">
+            <option>10 / página</option>
+            <option>25 / página</option>
+            <option>50 / página</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="history-panel" aria-labelledby="history-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">📊</span>
+            <h2 id="history-title">Histórico de alertas</h2>
+          </div>
+        </div>
+
+        <div class="history-grid">
+          <article><span aria-hidden="true">🔔</span><small>Aplicadas</small><strong>28</strong><p class="success-text">↑ 18% <em>vs mês anterior</em></p></article>
+          <article><span aria-hidden="true">🕒</span><small>Pendentes</small><strong>4</strong><p class="danger-text">↑ 2 <em>vs mês anterior</em></p></article>
+          <article><span aria-hidden="true">🗑️</span><small>Descartadas</small><strong>7</strong><p class="success-text">↑ 5% <em>vs mês anterior</em></p></article>
+          <article><span aria-hidden="true">🎯</span><small>Taxa de sucesso</small><strong>87%</strong><p class="success-text">↑ 6% <em>vs mês anterior</em></p></article>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos recentes aguardando revisão.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>🚨 3 alertas críticos ativos</strong>
+        <p>Revise os alertas de satélite e energia para manter a operação estável.</p>
+        <small>Atualizado em 04/06/2026 às 09:30</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar configurações" data-close-settings>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">⚙️</span>
+        <div>
+          <h2 id="settingsTitle">Configurações de alertas</h2>
+          <p>Ajuste regras e preferências de monitoramento.</p>
+        </div>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-settings-action="Prioridades revisadas.">🎚️ Ajustar prioridades</button>
+        <button type="button" data-settings-action="Canais de notificação atualizados.">🔔 Canais de notificação</button>
+        <button type="button" data-settings-action="Regras automáticas sincronizadas.">🤖 Regras automáticas</button>
+        <button type="button" data-settings-action="Relatório de alertas exportado.">⬇ Exportar relatório</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="alertDetailsModal" role="dialog" aria-modal="true" aria-labelledby="alertDetailsTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar detalhes" data-close-alert-details>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">👁️</span>
+        <div>
+          <h2 id="alertDetailsTitle">Detalhes do alerta</h2>
+          <p id="alertDetailsSubtitle">Selecione um alerta para visualizar detalhes.</p>
+        </div>
+      </div>
+      <div class="alert-detail-box">
+        <strong data-detail-name>Alerta selecionado</strong>
+        <span data-detail-description>Dados operacionais carregados para análise.</span>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-alert-modal-action="aplicar">✅ Aplicar recomendação</button>
+        <button type="button" data-alert-modal-action="atribuir">👤 Atribuir responsável</button>
+        <button type="button" data-alert-modal-action="descartar">🚫 Descartar alerta</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="alertsToast" role="status" hidden></p>
+
+  <script src="/assets/js/alertas/alertas.js"></script>
+</body>
+</html>
