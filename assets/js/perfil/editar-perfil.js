@@ -11,14 +11,6 @@ const notificationCount = document.querySelector('.notification-count');
 const closeNotificationButton = document.querySelector('[data-close-notification]');
 const readNotificationButton = document.querySelector('[data-read-notification]');
 
-const loggedUser = {
-  username: 'admPrepilaDyson',
-  displayName: 'Administrador Prepila Dyson',
-  loggedAt: new Date().toISOString()
-};
-
-sessionStorage.setItem('prepila-auth-user', JSON.stringify(loggedUser));
-
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
 
@@ -102,9 +94,16 @@ if (editProfileForm && editProfileStatus) {
     event.preventDefault();
 
     const formData = new FormData(editProfileForm);
+    const storedUser = JSON.parse(sessionStorage.getItem('prepila-auth-user') || localStorage.getItem('prepila-auth-user') || '{}');
     const updatedUser = {
+      ...storedUser,
       username: formData.get('username'),
       displayName: formData.get('displayName'),
+      email: formData.get('email'),
+      cargo: formData.get('position'),
+      role: formData.get('accessLevel'),
+      avatar: formData.get('avatarEmoji'),
+      mfa: formData.get('mfa'),
       loggedAt: new Date().toISOString()
     };
 

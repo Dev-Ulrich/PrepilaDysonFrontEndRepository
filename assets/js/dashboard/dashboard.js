@@ -17,12 +17,6 @@ const captureLine = document.querySelector('.capture-line');
 const transmissionLine = document.querySelector('.transmission-line');
 const toast = document.querySelector('#dashboardToast');
 
-const loggedUser = {
-  username: 'admPrepilaDyson',
-  displayName: 'Administrador Prepila Dyson',
-  loggedAt: new Date().toISOString()
-};
-
 const chartPoints = {
   '24h': {
     capture: '2,43 10,38 18,32 26,34 34,24 42,28 50,18 58,12 66,17 74,26 82,21 90,16 98,12',
@@ -37,8 +31,6 @@ const chartPoints = {
     transmission: '2,55 14,49 26,45 38,39 50,34 62,27 74,30 86,23 98,19'
   }
 };
-
-sessionStorage.setItem('prepila-auth-user', JSON.stringify(loggedUser));
 
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
