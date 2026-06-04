@@ -101,7 +101,7 @@ function handleLogin(event) {
   feedback.textContent = `Login realizado. Bem-vindo(a), ${authenticatedUser.displayName}.`;
 
   window.setTimeout(() => {
-    feedback.textContent = `Acesso liberado para ${authenticatedUser.displayName}.`;
+    window.location.href = '/pages/private/dashboard/dashboard.html';
   }, 900);
 }
 

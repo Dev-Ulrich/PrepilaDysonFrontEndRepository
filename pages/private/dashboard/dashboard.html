@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard operacional da plataforma Prepila Dyson.">
+  <title>Dashboard | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/dashboard/dashboard.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="dashboard.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao.html">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">🏠</span>
+          <div>
+            <h1>Dashboard</h1>
+            <p>Visão geral da operação, captação energética e status da rede Prepila Dyson.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações do dashboard">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="admin-level" type="button" data-refresh-dashboard>
+            <span aria-hidden="true">🔄</span>
+            <span>Atualizar dados</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="overview-grid" aria-label="Indicadores principais">
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">⚡</span>
+          <div>
+            <small>Energia captada</small>
+            <strong>12,4 TWH</strong>
+            <p class="success-text">↑ 11,3% vs mês anterior</p>
+          </div>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">📡</span>
+          <div>
+            <small>Energia transmitida</small>
+            <strong>11,8 TWH</strong>
+            <p class="success-text">↑ 10,8% vs mês anterior</p>
+          </div>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">🎯</span>
+          <div>
+            <small>Eficiência média</small>
+            <strong>95,1%</strong>
+            <p class="success-text">↑ 2,7% vs mês anterior</p>
+          </div>
+        </article>
+        <article class="metric-card warning-card">
+          <span class="metric-icon" aria-hidden="true">🚨</span>
+          <div>
+            <small>Alertas ativos</small>
+            <strong data-active-alerts>7</strong>
+            <p class="danger-text">3 críticos exigem ação</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-layout">
+        <article class="dashboard-panel operations-panel" aria-labelledby="operations-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🌐</span>
+              <h2 id="operations-title">Status operacional</h2>
+            </div>
+            <span class="live-pill">● Ao vivo</span>
+          </div>
+
+          <div class="orbit-status">
+            <div class="orbit-visual" aria-hidden="true">
+              <span class="planet"></span>
+              <span class="orbit orbit-one"></span>
+              <span class="orbit orbit-two"></span>
+              <span class="satellite satellite-one">🛰️</span>
+              <span class="satellite satellite-two">🛰️</span>
+            </div>
+
+            <dl class="status-list">
+              <div><dt>Satélites ativos</dt><dd>12</dd></div>
+              <div><dt>Estações receptoras</dt><dd>8</dd></div>
+              <div><dt>Operações em curso</dt><dd>42</dd></div>
+              <div><dt>Latência média</dt><dd>28 ms</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <aside class="dashboard-panel alert-panel" aria-labelledby="alert-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🚨</span>
+              <h2 id="alert-title">Alertas recentes</h2>
+            </div>
+            <a class="ghost-button" href="/pages/private/alertas/alertas.html">Ver todos</a>
+          </div>
+
+          <div class="alert-stack">
+            <article>
+              <strong class="severity critical">Crítico</strong>
+              <div><b>Ajustar alinhamento orbital</b><small>Satélite 205-07 · Hoje, 14:32</small></div>
+            </article>
+            <article>
+              <strong class="severity high">Alto</strong>
+              <div><b>Redistribuir energia</b><small>Estação EN-03 · Hoje, 10:15</small></div>
+            </article>
+            <article>
+              <strong class="severity medium">Médio</strong>
+              <div><b>Janela de transmissão</b><small>Rota comercial · Hoje, 09:47</small></div>
+            </article>
+          </div>
+        </aside>
+      </section>
+
+      <section class="dashboard-layout lower-layout">
+        <article class="dashboard-panel chart-panel" aria-labelledby="chart-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">📈</span>
+              <h2 id="chart-title">Desempenho energético</h2>
+            </div>
+            <div class="period-filter">
+              <button class="active" type="button" data-period="24h">24h</button>
+              <button type="button" data-period="7d">7d</button>
+              <button type="button" data-period="30d">30d</button>
+            </div>
+          </div>
+
+          <div class="performance-chart">
+            <svg viewBox="0 0 100 58" role="img" aria-labelledby="performanceTitle">
+              <title id="performanceTitle">Curva de captação e transmissão energética</title>
+              <g class="grid-lines">
+                <path d="M0 10H100M0 24H100M0 38H100M0 52H100"></path>
+                <path d="M12 0V58M28 0V58M44 0V58M60 0V58M76 0V58M92 0V58"></path>
+              </g>
+              <polyline class="capture-line" points="2,43 10,38 18,32 26,34 34,24 42,28 50,18 58,12 66,17 74,26 82,21 90,16 98,12"></polyline>
+              <polyline class="transmission-line" points="2,49 10,44 18,40 26,42 34,31 42,35 50,26 58,21 66,25 74,33 82,28 90,24 98,20"></polyline>
+            </svg>
+          </div>
+
+          <div class="chart-legend">
+            <span class="capture">Captação</span>
+            <span class="transmission">Transmissão</span>
+          </div>
+        </article>
+
+        <aside class="dashboard-panel station-panel" aria-labelledby="station-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🏢</span>
+              <h2 id="station-title">Top estações</h2>
+            </div>
+          </div>
+
+          <div class="station-list">
+            <article><span>NASA</span><strong>96,3%</strong><i style="width: 96%"></i></article>
+            <article><span>ESA</span><strong>94,2%</strong><i style="width: 94%"></i></article>
+            <article><span>IAXA</span><strong>93,8%</strong><i style="width: 93%"></i></article>
+            <article><span>SpaceX</span><strong>92,6%</strong><i style="width: 92%"></i></article>
+          </div>
+        </aside>
+      </section>
+
+      <section class="dashboard-panel activity-panel" aria-labelledby="activity-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🕒</span>
+            <h2 id="activity-title">Atividade operacional</h2>
+          </div>
+          <button class="icon-button" type="button" aria-label="Opções da atividade" data-open-actions>⋮</button>
+        </div>
+
+        <div class="activity-table" role="table" aria-label="Atividade operacional">
+          <div class="activity-row activity-head" role="row">
+            <span role="columnheader">Evento</span>
+            <span role="columnheader">Módulo</span>
+            <span role="columnheader">Status</span>
+            <span role="columnheader">Horário</span>
+          </div>
+          <div class="activity-row" role="row">
+            <span role="cell"><b>Transmissão estabilizada</b><small>Rota comercial CD-01</small></span>
+            <span role="cell">📡 Transmissão</span>
+            <span role="cell" class="success-text">● Concluído</span>
+            <span role="cell">Hoje, 14:40</span>
+          </div>
+          <div class="activity-row" role="row">
+            <span role="cell"><b>Recomendação de IA aplicada</b><small>Redistribuição energética</small></span>
+            <span role="cell">💡 Recomendações</span>
+            <span role="cell" class="success-text">● Aplicada</span>
+            <span role="cell">Hoje, 13:05</span>
+          </div>
+          <div class="activity-row" role="row">
+            <span role="cell"><b>Alerta crítico gerado</b><small>Satélite 205-07</small></span>
+            <span role="cell">🚨 Alertas</span>
+            <span role="cell" class="danger-text">● Ativo</span>
+            <span role="cell">Hoje, 12:18</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Resumo dos eventos recentes da operação.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>🚨 Alerta crítico ativo</strong>
+        <p>O satélite 205-07 apresenta desvio orbital acima do esperado. Revise a tela de alertas.</p>
+        <small>Atualizado em 04/06/2026 às 16:20</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="actionsModal" role="dialog" aria-modal="true" aria-labelledby="actionsTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar ações" data-close-actions>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🕒</span>
+        <div>
+          <h2 id="actionsTitle">Atividade operacional</h2>
+          <p>Escolha uma ação para os eventos recentes.</p>
+        </div>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-action="Linha do tempo atualizada.">🔄 Atualizar linha do tempo</button>
+        <button type="button" data-action="Relatório operacional exportado.">⬇ Exportar relatório</button>
+        <button type="button" data-action="Eventos críticos destacados.">🚨 Destacar críticos</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="dashboardToast" role="status" hidden></p>
+
+  <script src="/assets/js/dashboard/dashboard.js"></script>
+</body>
+</html>
