@@ -3,6 +3,7 @@ const navbar = document.getElementById("navbar");
 const header = document.querySelector(".header");
 const contactForm = document.getElementById("contactForm");
 const feedback = document.getElementById("formFeedback");
+const contactEmail = "contato@prepiladyson.com";
 
 const fields = [
   {
@@ -60,6 +61,23 @@ function validateField(field) {
   return isValid;
 }
 
+function openEmailClient() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const body = [
+    `Nome: ${name}`,
+    `E-mail: ${email}`,
+    "",
+    "Mensagem:",
+    message
+  ].join("\n");
+  const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoUrl;
+}
+
 if (contactForm) {
   fields.forEach((field) => {
     field.input.addEventListener("input", () => validateField(field));
@@ -75,8 +93,13 @@ if (contactForm) {
       return;
     }
 
-    feedback.textContent = "Mensagem preparada com sucesso. Integre o envio ao backend futuramente.";
-    contactForm.reset();
+    feedback.textContent = "Abrindo seu aplicativo de e-mail...";
+    openEmailClient();
+
+    window.setTimeout(() => {
+      contactForm.reset();
+      feedback.textContent = "";
+    }, 1200);
   });
 }
 
