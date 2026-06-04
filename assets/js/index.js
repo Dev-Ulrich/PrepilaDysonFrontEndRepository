@@ -8,6 +8,7 @@ const nextBtn = document.getElementById("nextBtn");
 
 let currentIndex = 0;
 let autoSlide;
+let itemsPerView = getItemsPerView();
 
 const slides = [
   {
@@ -69,13 +70,15 @@ function createDots() {
   if (!dotsContainer) return;
   dotsContainer.innerHTML = "";
 
-  for (let index = 0; index < slides.length; index++) {
+  const totalPages = Math.ceil(slides.length / itemsPerView);
+
+  for (let index = 0; index < totalPages; index++) {
     const dot = document.createElement("button");
     dot.classList.add("dot");
-    dot.setAttribute("aria-label", `Ir para slide ${index + 1}`);
+    dot.setAttribute("aria-label", `Ir para grupo ${index + 1}`);
 
     dot.addEventListener("click", () => {
-      currentIndex = index;
+      currentIndex = index * itemsPerView;
       updateCards();
       restartAutoSlide();
     });
@@ -87,10 +90,22 @@ function createDots() {
 function updateDots() {
   if (!dotsContainer) return;
   const dots = document.querySelectorAll(".dot");
+  const activePage = Math.floor(currentIndex / itemsPerView);
 
   dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentIndex);
+    dot.classList.toggle("active", index === activePage);
   });
+}
+
+function getItemsPerView() {
+  return window.matchMedia("(max-width: 980px)").matches ? 1 : 3;
+}
+
+function normalizeCurrentIndex() {
+  const totalPages = Math.ceil(slides.length / itemsPerView);
+  const activePage = Math.floor(currentIndex / itemsPerView);
+
+  currentIndex = Math.min(activePage, totalPages - 1) * itemsPerView;
 }
 
 function updateCards() {
@@ -124,7 +139,7 @@ function updateCards() {
 }
 
 function nextSlide() {
-  currentIndex += 1;
+  currentIndex += itemsPerView;
   if (currentIndex >= slides.length) {
     currentIndex = 0;
   }
@@ -132,9 +147,9 @@ function nextSlide() {
 }
 
 function prevSlide() {
-  currentIndex -= 1;
+  currentIndex -= itemsPerView;
   if (currentIndex < 0) {
-    currentIndex = slides.length - 1;
+    currentIndex = (Math.ceil(slides.length / itemsPerView) - 1) * itemsPerView;
   }
   updateCards();
 }
@@ -146,6 +161,16 @@ function restartAutoSlide() {
 
 window.addEventListener("scroll", updateHeaderBackground, { passive: true });
 window.addEventListener("load", updateHeaderBackground);
+window.addEventListener("resize", () => {
+  const nextItemsPerView = getItemsPerView();
+
+  if (nextItemsPerView !== itemsPerView) {
+    itemsPerView = nextItemsPerView;
+    normalizeCurrentIndex();
+    createDots();
+    updateCards();
+  }
+});
 updateHeaderBackground();
 
 if (nextBtn) {
