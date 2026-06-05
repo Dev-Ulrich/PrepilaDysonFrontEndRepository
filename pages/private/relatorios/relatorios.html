@@ -69,7 +69,255 @@
 
     <div class="sidebar-backdrop" data-close-sidebar></div>
 
-    
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">📊</span>
+          <div>
+            <h1>Relatórios</h1>
+            <p>Analise o desempenho operacional e energético da sua organização.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de relatórios">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="admin-level" type="button" data-open-preferences aria-haspopup="dialog" aria-controls="preferencesModal">
+            <span aria-hidden="true">⚙️</span>
+            <span>Personalizar</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="reports-panel analytics-panel" aria-labelledby="analytics-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">📈</span>
+            <h2 id="analytics-title">Relatórios analíticos</h2>
+          </div>
+
+          <div class="period-tabs" data-period-tabs aria-label="Periodo dos relatórios">
+            <button class="active" type="button" data-period="mes">Último mês</button>
+            <button type="button" data-period="trimestre">Último trimestre</button>
+            <button type="button" data-period="ano">Último ano</button>
+          </div>
+        </div>
+
+        <div class="metrics-grid" aria-label="Indicadores principais">
+          <article class="metric-card">
+            <span class="metric-icon" aria-hidden="true">⚡</span>
+            <div>
+              <small>Energia total</small>
+              <strong data-metric="total">12,4 TWH</strong>
+              <p class="success-text" data-metric-trend="total">↑ 11,3% <span>vs mês anterior</span></p>
+            </div>
+            <div class="sparkline up" aria-hidden="true">
+              <i style="--x: 5%; --y: 68%"></i><i style="--x: 18%; --y: 62%"></i><i style="--x: 31%; --y: 38%"></i><i style="--x: 44%; --y: 47%"></i><i style="--x: 57%; --y: 58%"></i><i style="--x: 70%; --y: 30%"></i><i style="--x: 83%; --y: 42%"></i><i style="--x: 95%; --y: 31%"></i>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-icon" aria-hidden="true">🧭</span>
+            <div>
+              <small>Eficiência média</small>
+              <strong data-metric="efficiency">95,1%</strong>
+              <p class="success-text" data-metric-trend="efficiency">↑ 2,7% <span>vs mês anterior</span></p>
+            </div>
+            <div class="sparkline" aria-hidden="true">
+              <i style="--x: 5%; --y: 60%"></i><i style="--x: 18%; --y: 66%"></i><i style="--x: 31%; --y: 44%"></i><i style="--x: 44%; --y: 56%"></i><i style="--x: 57%; --y: 63%"></i><i style="--x: 70%; --y: 41%"></i><i style="--x: 83%; --y: 50%"></i><i style="--x: 95%; --y: 37%"></i>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-icon" aria-hidden="true">📡</span>
+            <div>
+              <small>Energia transmitida</small>
+              <strong data-metric="sent">11,8 TWH</strong>
+              <p class="success-text" data-metric-trend="sent">↑ 10,8% <span>vs mês anterior</span></p>
+            </div>
+            <div class="sparkline up" aria-hidden="true">
+              <i style="--x: 5%; --y: 65%"></i><i style="--x: 18%; --y: 63%"></i><i style="--x: 31%; --y: 60%"></i><i style="--x: 44%; --y: 64%"></i><i style="--x: 57%; --y: 40%"></i><i style="--x: 70%; --y: 46%"></i><i style="--x: 83%; --y: 52%"></i><i style="--x: 95%; --y: 36%"></i>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-icon" aria-hidden="true">📥</span>
+            <div>
+              <small>Energia recebida</small>
+              <strong data-metric="received">11,3 TWH</strong>
+              <p class="success-text" data-metric-trend="received">↑ 9,6% <span>vs mês anterior</span></p>
+            </div>
+            <div class="sparkline" aria-hidden="true">
+              <i style="--x: 5%; --y: 64%"></i><i style="--x: 18%; --y: 59%"></i><i style="--x: 31%; --y: 62%"></i><i style="--x: 44%; --y: 57%"></i><i style="--x: 57%; --y: 45%"></i><i style="--x: 70%; --y: 32%"></i><i style="--x: 83%; --y: 50%"></i><i style="--x: 95%; --y: 39%"></i>
+            </div>
+          </article>
+        </div>
+
+        <div class="report-grid">
+          <article class="chart-panel" aria-labelledby="comparison-title">
+            <div class="panel-heading compact">
+              <div>
+                <span class="section-icon" aria-hidden="true">〽️</span>
+                <h2 id="comparison-title">Comparativo de desempenho</h2>
+              </div>
+
+              <select class="chart-select" aria-label="Agrupar comparativo por" data-chart-grain>
+                <option value="diario">Diário</option>
+                <option value="semanal">Semanal</option>
+                <option value="mensal">Mensal</option>
+              </select>
+            </div>
+
+            <div class="chart-stage">
+              <span class="axis-label">TWH</span>
+              <div class="performance-chart" data-performance-chart aria-label="Gráfico comparativo de desempenho">
+                <svg viewBox="0 0 100 60" role="img" aria-labelledby="chartTitle">
+                  <title id="chartTitle">Comparativo entre eficiência e energia</title>
+                  <g class="grid-lines">
+                    <path d="M0 10H100M0 25H100M0 40H100M0 55H100"></path>
+                    <path d="M10 0V60M25 0V60M40 0V60M55 0V60M70 0V60M85 0V60"></path>
+                  </g>
+                  <polyline class="energy-line" points="2,43 10,39 18,34 26,27 34,31 42,24 50,31 58,16 66,9 74,19 82,33 90,27 98,20"></polyline>
+                  <polyline class="efficiency-line" points="2,53 10,50 18,47 26,43 34,46 42,41 50,45 58,34 66,27 74,37 82,47 90,44 98,39"></polyline>
+                </svg>
+              </div>
+              <div class="chart-labels" aria-hidden="true">
+                <span>01/05</span>
+                <span>06/05</span>
+                <span>12/05</span>
+                <span>18/05</span>
+                <span>24/05</span>
+                <span>30/05</span>
+              </div>
+              <div class="chart-legend">
+                <span class="legend-efficiency">Eficiência (%)</span>
+                <span class="legend-energy">Energia (TWH)</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="summary-panel" aria-labelledby="summary-title">
+            <div class="panel-heading compact">
+              <div>
+                <span class="section-icon" aria-hidden="true">📋</span>
+                <h2 id="summary-title">Resumo do período</h2>
+              </div>
+            </div>
+
+            <dl class="summary-list">
+              <div>
+                <dt><span aria-hidden="true">〽️</span> Total de operações</dt>
+                <dd data-summary="operations">42</dd>
+              </div>
+              <div>
+                <dt><span aria-hidden="true">📡</span> Estações ativas</dt>
+                <dd data-summary="stations">8</dd>
+              </div>
+              <div>
+                <dt><span aria-hidden="true">🛰️</span> Satélites ativos</dt>
+                <dd data-summary="satellites">12</dd>
+              </div>
+              <div>
+                <dt><span aria-hidden="true">⚠️</span> Alertas críticos</dt>
+                <dd data-summary="alerts">7</dd>
+              </div>
+              <div>
+                <dt><span aria-hidden="true">🛠️</span> Manutenções</dt>
+                <dd data-summary="maintenance">5</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="reports-panel stations-panel" aria-labelledby="stations-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🏢</span>
+            <h2 id="stations-title">Desempenho por estação</h2>
+          </div>
+          <button class="icon-button table-options-button" type="button" aria-label="Opções da tabela" data-open-table-options>⋮</button>
+        </div>
+
+        <div class="station-table" role="table" aria-label="Desempenho por estação">
+          <div class="station-row station-head" role="row">
+            <span role="columnheader">Estação</span>
+            <span role="columnheader">Energia transmitida (TWH)</span>
+            <span role="columnheader">Energia recebida (TWH)</span>
+            <span role="columnheader">Eficiência (%)</span>
+            <span role="columnheader">Status</span>
+            <span role="columnheader">Ações</span>
+          </div>
+
+          <div class="station-row" role="row" data-station-row data-station="ESA">
+            <span role="cell"><strong class="station-avatar">ESA</strong><span><b>ESA</b><small>Empresa de Serviços Aeroespaciais</small></span></span>
+            <span role="cell">2,45</span>
+            <span role="cell">2,30</span>
+            <span role="cell"><b>94,2%</b> <small class="success-text">↑ 5,2%</small></span>
+            <span role="cell"><strong class="status-pill active">● Ativa</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações ESA" aria-haspopup="dialog" aria-controls="stationActionsModal" data-station-action="ESA">⋮</button></span>
+          </div>
+
+          <div class="station-row" role="row" data-station-row data-station="IAXA">
+            <span role="cell"><strong class="station-avatar">IX</strong><span><b>IAXA</b><small>Agência Espacial Internacional</small></span></span>
+            <span role="cell">2,10</span>
+            <span role="cell">2,05</span>
+            <span role="cell"><b>93,8%</b> <small class="success-text">↑ 3,1%</small></span>
+            <span role="cell"><strong class="status-pill active">● Ativa</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações IAXA" aria-haspopup="dialog" aria-controls="stationActionsModal" data-station-action="IAXA">⋮</button></span>
+          </div>
+
+          <div class="station-row" role="row" data-station-row data-station="NASA">
+            <span role="cell"><strong class="station-avatar">NA</strong><span><b>NASA</b><small>National Aeronautics and Space Administration</small></span></span>
+            <span role="cell">2,85</span>
+            <span role="cell">2,75</span>
+            <span role="cell"><b>96,3%</b> <small class="success-text">↑ 4,8%</small></span>
+            <span role="cell"><strong class="status-pill active">● Ativa</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações NASA" aria-haspopup="dialog" aria-controls="stationActionsModal" data-station-action="NASA">⋮</button></span>
+          </div>
+
+          <div class="station-row" role="row" data-station-row data-station="SpaceX">
+            <span role="cell"><strong class="station-avatar">SP</strong><span><b>SpaceX</b><small>Space Exploration Technologies</small></span></span>
+            <span role="cell">1,95</span>
+            <span role="cell">1,80</span>
+            <span role="cell"><b>92,6%</b> <small class="danger-text">↓ 1,2%</small></span>
+            <span role="cell"><strong class="status-pill maintenance">🛠 Manutenção</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações SpaceX" aria-haspopup="dialog" aria-controls="stationActionsModal" data-station-action="SpaceX">⋮</button></span>
+          </div>
+
+          <div class="station-row" role="row" data-station-row data-station="Blue Origin">
+            <span role="cell"><strong class="station-avatar">BO</strong><span><b>Blue Origin</b><small>Empresa Aeroespacial</small></span></span>
+            <span role="cell">1,70</span>
+            <span role="cell">1,55</span>
+            <span role="cell"><b>91,8%</b> <small class="danger-text">↓ 0,6%</small></span>
+            <span role="cell"><strong class="status-pill active">● Ativa</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações Blue Origin" aria-haspopup="dialog" aria-controls="stationActionsModal" data-station-action="Blue Origin">⋮</button></span>
+          </div>
+        </div>
+
+        <div class="table-footer">
+          <p>Exibindo 1 a 5 de 5 estações</p>
+          <div>
+            <button class="outline-button" type="button" data-export="pdf">📄 Exportar PDF</button>
+            <button class="outline-button" type="button" data-export="csv">📄 Exportar CSV</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
   </div>
 
   <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
