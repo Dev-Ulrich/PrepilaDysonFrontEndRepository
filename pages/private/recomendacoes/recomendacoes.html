@@ -74,6 +74,144 @@
         </div>
       </header>
 
+      <section class="metrics-strip" aria-label="Resumo de recomendações">
+        <article>
+          <span class="metric-icon blue" aria-hidden="true">💡</span>
+          <small>Total de recomendações</small>
+          <strong data-total-recommendations>28</strong>
+          <p class="success-text">+18% vs período anterior</p>
+        </article>
+        <article>
+          <span class="metric-icon success" aria-hidden="true">✓</span>
+          <small>Aplicadas</small>
+          <strong data-applied-count>17</strong>
+          <p class="success-text">+12% vs período anterior</p>
+        </article>
+        <article>
+          <span class="metric-icon warning" aria-hidden="true">◷</span>
+          <small>Pendentes</small>
+          <strong data-pending-count>6</strong>
+          <p class="warning-text">-8% vs período anterior</p>
+        </article>
+        <article>
+          <span class="metric-icon danger" aria-hidden="true">×</span>
+          <small>Descartadas</small>
+          <strong data-dismissed-count>5</strong>
+          <p class="danger-text">-5% vs período anterior</p>
+        </article>
+        <article>
+          <span class="metric-icon blue" aria-hidden="true">🎯</span>
+          <small>Taxa de sucesso</small>
+          <strong data-success-rate>87%</strong>
+          <p class="success-text">+6% vs período anterior</p>
+        </article>
+      </section>
+
+      <section class="recommendations-panel" aria-labelledby="ai-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🤖</span>
+            <h2 id="ai-title">Recomendações com IA</h2>
+          </div>
+          <div class="panel-tools">
+            <label class="panel-search">
+              <span aria-hidden="true">🔍</span>
+              <input type="search" placeholder="Buscar recomendação..." data-recommendation-search>
+            </label>
+            <button class="ghost-button" type="button" data-cycle-filter>▾ Filtrar: todas</button>
+          </div>
+        </div>
+
+        <div class="recommendation-stack">
+          <article class="recommendation-item high" data-recommendation-card data-priority="alta" data-status="pendente" data-title="Ajustar alinhamento orbital">
+            <span class="recommendation-symbol" aria-hidden="true">🛰️</span>
+            <div class="recommendation-main">
+              <div class="tag-row">
+                <strong class="tag high">Alta prioridade</strong>
+                <strong class="tag blue">Satélite</strong>
+              </div>
+              <h3>Ajustar alinhamento orbital</h3>
+              <p>Satélite 205-07 apresenta desvio de 1,84% no vetor de posição. Correção recomendada: -0,32°.</p>
+              <small>Impacto esperado:</small>
+              <div class="impact-row">
+                <span>Eficiência <b>+2,4%</b></span>
+                <span>Economia estimada <b>US$ 320.000</b></span>
+                <span>Risco atual <b class="risk-high">Alto</b></span>
+              </div>
+            </div>
+            <dl class="recommendation-meta">
+              <div><dt>Ativo</dt><dd>Satélite 205-07</dd></div>
+              <div><dt>Categoria</dt><dd>Navegação</dd></div>
+              <div><dt>Detectado em</dt><dd>06/06/2026 09:15</dd></div>
+              <div><dt>Fonte</dt><dd>IA Preditiva</dd></div>
+            </dl>
+            <div class="recommendation-actions">
+              <button class="apply-button" type="button" data-action="aplicar">Aplicar</button>
+              <button class="outline-button" type="button" data-action="descartar">Descartar</button>
+              <button class="details-link" type="button" data-open-details>Ver detalhes ›</button>
+            </div>
+          </article>
+
+          <article class="recommendation-item medium" data-recommendation-card data-priority="media" data-status="pendente" data-title="Redistribuir energia entre estações">
+            <span class="recommendation-symbol" aria-hidden="true">⚡</span>
+            <div class="recommendation-main">
+              <div class="tag-row">
+                <strong class="tag medium">Média prioridade</strong>
+                <strong class="tag blue">Energia</strong>
+              </div>
+              <h3>Redistribuir energia entre estações</h3>
+              <p>Demanda acima da previsão em 12% na estação do setor sul. Transferir 230 unidades da Estação CD-01 para EN-03.</p>
+              <small>Impacto esperado:</small>
+              <div class="impact-row">
+                <span>Eficiência <b>+1,8%</b></span>
+                <span>Economia estimada <b>US$ 150.000</b></span>
+                <span>Risco atual <b class="risk-medium">Médio</b></span>
+              </div>
+            </div>
+            <dl class="recommendation-meta">
+              <div><dt>Ativo</dt><dd>Estação CD-01 → EN-03</dd></div>
+              <div><dt>Categoria</dt><dd>Energia</dd></div>
+              <div><dt>Detectado em</dt><dd>06/06/2026 08:45</dd></div>
+              <div><dt>Fonte</dt><dd>Análise Preditiva</dd></div>
+            </dl>
+            <div class="recommendation-actions">
+              <button class="apply-button" type="button" data-action="aplicar">Aplicar</button>
+              <button class="outline-button" type="button" data-action="descartar">Descartar</button>
+              <button class="details-link" type="button" data-open-details>Ver detalhes ›</button>
+            </div>
+          </article>
+
+          <article class="recommendation-item low" data-recommendation-card data-priority="baixa" data-status="pendente" data-title="Otimizar janela de transmissão">
+            <span class="recommendation-symbol" aria-hidden="true">🎚️</span>
+            <div class="recommendation-main">
+              <div class="tag-row">
+                <strong class="tag low">Baixa prioridade</strong>
+                <strong class="tag blue">Transmissão</strong>
+              </div>
+              <h3>Otimizar janela de transmissão</h3>
+              <p>Condições ideais detectadas. Iniciar transmissão às 14:30 nas próximas 30 min para rota comercial.</p>
+              <small>Impacto esperado:</small>
+              <div class="impact-row">
+                <span>Eficiência <b>+0,9%</b></span>
+                <span>Economia estimada <b>US$ 72.000</b></span>
+                <span>Risco atual <b class="risk-low">Baixo</b></span>
+              </div>
+            </div>
+            <dl class="recommendation-meta">
+              <div><dt>Ativo</dt><dd>Rota Comercial 14</dd></div>
+              <div><dt>Categoria</dt><dd>Transmissão</dd></div>
+              <div><dt>Detectado em</dt><dd>06/06/2026 08:10</dd></div>
+              <div><dt>Fonte</dt><dd>IA Preditiva</dd></div>
+            </dl>
+            <div class="recommendation-actions">
+              <button class="apply-button" type="button" data-action="aplicar">Aplicar</button>
+              <button class="outline-button" type="button" data-action="descartar">Descartar</button>
+              <button class="details-link" type="button" data-open-details>Ver detalhes ›</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <footer class="private-footer">
         <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
         <span>Versão 2.4.1</span>
