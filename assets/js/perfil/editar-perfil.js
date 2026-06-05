@@ -11,6 +11,76 @@ const notificationCount = document.querySelector('.notification-count');
 const closeNotificationButton = document.querySelector('[data-close-notification]');
 const readNotificationButton = document.querySelector('[data-read-notification]');
 
+function getCurrentProfileUser() {
+  if (typeof getPrepilaCurrentUser === 'function') {
+    return getPrepilaCurrentUser();
+  }
+
+  try {
+    return JSON.parse(sessionStorage.getItem('prepila-auth-user') || localStorage.getItem('prepila-auth-user') || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function getRoleIcon(role) {
+  if (role === 'Administrador') return '👑';
+  if (role === 'Operador') return '🛰️';
+  if (role === 'Analista') return '📊';
+  if (role === 'Técnico') return '🛠️';
+  if (role === 'Gestora') return '📋';
+  if (role === 'Supervisor') return '🛡️';
+  return '🔐';
+}
+
+function setFieldValue(fieldName, value) {
+  const field = editProfileForm?.elements[fieldName];
+
+  if (field && value) {
+    if (field.tagName === 'SELECT' && ![...field.options].some((option) => option.value === value)) {
+      field.add(new Option(value, value));
+    }
+
+    field.value = value;
+  }
+}
+
+function renderEditProfileUser() {
+  if (!editProfileForm) {
+    return;
+  }
+
+  const user = getCurrentProfileUser();
+  const roleIcon = getRoleIcon(user.role);
+  const selectedAvatar = [...emojiInputs].find((input) => input.value === user.avatar);
+
+  if (profileEmoji && user.avatar) {
+    profileEmoji.textContent = user.avatar;
+  }
+
+  if (selectedAvatar) {
+    selectedAvatar.checked = true;
+  }
+
+  const avatarTitle = document.querySelector('#avatar-title');
+  const rolePill = document.querySelector('.role-pill');
+
+  if (avatarTitle) {
+    avatarTitle.textContent = user.displayName || user.username || 'Usuário Prepila Dyson';
+  }
+
+  if (rolePill) {
+    rolePill.textContent = `${roleIcon} ${user.role || 'Usuário'}`;
+  }
+
+  setFieldValue('displayName', user.displayName);
+  setFieldValue('username', user.username);
+  setFieldValue('email', user.email);
+  setFieldValue('position', user.cargo);
+  setFieldValue('accessLevel', user.role);
+  setFieldValue('mfa', user.mfa);
+}
+
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
 
@@ -108,6 +178,16 @@ if (editProfileForm && editProfileStatus) {
     };
 
     sessionStorage.setItem('prepila-auth-user', JSON.stringify(updatedUser));
+
+    if (localStorage.getItem('prepila-auth-user')) {
+      localStorage.setItem('prepila-auth-user', JSON.stringify(updatedUser));
+    }
+
+    if (typeof renderPrepilaPrivateSession === 'function') {
+      renderPrepilaPrivateSession();
+    }
+
+    renderEditProfileUser();
     editProfileStatus.textContent = 'Alterações salvas.';
   });
 
@@ -121,3 +201,5 @@ if (editProfileForm && editProfileStatus) {
     });
   });
 }
+
+renderEditProfileUser();

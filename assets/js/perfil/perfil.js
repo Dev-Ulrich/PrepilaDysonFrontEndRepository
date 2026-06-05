@@ -31,25 +31,38 @@ const profileFallbacks = {
 };
 
 function getStoredUser() {
-  const rawUser = sessionStorage.getItem('prepila-auth-user') || localStorage.getItem('prepila-auth-user');
+  const sessionUser = parseStoredUser(sessionStorage.getItem('prepila-auth-user'));
+  const rememberedUser = parseStoredUser(localStorage.getItem('prepila-auth-user'));
+  const user = isCompleteStoredUser(sessionUser) ? sessionUser : rememberedUser || sessionUser;
 
-  if (!rawUser) {
+  if (!user) {
     return defaultUser;
+  }
+
+  const fallback = profileFallbacks[user.username] || {};
+
+  return {
+    ...defaultUser,
+    ...fallback,
+    ...user,
+    displayName: user.displayName || user.username || defaultUser.displayName
+  };
+}
+
+function parseStoredUser(rawUser) {
+  if (!rawUser) {
+    return null;
   }
 
   try {
-    const user = JSON.parse(rawUser);
-    const fallback = profileFallbacks[user.username] || {};
-
-    return {
-      ...defaultUser,
-      ...fallback,
-      ...user,
-      displayName: user.displayName || user.username || defaultUser.displayName
-    };
+    return JSON.parse(rawUser);
   } catch {
-    return defaultUser;
+    return null;
   }
+}
+
+function isCompleteStoredUser(user) {
+  return Boolean(user?.username && user?.email && user?.role && user?.id);
 }
 
 function formatLoggedAt(value) {

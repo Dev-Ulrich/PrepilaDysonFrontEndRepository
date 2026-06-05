@@ -22,25 +22,38 @@ const prepilaUserFallbacks = {
 };
 
 function getPrepilaCurrentUser() {
-  const rawUser = sessionStorage.getItem('prepila-auth-user') || localStorage.getItem('prepila-auth-user');
+  const sessionUser = parsePrepilaStoredUser(sessionStorage.getItem('prepila-auth-user'));
+  const rememberedUser = parsePrepilaStoredUser(localStorage.getItem('prepila-auth-user'));
+  const user = isCompletePrepilaUser(sessionUser) ? sessionUser : rememberedUser || sessionUser;
 
-  if (!rawUser) {
+  if (!user) {
     return prepilaDefaultUser;
+  }
+
+  const fallback = prepilaUserFallbacks[user.username] || {};
+
+  return {
+    ...prepilaDefaultUser,
+    ...fallback,
+    ...user,
+    displayName: user.displayName || user.username || prepilaDefaultUser.displayName
+  };
+}
+
+function parsePrepilaStoredUser(rawUser) {
+  if (!rawUser) {
+    return null;
   }
 
   try {
-    const user = JSON.parse(rawUser);
-    const fallback = prepilaUserFallbacks[user.username] || {};
-
-    return {
-      ...prepilaDefaultUser,
-      ...fallback,
-      ...user,
-      displayName: user.displayName || user.username || prepilaDefaultUser.displayName
-    };
+    return JSON.parse(rawUser);
   } catch {
-    return prepilaDefaultUser;
+    return null;
   }
+}
+
+function isCompletePrepilaUser(user) {
+  return Boolean(user?.username && user?.email && user?.role && user?.id);
 }
 
 function renderPrepilaPrivateSession() {
