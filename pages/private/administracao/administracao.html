@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Administração de usuários, contratos, permissões e configurações Prepila Dyson.">
+  <title>Administração | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/administracao/administracao.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="administracao.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">💼</span>
+          <div>
+            <h1>Administração</h1>
+            <p>Gerencie usuários, contratos, permissões e configurações do sistema.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações administrativas">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="admin-level" type="button" data-open-settings aria-haspopup="dialog" aria-controls="settingsModal">
+            <span aria-hidden="true">⚙️</span>
+            <span>Configurações do sistema</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="metrics-grid" aria-label="Indicadores administrativos">
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">👥</span>
+          <div>
+            <small>Usuários ativos</small>
+            <strong data-active-users>28</strong>
+            <p class="success-text">↑ 12% vs mês anterior</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">👤</span>
+          <div>
+            <small>Novos usuários</small>
+            <strong>4</strong>
+            <p class="success-text">↑ 33% vs mês anterior</p>
+          </div>
+          <i class="sparkline green"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon purple" aria-hidden="true">📋</span>
+          <div>
+            <small>Contratos ativos</small>
+            <strong>25</strong>
+            <p class="success-text">↑ 8% vs mês anterior</p>
+          </div>
+          <i class="sparkline purple"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon green-ring" aria-hidden="true">🛡️</span>
+          <div>
+            <small>Permissões atribuídas</small>
+            <strong data-permissions-count>86</strong>
+            <p class="success-text">↑ 15% vs mês anterior</p>
+          </div>
+          <i class="sparkline green"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon orange" aria-hidden="true">!</span>
+          <div>
+            <small>Logs de segurança</small>
+            <strong data-security-logs>142</strong>
+            <p class="success-text">↑ 9% vs mês anterior</p>
+          </div>
+          <i class="sparkline yellow"></i>
+        </article>
+      </section>
+
+      <section class="admin-layout">
+        <article class="monitor-panel users-panel" aria-labelledby="users-title">
+          <div class="panel-heading users-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">👥</span>
+              <h2 id="users-title">Gerenciamento de usuários</h2>
+            </div>
+            <button class="primary-action" type="button" data-open-user-modal aria-haspopup="dialog" aria-controls="userModal">+ Novo usuário</button>
+          </div>
+
+          <div class="admin-toolbar" aria-label="Filtros de usuários">
+            <label class="admin-search">
+              <span aria-hidden="true">🔍</span>
+              <input type="search" placeholder="Buscar usuário..." data-user-search>
+            </label>
+            <select aria-label="Filtrar por papel" data-role-filter>
+              <option value="todos">Todos os papéis</option>
+              <option value="administrador">Administradores</option>
+              <option value="gerente">Gerentes</option>
+              <option value="analista">Analistas</option>
+              <option value="operador">Operadores</option>
+              <option value="visualizador">Visualizadores</option>
+            </select>
+            <select aria-label="Filtrar por status" data-status-filter>
+              <option value="todos">Status: Todos</option>
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+
+          <div class="users-table" role="table" aria-label="Usuários administrativos">
+            <div class="user-row user-head" role="row">
+              <span role="columnheader">Usuário</span>
+              <span role="columnheader">E-mail</span>
+              <span role="columnheader">Papel</span>
+              <span role="columnheader">Status</span>
+              <span role="columnheader">Último acesso</span>
+              <span role="columnheader">Ações</span>
+            </div>
+
+            <div class="user-row" role="row" data-user-row data-role="administrador" data-status="ativo">
+              <span role="cell"><img src="/assets/images/avatares/Victor-Ulrich.png" alt=""><b>Victor Ulrich</b><em>Você</em></span>
+              <span role="cell">victor.ulrich@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip admin">Administrador</strong></span>
+              <span role="cell"><strong class="status-label active">● Ativo</strong></span>
+              <span role="cell">06/06/2026 14:32</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Victor" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Victor" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="gerente" data-status="ativo">
+              <span role="cell"><img src="/assets/images/avatares/Yasmin-Capi.jpeg" alt=""><b>Mariana Santos</b></span>
+              <span role="cell">mariana.santos@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip manager">Gerente</strong></span>
+              <span role="cell"><strong class="status-label active">● Ativo</strong></span>
+              <span role="cell">06/06/2026 11:08</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Mariana" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Mariana" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="analista" data-status="ativo">
+              <span role="cell"><img src="/assets/images/avatares/Matheus-Pereira.jpeg" alt=""><b>João Pereira</b></span>
+              <span role="cell">joao.pereira@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip analyst">Analista</strong></span>
+              <span role="cell"><strong class="status-label active">● Ativo</strong></span>
+              <span role="cell">06/06/2026 09:15</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar João" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir João" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="analista" data-status="ativo">
+              <span role="cell"><img src="/assets/images/avatares/Yasmin-Capi.jpeg" alt=""><b>Renata Lima</b></span>
+              <span role="cell">renata.lima@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip analyst">Analista</strong></span>
+              <span role="cell"><strong class="status-label active">● Ativo</strong></span>
+              <span role="cell">05/06/2026 16:20</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Renata" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Renata" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="operador" data-status="ativo">
+              <span role="cell"><img src="/assets/images/avatares/Arthur-da-Silva.jpg" alt=""><b>Lucas Rocha</b></span>
+              <span role="cell">lucas.rocha@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip operator">Operador</strong></span>
+              <span role="cell"><strong class="status-label active">● Ativo</strong></span>
+              <span role="cell">05/06/2026 08:45</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Lucas" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Lucas" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="visualizador" data-status="inativo">
+              <span role="cell"><img src="/assets/images/avatares/Matheus-Luca.png" alt=""><b>Carlos Mendes</b></span>
+              <span role="cell">carlos.mendes@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip viewer">Visualizador</strong></span>
+              <span role="cell"><strong class="status-label inactive">● Inativo</strong></span>
+              <span role="cell">02/06/2026 10:30</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Carlos" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Carlos" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="operador" data-status="ativo">
+              <span role="cell"><img src="/assets/images/avatares/Yasmin-Capi.jpeg" alt=""><b>Juliana Costa</b></span>
+              <span role="cell">juliana.costa@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip operator">Operador</strong></span>
+              <span role="cell"><strong class="status-label active">● Ativo</strong></span>
+              <span role="cell">01/06/2026 14:10</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Juliana" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Juliana" data-delete-user>🗑</button></span>
+            </div>
+            <div class="user-row" role="row" data-user-row data-role="visualizador" data-status="inativo">
+              <span role="cell"><img src="/assets/images/avatares/Victor-Ulrich.png" alt=""><b>Pedro Albuquerque</b></span>
+              <span role="cell">pedro.albuquerque@fiap.com.br</span>
+              <span role="cell"><strong class="role-chip viewer">Visualizador</strong></span>
+              <span role="cell"><strong class="status-label inactive">● Inativo</strong></span>
+              <span role="cell">28/05/2026 09:22</span>
+              <span role="cell"><button class="icon-button" type="button" aria-label="Editar Pedro" data-edit-user>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir Pedro" data-delete-user>🗑</button></span>
+            </div>
+          </div>
+
+          <div class="table-footer">
+            <p data-user-count>Exibindo 1 a 8 de 28 usuários</p>
+            <div class="pagination" aria-label="Paginação">
+              <button type="button" disabled>‹</button>
+              <button class="active" type="button">1</button>
+              <button type="button">2</button>
+              <button type="button">3</button>
+              <button type="button">4</button>
+              <button type="button">›</button>
+            </div>
+            <select aria-label="Quantidade por página">
+              <option>10 por página</option>
+              <option>25 por página</option>
+              <option>50 por página</option>
+            </select>
+          </div>
+        </article>
+
+        <aside class="admin-side">
+          <article class="monitor-panel side-panel" aria-labelledby="activities-title">
+            <div class="panel-heading">
+              <div>
+                <span class="section-icon" aria-hidden="true">🕒</span>
+                <h2 id="activities-title">Atividades recentes</h2>
+              </div>
+              <a class="inline-link" href="/pages/private/relatorios/relatorios.html">Ver todas ›</a>
+            </div>
+
+            <div class="activity-list">
+              <article><span class="activity-icon blue">👤</span><div><strong>Mariana Santos criou o usuário Juliana Costa</strong><small>06/06/2026 14:30</small></div></article>
+              <article><span class="activity-icon green">🔑</span><div><strong>João Pereira atualizou permissões de Lucas Rocha</strong><small>06/06/2026 12:15</small></div></article>
+              <article><span class="activity-icon red">➖</span><div><strong>Renata Lima excluiu o usuário Carlos Mendes</strong><small>05/06/2026 16:45</small></div></article>
+              <article><span class="activity-icon blue">📄</span><div><strong>Victor Ulrich alterou o contrato ESA - SAAS ANUAL</strong><small>05/06/2026 10:20</small></div></article>
+              <article><span class="activity-icon red">🛡️</span><div><strong>Sistema registrou 3 tentativas de acesso bloqueadas</strong><small>05/06/2026 08:10</small></div></article>
+            </div>
+          </article>
+
+          <article class="monitor-panel side-panel" aria-labelledby="roles-title">
+            <div class="panel-heading">
+              <div>
+                <span class="section-icon" aria-hidden="true">🛡️</span>
+                <h2 id="roles-title">Papéis e permissões</h2>
+              </div>
+              <a class="inline-link" href="/pages/private/perfil/permissoes.html">Ver todas ›</a>
+            </div>
+
+            <div class="roles-list">
+              <article><span class="role-icon admin">👥</span><div><strong>Administradores</strong><small>Acesso total ao sistema</small></div><b>3</b></article>
+              <article><span class="role-icon manager">👥</span><div><strong>Gerentes</strong><small>Gerenciam equipes e contratos</small></div><b>5</b></article>
+              <article><span class="role-icon analyst">📊</span><div><strong>Analistas</strong><small>Acesso a relatórios e dados</small></div><b>8</b></article>
+              <article><span class="role-icon operator">⚙️</span><div><strong>Operadores</strong><small>Executam operações e monitoramento</small></div><b>7</b></article>
+              <article><span class="role-icon viewer">👁️</span><div><strong>Visualizadores</strong><small>Acesso somente leitura</small></div><b>5</b></article>
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <section class="manage-section" aria-labelledby="manage-title">
+        <h2 id="manage-title">Gerenciar</h2>
+        <div class="manage-grid">
+          <a class="manage-card" href="/pages/private/contratos/contratos.html"><span class="manage-icon blue">📄</span><strong>Contratos</strong><small>Visualize, adicione e gerencie contratos ativos e históricos.</small><em>Gerenciar contratos ›</em></a>
+          <a class="manage-card" href="/pages/private/perfil/permissoes.html"><span class="manage-icon green">🛡️</span><strong>Permissões</strong><small>Configure permissões de acesso e níveis de autorização.</small><em>Gerenciar permissões ›</em></a>
+          <a class="manage-card" href="/pages/private/relatorios/relatorios.html"><span class="manage-icon purple">📋</span><strong>Auditoria</strong><small>Visualize logs de auditoria e atividades do sistema.</small><em>Ver auditoria ›</em></a>
+          <button class="manage-card" type="button" data-open-settings><span class="manage-icon orange">⚙️</span><strong>Configurações</strong><small>Ajuste configurações gerais do sistema e integrações.</small><em>Abrir configurações ›</em></button>
+          <button class="manage-card" type="button" data-backup-action><span class="manage-icon blue">🔒</span><strong>Backup e segurança</strong><small>Gerencie backups, segurança e recuperação de dados.</small><em>Gerenciar backups ›</em></button>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos administrativos recentes.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>🛡️ Tentativas bloqueadas</strong>
+        <p>O sistema registrou 3 tentativas de acesso bloqueadas hoje às 08:10.</p>
+        <small>Atualizado em 06/06/2026 às 14:32</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar configurações" data-close-settings>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">⚙️</span>
+        <div>
+          <h2 id="settingsTitle">Configurações</h2>
+          <p>Selecione uma ação administrativa do sistema.</p>
+        </div>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-settings-action="Permissões sincronizadas.">🛡️ Sincronizar permissões</button>
+        <button type="button" data-settings-action="Logs de segurança exportados.">⬇ Exportar logs de segurança</button>
+        <button type="button" data-settings-action="Políticas de acesso revisadas.">🔑 Revisar políticas de acesso</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="userModal" role="dialog" aria-modal="true" aria-labelledby="userTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar novo usuário" data-close-user-modal>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">👤</span>
+        <div>
+          <h2 id="userTitle">Novo usuário</h2>
+          <p>Cadastro preparado para a equipe administrativa.</p>
+        </div>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-create-user="Administrador">👥 Criar administrador</button>
+        <button type="button" data-create-user="Operador">⚙️ Criar operador</button>
+        <button type="button" data-create-user="Visualizador">👁️ Criar visualizador</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="adminToast" role="status" hidden></p>
+
+  <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/administracao/administracao.js"></script>
+</body>
+</html>
