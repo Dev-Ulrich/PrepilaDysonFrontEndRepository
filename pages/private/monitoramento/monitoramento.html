@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monitoramento em tempo real da rede Prepila Dyson.">
+  <title>Monitoramento | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/monitoramento/monitoramento.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao/administracao.html">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="monitoramento.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">📡</span>
+          <div>
+            <h1>Monitoramento</h1>
+            <p>Acompanhe em tempo real o desempenho das estações e ativos.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de monitoramento">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <label class="date-filter">
+            <span aria-hidden="true">📅</span>
+            <select aria-label="Período do monitoramento" data-period-select>
+              <option>31/05/2026 - 06/06/2026</option>
+              <option>24/05/2026 - 30/05/2026</option>
+              <option>01/06/2026 - 06/06/2026</option>
+            </select>
+          </label>
+          <button class="admin-level" type="button" data-open-filters aria-haspopup="dialog" aria-controls="filtersModal">
+            <span aria-hidden="true">🔎</span>
+            <span>Filtros</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="monitor-grid metrics-grid" aria-label="Indicadores de monitoramento">
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">🏢</span>
+          <div>
+            <small>Estações ativas</small>
+            <strong data-active-stations>8</strong>
+            <p>de 10 estações</p>
+          </div>
+          <i class="sparkline green"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">⚡</span>
+          <div>
+            <small>Energia gerada</small>
+            <strong>12,4 TWH</strong>
+            <p class="success-text">↑ 11,3% vs período anterior</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">🎯</span>
+          <div>
+            <small>Eficiência média</small>
+            <strong data-efficiency>95,1%</strong>
+            <p class="success-text">↑ 2,7% vs período anterior</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon purple" aria-hidden="true">🛰️</span>
+          <div>
+            <small>Satélites ativos</small>
+            <strong>12</strong>
+            <p>de 14 satélites</p>
+          </div>
+          <i class="sparkline purple"></i>
+        </article>
+        <article class="metric-card warning-card">
+          <span class="metric-icon red" aria-hidden="true">⚠️</span>
+          <div>
+            <small>Incidentes</small>
+            <strong data-incident-count>2</strong>
+            <p class="success-text">↓ 33% vs período anterior</p>
+          </div>
+          <i class="sparkline yellow"></i>
+        </article>
+      </section>
+
+      <section class="monitor-layout">
+        <article class="monitor-panel map-panel" aria-labelledby="map-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🌐</span>
+              <h2 id="map-title">Mapa de estações</h2>
+            </div>
+            <span class="live-pill">● Ao vivo</span>
+          </div>
+
+          <div class="world-map" aria-label="Mapa operacional com estações distribuídas">
+            <button class="station-pin active north-america is-selected" type="button" data-station="EN-01"><b>EN-01</b><small>Ativa</small></button>
+            <button class="station-pin active south-america" type="button" data-station="EN-03"><b>EN-03</b><small>Ativa</small></button>
+            <button class="station-pin maintenance africa" type="button" data-station="EN-04"><b>EN-04</b><small>Manutenção</small></button>
+            <button class="station-pin active europe" type="button" data-station="EN-03 GEO"><b>EN-03</b><small>Ativa</small></button>
+            <button class="station-pin alert asia" type="button" data-station="EN-05"><b>EN-05</b><small>Alerta</small></button>
+            <button class="station-pin active east-asia" type="button" data-station="EN-07"><b>EN-07</b><small>Ativa</small></button>
+            <button class="station-pin active india" type="button" data-station="EN-08"><b>EN-08</b><small>Ativa</small></button>
+            <button class="station-pin inactive argentina" type="button" data-station="EN-09"><b>EN-09</b><small>Inativa</small></button>
+            <button class="station-pin planned oceania" type="button" data-station="EN-10"><b>EN-10</b><small>Planejada</small></button>
+          </div>
+
+          <div class="map-controls" aria-hidden="true">
+            <span>+</span><span>-</span><span>⛶</span>
+          </div>
+
+          <div class="status-legend" aria-label="Legenda de status">
+            <span class="active">Ativa</span>
+            <span class="alert">Alerta</span>
+            <span class="maintenance">Manutenção</span>
+            <span class="planned">Planejada</span>
+            <span class="inactive">Inativa</span>
+          </div>
+        </article>
+
+        <aside class="monitor-panel station-details" aria-labelledby="station-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🛰️</span>
+              <h2 id="station-title">Detalhes da estação</h2>
+            </div>
+            <select aria-label="Selecionar estação" data-station-select>
+              <option>EN-01</option>
+              <option>EN-03</option>
+              <option>EN-04</option>
+              <option>EN-05</option>
+              <option>EN-07</option>
+              <option>EN-08</option>
+              <option>EN-09</option>
+              <option>EN-10</option>
+            </select>
+          </div>
+
+          <div class="station-hero">
+            <img src="/assets/images/carrosel/Monitoramento-Img.png" alt="Satélite Prepila Dyson orbitando a Terra">
+            <dl>
+              <div><dt>Localização</dt><dd data-station-location>América Norte - 42,3° N</dd></div>
+              <div><dt>Status</dt><dd class="success-text" data-station-status>Ativa</dd></div>
+              <div><dt>Última atualização</dt><dd data-station-update>Hoje, 14:32</dd></div>
+            </dl>
+          </div>
+
+          <div class="detail-metrics">
+            <article><small>Energia atual</small><strong data-station-energy>1,36 TWH</strong><span class="success-text">↑ 3,8%</span></article>
+            <article><small>Eficiência</small><strong data-station-efficiency>96,4%</strong><span class="success-text">↑ 1,1%</span></article>
+            <article><small>Integridade</small><strong data-station-integrity>94%</strong><span class="success-text">Normal</span></article>
+            <article><small>Temperatura</small><strong data-station-temp>36°C</strong><span class="success-text">Normal</span></article>
+          </div>
+
+          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver detalhes completos ›</a>
+        </aside>
+      </section>
+
+      <section class="monitor-layout lower-monitor-layout">
+        <article class="monitor-panel energy-panel" aria-labelledby="energy-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">📈</span>
+              <h2 id="energy-title">Geração de energia (TWH)</h2>
+            </div>
+            <div class="chart-legend">
+              <span class="real">Real</span>
+              <span class="forecast">Previsto</span>
+              <span class="goal">Meta</span>
+            </div>
+          </div>
+
+          <div class="energy-chart">
+            <svg viewBox="0 0 100 48" role="img" aria-labelledby="energyChartTitle">
+              <title id="energyChartTitle">Comparativo entre geração real, prevista e meta</title>
+              <g class="grid-lines">
+                <path d="M0 8H100M0 20H100M0 32H100M0 44H100"></path>
+                <path d="M10 0V48M24 0V48M38 0V48M52 0V48M66 0V48M80 0V48M94 0V48"></path>
+              </g>
+              <polyline class="goal-line" points="1,26 15,21 29,20 43,22 57,18 71,17 85,20 99,21"></polyline>
+              <polyline class="forecast-line" points="1,32 15,28 29,30 43,26 57,21 71,18 85,16 99,18"></polyline>
+              <polyline class="real-line" data-energy-line points="1,31 15,27 29,28 43,35 57,26 71,20 85,21 99,25"></polyline>
+            </svg>
+          </div>
+
+          <div class="chart-days" aria-hidden="true">
+            <span>31/05</span><span>01/06</span><span>02/06</span><span>03/06</span><span>04/06</span><span>05/06</span><span>06/06</span>
+          </div>
+        </article>
+
+        <aside class="monitor-panel assets-panel" aria-labelledby="assets-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🧭</span>
+              <h2 id="assets-title">Desempenho de ativos</h2>
+            </div>
+          </div>
+
+          <div class="asset-summary">
+            <div class="donut" aria-label="14 ativos no total"><strong>14</strong><span>Total</span></div>
+            <ul>
+              <li><span class="dot good"></span>Ótimo <strong>7 (50%)</strong></li>
+              <li><span class="dot ok"></span>Bom <strong>4 (29%)</strong></li>
+              <li><span class="dot attention"></span>Atenção <strong>2 (14%)</strong></li>
+              <li><span class="dot critical"></span>Crítico <strong>1 (7%)</strong></li>
+            </ul>
+          </div>
+
+          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver todos os ativos ›</a>
+        </aside>
+      </section>
+
+      <section class="bottom-grid" aria-label="Painéis auxiliares de monitoramento">
+        <article class="monitor-panel compact-panel" aria-labelledby="environment-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">☀️</span>
+              <h2 id="environment-title">Condições ambientais</h2>
+            </div>
+          </div>
+          <div class="condition-grid">
+            <article><span>☀️</span><small>Radiação solar</small><strong>Baixa</strong><em>Estável</em></article>
+            <article><span>🌡️</span><small>Temp. externa</small><strong>-15°C</strong><em>Estável</em></article>
+            <article><span>🌬️</span><small>Vento solar</small><strong>Moderado</strong><em class="success-text">↑ 8%</em></article>
+            <article><span>🧲</span><small>Perturbações</small><strong>Baixa</strong><em>Estável</em></article>
+          </div>
+          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver análise completa ›</a>
+        </article>
+
+        <article class="monitor-panel compact-panel" aria-labelledby="systems-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🖥️</span>
+              <h2 id="systems-title">Disponibilidade de sistemas</h2>
+            </div>
+          </div>
+          <div class="system-list">
+            <article><span>Sistema de Transmissão</span><strong>98,7%</strong><i style="width: 98.7%"></i></article>
+            <article><span>Sistema de Energia</span><strong>96,2%</strong><i style="width: 96.2%"></i></article>
+            <article><span>Sistema de Controle</span><strong>97,5%</strong><i style="width: 97.5%"></i></article>
+            <article><span>Comunicações</span><strong>95,1%</strong><i style="width: 95.1%"></i></article>
+          </div>
+          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver todos os sistemas ›</a>
+        </article>
+
+        <article class="monitor-panel compact-panel" aria-labelledby="events-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🕒</span>
+              <h2 id="events-title">Eventos recentes</h2>
+            </div>
+          </div>
+          <div class="event-list">
+            <article><span class="event-icon critical">⚠️</span><div><strong>Anomalia de sinal na Estação EN-05</strong><small>Investigação em andamento</small></div><time>14:32</time></article>
+            <article><span class="event-icon attention">⚙️</span><div><strong>Manutenção preventiva concluída na EN-04</strong><small>Todos os sistemas operacionais</small></div><time>11:08</time></article>
+            <article><span class="event-icon good">✓</span><div><strong>Atualização de firmware aplicada na EN-03</strong><small>Versão v3.2.1 instalada com sucesso</small></div><time>Ontem</time></article>
+          </div>
+          <a class="details-link" href="/pages/private/alertas/alertas.html">Ver todos os eventos ›</a>
+        </article>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos recentes do monitoramento operacional.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>⚠️ Anomalia na estação EN-05</strong>
+        <p>O sinal oscila acima do limite recomendado. A equipe de operação foi notificada.</p>
+        <small>Atualizado em 06/06/2026 às 14:32</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="filtersModal" role="dialog" aria-modal="true" aria-labelledby="filtersTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar filtros" data-close-filters>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔎</span>
+        <div>
+          <h2 id="filtersTitle">Filtros</h2>
+          <p>Ajuste a camada visual do monitoramento.</p>
+        </div>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-map-filter="all">🌐 Mostrar todas as estações</button>
+        <button type="button" data-map-filter="alert">🚨 Exibir estações em alerta</button>
+        <button type="button" data-map-filter="active">✅ Exibir estações ativas</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="monitorToast" role="status" hidden></p>
+
+  <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/monitoramento/monitoramento.js"></script>
+</body>
+</html>
