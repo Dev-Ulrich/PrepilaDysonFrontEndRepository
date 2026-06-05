@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Histórico completo de atividades administrativas da plataforma Prepila Dyson.">
+  <title>Atividades | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/administracao/administracao.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao/administracao.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">🕒</span>
+          <div>
+            <h1>Atividades recentes</h1>
+            <p>Acompanhe ações administrativas, alterações de acesso e eventos de segurança.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de atividades">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <a class="ghost-button" href="/pages/private/administracao/administracao.html">← Voltar</a>
+        </div>
+      </header>
+
+      <section class="monitor-panel activities-page-panel" aria-labelledby="all-activities-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🧾</span>
+            <h2 id="all-activities-title">Todas as atividades</h2>
+          </div>
+          <div class="activities-summary" aria-label="Resumo das atividades">
+            <strong>18 registros</strong>
+            <span>Últimas 72 horas</span>
+          </div>
+        </div>
+
+        <div class="activities-filters" aria-label="Filtros de atividades">
+          <label class="admin-search">
+            <span aria-hidden="true">🔍</span>
+            <input type="search" placeholder="Buscar atividade..." data-activity-search>
+          </label>
+          <select aria-label="Filtrar por categoria" data-activity-filter>
+            <option value="todos">Todas as categorias</option>
+            <option value="usuario">Usuários</option>
+            <option value="permissao">Permissões</option>
+            <option value="contrato">Contratos</option>
+            <option value="seguranca">Segurança</option>
+            <option value="sistema">Sistema</option>
+          </select>
+        </div>
+
+        <div class="full-activity-list" data-activity-list>
+          <article data-activity-item data-category="usuario"><span class="activity-icon blue">👤</span><div><strong>Mariana Santos criou o usuário Juliana Costa</strong><small>06/06/2026 14:30 · Usuários</small></div></article>
+          <article data-activity-item data-category="permissao"><span class="activity-icon green">🔑</span><div><strong>João Pereira atualizou permissões de Lucas Rocha</strong><small>06/06/2026 12:15 · Permissões</small></div></article>
+          <article data-activity-item data-category="usuario"><span class="activity-icon red">➖</span><div><strong>Renata Lima excluiu o usuário Carlos Mendes</strong><small>05/06/2026 16:45 · Usuários</small></div></article>
+          <article data-activity-item data-category="contrato"><span class="activity-icon blue">📄</span><div><strong>Victor Ulrich alterou o contrato ESA - SAAS ANUAL</strong><small>05/06/2026 10:20 · Contratos</small></div></article>
+          <article data-activity-item data-category="seguranca"><span class="activity-icon red">🛡️</span><div><strong>Sistema registrou 3 tentativas de acesso bloqueadas</strong><small>05/06/2026 08:10 · Segurança</small></div></article>
+          <article data-activity-item data-category="sistema"><span class="activity-icon green">✅</span><div><strong>Backup automático finalizado com sucesso</strong><small>04/06/2026 23:00 · Sistema</small></div></article>
+          <article data-activity-item data-category="permissao"><span class="activity-icon green">🔐</span><div><strong>Victor Ulrich sincronizou permissões administrativas</strong><small>04/06/2026 18:32 · Permissões</small></div></article>
+          <article data-activity-item data-category="usuario"><span class="activity-icon blue">👥</span><div><strong>Mariana Santos ativou o acesso de Ana Martins</strong><small>04/06/2026 16:08 · Usuários</small></div></article>
+          <article data-activity-item data-category="contrato"><span class="activity-icon blue">📋</span><div><strong>Pedro Albuquerque revisou dados do contrato JAXA - DEDICADO</strong><small>04/06/2026 11:47 · Contratos</small></div></article>
+          <article data-activity-item data-category="seguranca"><span class="activity-icon red">⚠️</span><div><strong>Sistema solicitou revisão de política de senha</strong><small>04/06/2026 09:14 · Segurança</small></div></article>
+          <article data-activity-item data-category="usuario"><span class="activity-icon blue">✎</span><div><strong>João Pereira editou o cadastro de Camila Nogueira</strong><small>03/06/2026 17:25 · Usuários</small></div></article>
+          <article data-activity-item data-category="sistema"><span class="activity-icon green">⬇</span><div><strong>Logs de segurança foram exportados por Victor Ulrich</strong><small>03/06/2026 15:11 · Sistema</small></div></article>
+          <article data-activity-item data-category="permissao"><span class="activity-icon green">🔑</span><div><strong>Renata Lima atribuiu papel de Analista a Sofia Ribeiro</strong><small>03/06/2026 13:42 · Permissões</small></div></article>
+          <article data-activity-item data-category="contrato"><span class="activity-icon blue">📄</span><div><strong>Lucas Rocha anexou documento ao contrato NASA - PREMIUM</strong><small>03/06/2026 10:36 · Contratos</small></div></article>
+          <article data-activity-item data-category="seguranca"><span class="activity-icon red">🧯</span><div><strong>Sistema bloqueou login em localização não reconhecida</strong><small>03/06/2026 08:58 · Segurança</small></div></article>
+          <article data-activity-item data-category="usuario"><span class="activity-icon blue">👤</span><div><strong>Victor Ulrich criou o usuário Bruno Freitas</strong><small>02/06/2026 18:44 · Usuários</small></div></article>
+          <article data-activity-item data-category="sistema"><span class="activity-icon green">⚙️</span><div><strong>Rotina de auditoria diária concluída</strong><small>02/06/2026 17:00 · Sistema</small></div></article>
+          <article data-activity-item data-category="permissao"><span class="activity-icon green">🔐</span><div><strong>Permissões de visualizadores foram revisadas</strong><small>02/06/2026 14:21 · Permissões</small></div></article>
+        </div>
+
+        <p class="empty-activities" data-empty-activities hidden>Nenhuma atividade encontrada.</p>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos administrativos recentes.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>🛡️ Tentativas bloqueadas</strong>
+        <p>O sistema registrou 3 tentativas de acesso bloqueadas hoje às 08:10.</p>
+        <small>Atualizado em 06/06/2026 às 14:32</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="adminToast" role="status" hidden></p>
+
+  <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/administracao/atividades.js"></script>
+</body>
+</html>

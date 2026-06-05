@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gerenciamento de papéis e permissões administrativas da plataforma Prepila Dyson.">
+  <title>Papéis e Permissões | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/administracao/administracao.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao/administracao.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">🛡️</span>
+          <div>
+            <h1>Papéis e permissões</h1>
+            <p>Gerencie níveis de acesso, escopos operacionais e permissões críticas.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de papéis e permissões">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <button class="ghost-button" type="button" data-sync-permissions>🔄 Sincronizar</button>
+          <a class="ghost-button" href="/pages/private/administracao/administracao.html">← Voltar</a>
+        </div>
+      </header>
+
+      <section class="metrics-grid" aria-label="Resumo de papéis">
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">👥</span>
+          <div>
+            <small>Administradores</small>
+            <strong>3</strong>
+            <p class="success-text">Acesso total</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon purple" aria-hidden="true">👥</span>
+          <div>
+            <small>Gerentes</small>
+            <strong>5</strong>
+            <p class="success-text">Equipes e contratos</p>
+          </div>
+          <i class="sparkline purple"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">📊</span>
+          <div>
+            <small>Analistas</small>
+            <strong>8</strong>
+            <p class="success-text">Relatórios e dados</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon green-ring" aria-hidden="true">⚙️</span>
+          <div>
+            <small>Operadores</small>
+            <strong>7</strong>
+            <p class="success-text">Operação diária</p>
+          </div>
+          <i class="sparkline green"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon orange" aria-hidden="true">👁️</span>
+          <div>
+            <small>Visualizadores</small>
+            <strong>5</strong>
+            <p class="success-text">Somente leitura</p>
+          </div>
+          <i class="sparkline yellow"></i>
+        </article>
+      </section>
+
+      <section class="permissions-admin-layout">
+        <article class="monitor-panel permissions-role-panel" aria-labelledby="roles-page-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🧾</span>
+              <h2 id="roles-page-title">Papéis cadastrados</h2>
+            </div>
+            <a class="primary-action" href="/pages/private/administracao/novo-papel.html">+ Novo papel</a>
+          </div>
+
+          <div class="activities-filters" aria-label="Filtros de papéis">
+            <label class="admin-search">
+              <span aria-hidden="true">🔍</span>
+              <input type="search" placeholder="Buscar papel..." data-role-search>
+            </label>
+            <select aria-label="Filtrar escopo" data-scope-filter>
+              <option value="todos">Todos os escopos</option>
+              <option value="total">Acesso total</option>
+              <option value="gestao">Gestão</option>
+              <option value="operacao">Operação</option>
+              <option value="leitura">Leitura</option>
+            </select>
+          </div>
+
+          <div class="permission-role-list" data-role-list>
+            <article data-role-item data-scope="total"><span class="role-icon admin">👥</span><div><strong>Administradores</strong><small>Acesso total ao sistema, usuários, contratos e auditoria.</small></div><b>3</b></article>
+            <article data-role-item data-scope="gestao"><span class="role-icon manager">👥</span><div><strong>Gerentes</strong><small>Gerenciam equipes, contratos e revisão de permissões.</small></div><b>5</b></article>
+            <article data-role-item data-scope="gestao"><span class="role-icon analyst">📊</span><div><strong>Analistas</strong><small>Acessam relatórios, dados energéticos e exportações.</small></div><b>8</b></article>
+            <article data-role-item data-scope="operacao"><span class="role-icon operator">⚙️</span><div><strong>Operadores</strong><small>Executam operações, monitoramento e acompanhamento técnico.</small></div><b>7</b></article>
+            <article data-role-item data-scope="leitura"><span class="role-icon viewer">👁️</span><div><strong>Visualizadores</strong><small>Consultam dados, dashboards e relatórios sem editar.</small></div><b>5</b></article>
+          </div>
+
+          <p class="empty-activities" data-empty-roles hidden>Nenhum papel encontrado.</p>
+        </article>
+
+        <article class="monitor-panel permissions-matrix-panel" aria-labelledby="matrix-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🔐</span>
+              <h2 id="matrix-title">Matriz de permissões</h2>
+            </div>
+            <button class="ghost-button" type="button" data-export-permissions>⬇ Exportar</button>
+          </div>
+
+          <div class="admin-permissions-table" role="table" aria-label="Matriz de permissões por papel">
+            <div class="permission-row permission-head" role="row">
+              <span role="columnheader">Papel</span>
+              <span role="columnheader">Usuários</span>
+              <span role="columnheader">Contratos</span>
+              <span role="columnheader">Operações</span>
+              <span role="columnheader">Relatórios</span>
+              <span role="columnheader">Auditoria</span>
+            </div>
+            <div class="permission-row" role="row"><span role="cell">Administradores</span><span>✅ Total</span><span>✅ Total</span><span>✅ Total</span><span>✅ Total</span><span>✅ Total</span></div>
+            <div class="permission-row" role="row"><span role="cell">Gerentes</span><span>✅ Editar</span><span>✅ Editar</span><span>👁️ Ver</span><span>✅ Exportar</span><span>👁️ Ver</span></div>
+            <div class="permission-row" role="row"><span role="cell">Analistas</span><span>👁️ Ver</span><span>👁️ Ver</span><span>👁️ Ver</span><span>✅ Exportar</span><span>👁️ Ver</span></div>
+            <div class="permission-row" role="row"><span role="cell">Operadores</span><span>👁️ Ver</span><span>👁️ Ver</span><span>✅ Editar</span><span>👁️ Ver</span><span>🚫 Não</span></div>
+            <div class="permission-row" role="row"><span role="cell">Visualizadores</span><span>👁️ Ver</span><span>👁️ Ver</span><span>👁️ Ver</span><span>👁️ Ver</span><span>🚫 Não</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="monitor-panel policies-panel" aria-labelledby="policies-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">📌</span>
+            <h2 id="policies-title">Políticas aplicadas</h2>
+          </div>
+        </div>
+
+        <div class="policies-grid">
+          <article><span>✅</span><strong>MFA obrigatório</strong><small>Ações administrativas exigem autenticação reforçada.</small></article>
+          <article><span>✅</span><strong>Auditoria ativa</strong><small>Alterações críticas ficam registradas por usuário e data.</small></article>
+          <article><span>✅</span><strong>Privilégio mínimo</strong><small>Novos usuários iniciam com o menor escopo necessário.</small></article>
+          <article><span>✅</span><strong>Revisão periódica</strong><small>Papéis de alto impacto são revisados semanalmente.</small></article>
+        </div>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos administrativos recentes.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>🛡️ Revisão de permissões</strong>
+        <p>Há 2 papéis com revisão de acesso agendada para esta semana.</p>
+        <small>Atualizado em 06/06/2026 às 14:32</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="adminToast" role="status" hidden></p>
+
+  <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/administracao/papeis-permissoes.js"></script>
+</body>
+</html>

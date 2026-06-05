@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cadastro de novo papel administrativo da plataforma Prepila Dyson.">
+  <title>Novo Papel | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/administracao/administracao.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao/administracao.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="/pages/private/operacoes/operacoes.html">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">➕</span>
+          <div>
+            <h1>Novo papel</h1>
+            <p>Cadastre um perfil de acesso e defina permissões por módulo.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações do novo papel">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <a class="ghost-button" href="/pages/private/administracao/papeis-permissoes.html">← Voltar</a>
+        </div>
+      </header>
+
+      <form class="new-role-layout" data-new-role-form>
+        <section class="monitor-panel new-role-form-panel" aria-labelledby="role-basic-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🧾</span>
+              <h2 id="role-basic-title">Dados do papel</h2>
+            </div>
+          </div>
+
+          <div class="user-form-grid">
+            <label class="admin-field">
+              <span>Nome do papel</span>
+              <input type="text" name="roleName" placeholder="Ex: Supervisor orbital" required>
+            </label>
+
+            <label class="admin-field">
+              <span>Escopo</span>
+              <select name="scope" required>
+                <option value="gestao">Gestão</option>
+                <option value="operacao">Operação</option>
+                <option value="leitura">Leitura</option>
+                <option value="total">Acesso total</option>
+              </select>
+            </label>
+
+            <label class="admin-field">
+              <span>Ícone</span>
+              <select name="icon" required>
+                <option value="👥">👥 Equipe</option>
+                <option value="🛰️">🛰️ Orbital</option>
+                <option value="⚙️">⚙️ Operação</option>
+                <option value="📊">📊 Dados</option>
+                <option value="🛡️">🛡️ Segurança</option>
+                <option value="👁️">👁️ Leitura</option>
+              </select>
+            </label>
+
+            <label class="admin-field">
+              <span>Status inicial</span>
+              <select name="status" required>
+                <option value="ativo">Ativo</option>
+                <option value="rascunho">Rascunho</option>
+                <option value="inativo">Inativo</option>
+              </select>
+            </label>
+
+            <label class="admin-field admin-field-wide">
+              <span>Descrição</span>
+              <input type="text" name="description" placeholder="Descreva o uso principal deste papel" required>
+            </label>
+          </div>
+        </section>
+
+        <section class="monitor-panel new-role-permissions-panel" aria-labelledby="role-permissions-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🔐</span>
+              <h2 id="role-permissions-title">Permissões</h2>
+            </div>
+          </div>
+
+          <div class="role-permission-grid" aria-label="Permissões por módulo">
+            <fieldset class="permission-module">
+              <legend>Usuários</legend>
+              <label><input type="checkbox" name="usersView" checked> Visualizar</label>
+              <label><input type="checkbox" name="usersCreate"> Criar</label>
+              <label><input type="checkbox" name="usersEdit"> Editar</label>
+              <label><input type="checkbox" name="usersDelete"> Excluir</label>
+            </fieldset>
+
+            <fieldset class="permission-module">
+              <legend>Contratos</legend>
+              <label><input type="checkbox" name="contractsView" checked> Visualizar</label>
+              <label><input type="checkbox" name="contractsCreate"> Criar</label>
+              <label><input type="checkbox" name="contractsEdit"> Editar</label>
+              <label><input type="checkbox" name="contractsExport"> Exportar</label>
+            </fieldset>
+
+            <fieldset class="permission-module">
+              <legend>Operações</legend>
+              <label><input type="checkbox" name="operationsView" checked> Visualizar</label>
+              <label><input type="checkbox" name="operationsExecute"> Executar</label>
+              <label><input type="checkbox" name="operationsEdit"> Editar</label>
+              <label><input type="checkbox" name="operationsApprove"> Aprovar</label>
+            </fieldset>
+
+            <fieldset class="permission-module">
+              <legend>Relatórios</legend>
+              <label><input type="checkbox" name="reportsView" checked> Visualizar</label>
+              <label><input type="checkbox" name="reportsCreate"> Criar</label>
+              <label><input type="checkbox" name="reportsExport"> Exportar</label>
+              <label><input type="checkbox" name="reportsAudit"> Auditoria</label>
+            </fieldset>
+          </div>
+        </section>
+
+        <aside class="monitor-panel new-role-summary-panel" aria-labelledby="role-summary-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">📋</span>
+              <h2 id="role-summary-title">Resumo</h2>
+            </div>
+          </div>
+
+          <div class="role-preview">
+            <span class="role-icon admin" data-preview-icon>👥</span>
+            <div>
+              <h3 data-preview-name>Novo papel</h3>
+              <p data-preview-description>Descrição pendente</p>
+            </div>
+            <strong data-preview-scope>Gestão</strong>
+          </div>
+
+          <div class="role-summary-list">
+            <span><b data-preview-permissions>4</b> permissões marcadas</span>
+            <span><b data-preview-status>Ativo</b> como status inicial</span>
+            <span>Revisão administrativa habilitada</span>
+          </div>
+
+          <div class="new-contract-actions">
+            <button class="primary-action" type="submit">💾 Criar papel</button>
+            <button class="ghost-button" type="reset">Limpar</button>
+            <p class="form-status" data-role-form-status role="status"></p>
+          </div>
+        </aside>
+      </form>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos administrativos recentes.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>🛡️ Revisão de permissões</strong>
+        <p>Há 2 papéis com revisão de acesso agendada para esta semana.</p>
+        <small>Atualizado em 06/06/2026 às 14:32</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="adminToast" role="status" hidden></p>
+
+  <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/administracao/novo-papel.js"></script>
+</body>
+</html>
