@@ -660,6 +660,104 @@ h1 {
   gap: 12px;
 }
 
+.history-table {
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: minmax(300px, 1.45fr) minmax(120px, 0.55fr) minmax(160px, 0.75fr) minmax(150px, 0.7fr) minmax(150px, 0.7fr) minmax(110px, 0.52fr) 78px;
+  min-width: 1080px;
+  border-bottom: 1px solid rgba(95, 188, 255, 0.16);
+}
+
+.history-row > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 10px 12px;
+  border-left: 1px solid rgba(95, 188, 255, 0.08);
+}
+
+.history-row > span:first-child {
+  border-left: 0;
+}
+
+.history-head {
+  color: #b9c8e7;
+  background: rgba(25, 120, 255, 0.08);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.history-head > span {
+  min-height: 42px;
+}
+
+.priority,
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-size: 0.76rem;
+}
+
+.status.applied {
+  color: var(--success);
+  background: rgba(38, 227, 102, 0.14);
+}
+
+.status.dismissed {
+  color: var(--high);
+  background: rgba(255, 152, 40, 0.16);
+}
+
+.status.pending {
+  color: var(--low);
+  background: rgba(29, 155, 255, 0.14);
+}
+
+.table-footer {
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination button {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  color: #d9e6ff;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  border-color: var(--cyan);
+  background: rgba(25, 120, 255, 0.42);
+}
+
+.pagination button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.table-footer select {
+  min-height: 40px;
+  min-width: 150px;
+  padding: 0 12px;
+  border-radius: 10px;
+}
+
 .private-footer {
   display: flex;
   justify-content: space-between;

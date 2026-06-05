@@ -212,6 +212,90 @@
         </div>
       </section>
 
+      <section class="history-panel" aria-labelledby="history-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">📋</span>
+            <h2 id="history-title">Histórico de recomendações</h2>
+          </div>
+        </div>
+
+        <div class="history-table" role="table" aria-label="Histórico de recomendações">
+          <div class="history-row history-head" role="row">
+            <span role="columnheader">Recomendação</span>
+            <span role="columnheader">Prioridade</span>
+            <span role="columnheader">Ativo</span>
+            <span role="columnheader">Categoria</span>
+            <span role="columnheader">Data</span>
+            <span role="columnheader">Status</span>
+            <span role="columnheader">Ação</span>
+          </div>
+          <div class="history-row" role="row">
+            <span role="cell">🛰️ Ajuste de órbita satélite 204-11</span>
+            <span role="cell"><strong class="priority high">Alta</strong></span>
+            <span role="cell">Satélite 204-11</span>
+            <span role="cell">Navegação</span>
+            <span role="cell">05/06/2026 16:20</span>
+            <span role="cell"><strong class="status applied">Aplicada</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver ajuste de órbita" data-history-view>👁️</button></span>
+          </div>
+          <div class="history-row" role="row">
+            <span role="cell">⚡ Reforço de energia estação EN-02</span>
+            <span role="cell"><strong class="priority medium">Média</strong></span>
+            <span role="cell">Estação EN-02</span>
+            <span role="cell">Energia</span>
+            <span role="cell">05/06/2026 11:35</span>
+            <span role="cell"><strong class="status applied">Aplicada</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver reforço de energia" data-history-view>👁️</button></span>
+          </div>
+          <div class="history-row" role="row">
+            <span role="cell">🔧 Manutenção preventiva EN-04</span>
+            <span role="cell"><strong class="priority low">Baixa</strong></span>
+            <span role="cell">Estação EN-04</span>
+            <span role="cell">Manutenção</span>
+            <span role="cell">04/06/2026 09:12</span>
+            <span role="cell"><strong class="status dismissed">Descartada</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver manutenção preventiva" data-history-view>👁️</button></span>
+          </div>
+          <div class="history-row" role="row">
+            <span role="cell">☀️ Ajuste de rotação de painel solar</span>
+            <span role="cell"><strong class="priority medium">Média</strong></span>
+            <span role="cell">Satélite 203-05</span>
+            <span role="cell">Sistema</span>
+            <span role="cell">04/06/2026 08:45</span>
+            <span role="cell"><strong class="status pending">Pendente</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver ajuste de painel" data-history-view>👁️</button></span>
+          </div>
+          <div class="history-row" role="row">
+            <span role="cell">🎚️ Otimização de rota de transmissão</span>
+            <span role="cell"><strong class="priority low">Baixa</strong></span>
+            <span role="cell">Rota Comercial 12</span>
+            <span role="cell">Transmissão</span>
+            <span role="cell">03/06/2026 14:10</span>
+            <span role="cell"><strong class="status applied">Aplicada</strong></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ver otimização de rota" data-history-view>👁️</button></span>
+          </div>
+        </div>
+
+        <div class="table-footer">
+          <p data-visible-count>Exibindo 1 a 5 de 28 recomendações</p>
+          <div class="pagination" aria-label="Paginação">
+            <button type="button" disabled>‹</button>
+            <button class="active" type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button">4</button>
+            <button type="button">5</button>
+            <button type="button">›</button>
+          </div>
+          <select aria-label="Quantidade por página">
+            <option>5 por página</option>
+            <option>10 por página</option>
+            <option>25 por página</option>
+          </select>
+        </div>
+      </section>
+
       <footer class="private-footer">
         <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
         <span>Versão 2.4.1</span>
