@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gerenciamento de operações da plataforma Prepila Dyson.">
+  <title>Operações | Prepila Dyson</title>
+  <link rel="stylesheet" href="/assets/css/operacoes/operacoes.css">
+</head>
+<body>
+  <div class="private-shell">
+    <aside class="sidebar" id="privateSidebar" aria-label="Navegação privada">
+      <a class="sidebar-brand" href="/pages/private/perfil/perfil.html" aria-label="Prepila Dyson">
+        <img src="/assets/images/icon/Icon.png" alt="Logo Prepila Dyson">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-item" href="/pages/private/dashboard/dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>Início</span>
+        </a>
+        <a class="nav-item" href="/pages/private/administracao/administracao.html">
+          <span class="nav-icon" aria-hidden="true">💼</span>
+          <span>Administração</span>
+        </a>
+        <a class="nav-item" href="operacoes.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">⚙️</span>
+          <span>Operações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/monitoramento/monitoramento.html">
+          <span class="nav-icon" aria-hidden="true">📡</span>
+          <span>Monitoramento</span>
+        </a>
+        <a class="nav-item" href="/pages/private/alertas/alertas.html">
+          <span class="nav-icon" aria-hidden="true">🚨</span>
+          <span>Alertas</span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a class="nav-item" href="/pages/private/recomendacoes/recomendacoes.html">
+          <span class="nav-icon" aria-hidden="true">💡</span>
+          <span>Recomendações</span>
+        </a>
+        <a class="nav-item" href="/pages/private/relatorios/relatorios.html">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <span>Relatórios</span>
+        </a>
+        <a class="nav-item" href="/pages/private/contratos/contratos.html">
+          <span class="nav-icon" aria-hidden="true">📄</span>
+          <span>Contratos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="user-card" href="/pages/private/perfil/perfil.html">
+          <span class="mini-avatar" aria-hidden="true">👨‍💼</span>
+          <span>
+            <strong>Administrador Prepila Dyson</strong>
+            <small>Administrador</small>
+            <small class="online-dot">Online</small>
+          </span>
+        </a>
+
+        <a class="logout-link" href="/pages/public/login.html">
+          <span aria-hidden="true">🚪</span>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" data-close-sidebar></div>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="sidebar-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="privateSidebar">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="page-title">
+          <span aria-hidden="true">⚙️</span>
+          <div>
+            <h1>Operações</h1>
+            <p>Gerencie e acompanhe todas as operações em andamento.</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="Ações de operações">
+          <button class="icon-button notification-button" type="button" aria-label="Notificações" aria-haspopup="dialog" aria-controls="notificationModal">
+            <span aria-hidden="true">🔔</span>
+            <strong class="notification-count">2</strong>
+          </button>
+          <label class="date-filter">
+            <span aria-hidden="true">📅</span>
+            <select aria-label="Período das operações" data-period-select>
+              <option>31/05/2026 - 06/06/2026</option>
+              <option>24/05/2026 - 30/05/2026</option>
+              <option>01/06/2026 - 06/06/2026</option>
+            </select>
+          </label>
+          <button class="admin-level" type="button" data-open-filters aria-haspopup="dialog" aria-controls="filtersModal">
+            <span aria-hidden="true">🔎</span>
+            <span>Filtros</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="metrics-grid" aria-label="Indicadores de operações">
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">📈</span>
+          <div>
+            <small>Operações ativas</small>
+            <strong data-active-operations>42</strong>
+            <p class="success-text">↑ 10% vs período anterior</p>
+          </div>
+          <i class="sparkline green"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">⚡</span>
+          <div>
+            <small>Energia gerada</small>
+            <strong>12,4 TWH</strong>
+            <p class="success-text">↑ 11,3% vs período anterior</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon" aria-hidden="true">🎯</span>
+          <div>
+            <small>Eficiência média</small>
+            <strong data-efficiency>95,1%</strong>
+            <p class="success-text">↑ 2,7% vs período anterior</p>
+          </div>
+          <i class="sparkline blue"></i>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon purple" aria-hidden="true">🛰️</span>
+          <div>
+            <small>Planos em execução</small>
+            <strong>14</strong>
+            <p class="success-text">↑ 2 vs período anterior</p>
+          </div>
+          <i class="sparkline purple"></i>
+        </article>
+        <article class="metric-card warning-card">
+          <span class="metric-icon orange" aria-hidden="true">⚠️</span>
+          <div>
+            <small>Ocorrências</small>
+            <strong data-occurrence-count>5</strong>
+            <p><span class="danger-text">1 crítico</span> | <span class="warning-text">4 médios</span></p>
+          </div>
+          <i class="sparkline yellow"></i>
+        </article>
+      </section>
+
+      <section class="operations-layout">
+        <article class="monitor-panel map-panel" aria-labelledby="overview-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">🌐</span>
+              <h2 id="overview-title">Visão geral das operações</h2>
+            </div>
+            <select aria-label="Janela do mapa" data-window-select>
+              <option>Últimas 24 horas</option>
+              <option>Últimos 7 dias</option>
+              <option>Últimos 30 dias</option>
+            </select>
+          </div>
+
+          <div class="world-map" aria-label="Mapa operacional com estações e planos">
+            <button class="station-pin active north-america is-selected" type="button" data-station="EN-01"><b>EN-01</b><small>Ativa</small></button>
+            <button class="station-pin active south-america" type="button" data-station="EN-03"><b>EN-03</b><small>Ativa</small></button>
+            <button class="station-pin maintenance africa" type="button" data-station="EN-04"><b>EN-04</b><small>Manutenção</small></button>
+            <button class="station-pin active europe" type="button" data-station="EN-03 GEO"><b>EN-03</b><small>Ativa</small></button>
+            <button class="station-pin alert asia" type="button" data-station="EN-05"><b>EN-05</b><small>Alerta</small></button>
+            <button class="station-pin active east-asia" type="button" data-station="EN-07"><b>EN-07</b><small>Ativa</small></button>
+            <button class="station-pin active india" type="button" data-station="EN-08"><b>EN-08</b><small>Ativa</small></button>
+            <button class="station-pin inactive argentina" type="button" data-station="EN-09"><b>EN-09</b><small>Inativa</small></button>
+            <button class="station-pin planned oceania" type="button" data-station="EN-10"><b>EN-10</b><small>Planejada</small></button>
+          </div>
+
+          <div class="map-controls" aria-hidden="true">
+            <span>+</span><span>-</span><span>⛶</span>
+          </div>
+
+          <div class="status-legend" aria-label="Legenda de status">
+            <span class="active">Ativa</span>
+            <span class="alert">Alerta</span>
+            <span class="maintenance">Manutenção</span>
+            <span class="planned">Planejada</span>
+            <span class="inactive">Inativa</span>
+          </div>
+        </article>
+
+        <aside class="monitor-panel queue-panel" aria-labelledby="queue-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">📋</span>
+              <h2 id="queue-title">Fila de operações</h2>
+            </div>
+            <a class="inline-link" href="#recent-operations">Ver todas ›</a>
+          </div>
+
+          <div class="queue-list">
+            <article data-operation-row data-status="andamento">
+              <span class="queue-icon transfer">↔</span>
+              <div><strong>Transferência de carga EN-01 → EN-03</strong><small>Transferência programada de 120 MW</small></div>
+              <b class="status-badge progress">Em andamento</b>
+              <time>14:32</time>
+            </article>
+            <article data-operation-row data-status="pendente">
+              <span class="queue-icon orbital">🛰️</span>
+              <div><strong>Ajuste de alinhamento orbital</strong><small>Satélite 205-07</small></div>
+              <b class="status-badge pending">Pendente</b>
+              <time>13:50</time>
+            </article>
+            <article data-operation-row data-status="concluida">
+              <span class="queue-icon energy">⚡</span>
+              <div><strong>Redistribuição de energia</strong><small>Entre estações do setor sul</small></div>
+              <b class="status-badge done">Concluída</b>
+              <time>12:41</time>
+            </article>
+            <article data-operation-row data-status="pendente">
+              <span class="queue-icon maintenance">🔧</span>
+              <div><strong>Manutenção preventiva EN-04</strong><small>Sistema de transmissão</small></div>
+              <b class="status-badge pending">Pendente</b>
+              <time>11:20</time>
+            </article>
+            <article data-operation-row data-status="concluida">
+              <span class="queue-icon calibration">◎</span>
+              <div><strong>Calibração de sensores EN-08</strong><small>Rede de monitoramento</small></div>
+              <b class="status-badge done">Concluída</b>
+              <time>09:15</time>
+            </article>
+          </div>
+
+          <a class="details-link" href="#recent-operations">Ver todas as operações ›</a>
+        </aside>
+      </section>
+
+      <section class="operations-layout lower-operations-layout">
+        <article class="monitor-panel energy-panel" aria-labelledby="energy-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">📈</span>
+              <h2 id="energy-title">Geração de energia (TWH)</h2>
+            </div>
+            <select aria-label="Período do gráfico" data-chart-period>
+              <option>Últimos 7 dias</option>
+              <option>Últimas 24 horas</option>
+              <option>Últimos 30 dias</option>
+            </select>
+          </div>
+
+          <div class="energy-chart">
+            <svg viewBox="0 0 100 48" role="img" aria-labelledby="energyChartTitle">
+              <title id="energyChartTitle">Geração energética por período</title>
+              <g class="grid-lines">
+                <path d="M0 8H100M0 20H100M0 32H100M0 44H100"></path>
+                <path d="M10 0V48M24 0V48M38 0V48M52 0V48M66 0V48M80 0V48M94 0V48"></path>
+              </g>
+              <polyline class="real-line" data-energy-line points="1,30 15,28 29,21 43,26 57,20 71,19 85,16 99,18"></polyline>
+              <g class="chart-points">
+                <circle cx="1" cy="30" r="1.2"></circle><circle cx="29" cy="21" r="1.2"></circle><circle cx="57" cy="20" r="1.2"></circle><circle cx="85" cy="16" r="1.2"></circle><circle cx="99" cy="18" r="1.2"></circle>
+              </g>
+            </svg>
+          </div>
+
+          <div class="chart-days" aria-hidden="true">
+            <span>31/05</span><span>01/06</span><span>02/06</span><span>03/06</span><span>04/06</span><span>05/06</span><span>06/06</span>
+          </div>
+
+          <div class="chart-summary">
+            <article><small>Real</small><strong>12,4 TWH</strong></article>
+            <article><small>Previsto</small><strong>11,7 TWH</strong></article>
+            <article><small>Meta</small><strong>13,0 TWH</strong></article>
+            <article><small>Atingimento da meta</small><strong>95%</strong></article>
+          </div>
+        </article>
+
+        <aside class="monitor-panel distribution-panel" aria-labelledby="distribution-title">
+          <div class="panel-heading">
+            <div>
+              <span class="section-icon" aria-hidden="true">◎</span>
+              <h2 id="distribution-title">Distribuição de operações por tipo</h2>
+            </div>
+          </div>
+
+          <div class="asset-summary operations-donut">
+            <div class="donut" aria-label="42 operações no total"><strong>42</strong><span>Total</span></div>
+            <ul>
+              <li><span class="dot ok"></span>Transferência de Carga <strong>16 (38%)</strong></li>
+              <li><span class="dot attention"></span>Manutenção <strong>10 (24%)</strong></li>
+              <li><span class="dot orbital"></span>Ajustes Orbitais <strong>8 (19%)</strong></li>
+              <li><span class="dot good"></span>Calibrações <strong>5 (12%)</strong></li>
+              <li><span class="dot muted"></span>Outros <strong>3 (7%)</strong></li>
+            </ul>
+          </div>
+
+          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver relatório completo ›</a>
+        </aside>
+      </section>
+
+      <section class="monitor-panel operations-table-panel" id="recent-operations" aria-labelledby="recent-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-icon" aria-hidden="true">🧾</span>
+            <h2 id="recent-title">Operações recentes</h2>
+          </div>
+        </div>
+
+        <div class="operations-table" role="table" aria-label="Operações recentes">
+          <div class="operation-row operation-head" role="row">
+            <span role="columnheader">Operação</span>
+            <span role="columnheader">Tipo</span>
+            <span role="columnheader">Estação(s)</span>
+            <span role="columnheader">Status</span>
+            <span role="columnheader">Início</span>
+            <span role="columnheader">Previsão término</span>
+            <span role="columnheader">Responsável</span>
+            <span role="columnheader">Ações</span>
+          </div>
+
+          <div class="operation-row" role="row" data-table-row data-status="andamento">
+            <span role="cell">Transferência de carga</span>
+            <span role="cell"><b class="type-chip transfer">Transferência</b></span>
+            <span role="cell">EN-01 → EN-03</span>
+            <span role="cell"><b class="status-badge progress">Em andamento</b></span>
+            <span role="cell">06/06 14:20</span>
+            <span role="cell">06/06 15:30</span>
+            <span role="cell"><span class="person">👨‍💼</span> Carlos M.</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações transferência" data-row-action>⋮</button></span>
+          </div>
+          <div class="operation-row" role="row" data-table-row data-status="pendente">
+            <span role="cell">Ajuste orbital</span>
+            <span role="cell"><b class="type-chip orbital">Ajuste</b></span>
+            <span role="cell">205-07</span>
+            <span role="cell"><b class="status-badge pending">Pendente</b></span>
+            <span role="cell">06/06 13:50</span>
+            <span role="cell">06/06 15:00</span>
+            <span role="cell"><span class="person">👩‍💼</span> Mariana S.</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações ajuste" data-row-action>⋮</button></span>
+          </div>
+          <div class="operation-row" role="row" data-table-row data-status="concluida">
+            <span role="cell">Redistribuição de energia</span>
+            <span role="cell"><b class="type-chip energy">Energia</b></span>
+            <span role="cell">Setor Sul</span>
+            <span role="cell"><b class="status-badge done">Concluída</b></span>
+            <span role="cell">06/06 12:10</span>
+            <span role="cell">06/06 12:41</span>
+            <span role="cell"><span class="person">👨‍🚀</span> João P.</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações energia" data-row-action>⋮</button></span>
+          </div>
+          <div class="operation-row" role="row" data-table-row data-status="pendente">
+            <span role="cell">Manutenção preventiva</span>
+            <span role="cell"><b class="type-chip maintenance">Manutenção</b></span>
+            <span role="cell">EN-04</span>
+            <span role="cell"><b class="status-badge pending">Pendente</b></span>
+            <span role="cell">06/06 11:20</span>
+            <span role="cell">06/06 14:00</span>
+            <span role="cell"><span class="person">🧑‍🔧</span> Lucas R.</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações manutenção" data-row-action>⋮</button></span>
+          </div>
+          <div class="operation-row" role="row" data-table-row data-status="concluida">
+            <span role="cell">Calibração de sensores</span>
+            <span role="cell"><b class="type-chip calibration">Calibração</b></span>
+            <span role="cell">EN-08</span>
+            <span role="cell"><b class="status-badge done">Concluída</b></span>
+            <span role="cell">06/06 09:05</span>
+            <span role="cell">06/06 09:15</span>
+            <span role="cell"><span class="person">👩‍💻</span> Renata L.</span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Ações calibração" data-row-action>⋮</button></span>
+          </div>
+        </div>
+
+        <a class="details-link compact-link" href="/pages/private/relatorios/relatorios.html">Ver todas as operações ›</a>
+      </section>
+
+      <footer class="private-footer">
+        <p>© 2026 Prepila Dyson · Todos os direitos reservados.</p>
+        <span>Versão 2.4.1</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="notification-modal" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationTitle" hidden>
+    <div class="notification-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar notificações" data-close-notification>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔔</span>
+        <div>
+          <h2 id="notificationTitle">Notificações</h2>
+          <p>Eventos recentes da fila operacional.</p>
+        </div>
+      </div>
+      <article class="notification-message">
+        <strong>⚠️ Ajuste orbital pendente</strong>
+        <p>O satélite 205-07 aguarda confirmação para correção de alinhamento.</p>
+        <small>Atualizado em 06/06/2026 às 13:50</small>
+      </article>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-read-notification>✓✓ Marcar como lido</button>
+        <a class="primary-action" href="/pages/private/alertas/alertas.html">Ir para alertas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-modal" id="filtersModal" role="dialog" aria-modal="true" aria-labelledby="filtersTitle" hidden>
+    <div class="notification-dialog actions-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar filtros" data-close-filters>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">🔎</span>
+        <div>
+          <h2 id="filtersTitle">Filtros</h2>
+          <p>Filtre a fila e o mapa operacional.</p>
+        </div>
+      </div>
+      <div class="actions-list">
+        <button type="button" data-status-filter="todos">🌐 Mostrar todas as operações</button>
+        <button type="button" data-status-filter="andamento">🔄 Em andamento</button>
+        <button type="button" data-status-filter="pendente">⏳ Pendentes</button>
+        <button type="button" data-status-filter="concluida">✅ Concluídas</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="toast-message" id="operationsToast" role="status" hidden></p>
+
+  <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/operacoes/operacoes.js"></script>
+</body>
+</html>
