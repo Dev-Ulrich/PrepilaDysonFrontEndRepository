@@ -23,11 +23,15 @@ const appliedCount = document.querySelector('[data-applied-count]');
 const pendingCount = document.querySelector('[data-pending-count]');
 const dismissedCount = document.querySelector('[data-dismissed-count]');
 const visibleCount = document.querySelector('[data-visible-count]');
+const pagination = document.querySelector('.pagination');
+const historyRows = document.querySelectorAll('.history-row:not(.history-head)');
 const toast = document.querySelector('#recommendationsToast');
 
 const filters = ['todas', 'alta', 'media', 'baixa', 'pendente', 'aplicada', 'descartada'];
 let filterIndex = 0;
 let selectedCard = null;
+let historyPage = 1;
+const historyPageSize = 3;
 
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
@@ -130,6 +134,7 @@ function setCardStatus(card, status) {
   card.dataset.status = status;
   card.classList.toggle('is-applied', status === 'aplicada');
   card.classList.toggle('is-dismissed', status === 'descartada');
+  card.classList.toggle('is-scheduled', status === 'agendada');
 
   const buttons = card.querySelectorAll('[data-action]');
   buttons.forEach((button) => {
@@ -138,6 +143,26 @@ function setCardStatus(card, status) {
 
   updateCounters();
   filterRecommendations();
+}
+
+function paginateHistory() {
+  if (!pagination) return;
+
+  const rows = Array.from(historyRows);
+  const totalPages = Math.max(1, Math.ceil(rows.length / historyPageSize));
+  historyPage = Math.min(historyPage, totalPages);
+  const start = (historyPage - 1) * historyPageSize;
+  const pageRows = rows.slice(start, start + historyPageSize);
+
+  rows.forEach((row) => {
+    row.hidden = !pageRows.includes(row);
+  });
+
+  pagination.innerHTML = `
+    <button type="button" data-history-page="prev" ${historyPage === 1 ? 'disabled' : ''}>‹</button>
+    ${Array.from({ length: totalPages }, (_, index) => `<button class="${index + 1 === historyPage ? 'active' : ''}" type="button" data-history-page="${index + 1}">${index + 1}</button>`).join('')}
+    <button type="button" data-history-page="next" ${historyPage === totalPages ? 'disabled' : ''}>›</button>
+  `;
 }
 
 function openDetails(card) {
@@ -277,6 +302,7 @@ modalActionButtons.forEach((button) => {
     }
 
     if (action === 'agendar') {
+      setCardStatus(selectedCard, 'agendada');
       showToast(`Execução agendada: ${getCardTitle(selectedCard)}.`);
       closeModal(detailsModal);
       return;
@@ -296,5 +322,18 @@ historyButtons.forEach((button) => {
   });
 });
 
+if (pagination) {
+  pagination.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-history-page]');
+    if (!button || button.disabled) return;
+    const action = button.dataset.historyPage;
+    if (action === 'prev') historyPage = Math.max(1, historyPage - 1);
+    else if (action === 'next') historyPage += 1;
+    else historyPage = Number(action);
+    paginateHistory();
+  });
+}
+
 updateCounters();
 filterRecommendations();
+paginateHistory();

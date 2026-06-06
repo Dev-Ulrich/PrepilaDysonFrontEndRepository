@@ -219,6 +219,22 @@ function handleStationModalAction(action) {
     return;
   }
 
+  if (action === 'exportar' && window.PrepilaData) {
+    PrepilaData.downloadFile(`${selectedStation}-dados.json`, JSON.stringify({ station: selectedStation, exportedAt: new Date().toISOString() }, null, 2));
+  }
+
+  if (action === 'alerta' && window.PrepilaData) {
+    const alerts = PrepilaData.getAlerts();
+    alerts.unshift({ id: crypto.randomUUID(), name: `Alerta operacional ${selectedStation}`, station: selectedStation, status: 'ativo', priority: 'alto', createdAt: new Date().toISOString() });
+    PrepilaData.saveAlerts(alerts);
+  }
+
+  if (action === 'manutencao' && window.PrepilaData) {
+    const operations = PrepilaData.getOperations();
+    operations.unshift({ id: crypto.randomUUID(), name: `Manutenção ${selectedStation}`, type: 'maintenance', station: selectedStation, status: 'pendente', start: '2026-06-07T09:00', end: '2026-06-07T12:00', owner: 'Equipe técnica', person: '🧑‍🔧' });
+    PrepilaData.saveOperations(operations);
+  }
+
   const messages = {
     detalhes: `Detalhes da estação ${selectedStation} carregados.`,
     comparar: `Comparativo da estação ${selectedStation} preparado.`,
@@ -335,6 +351,12 @@ if (grainSelect) {
 
 exportButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    if (window.PrepilaData) {
+      PrepilaData.downloadFile(`relatorio-${button.dataset.export}.json`, JSON.stringify({
+        period: document.querySelector('[data-period].active')?.dataset.period || 'mes',
+        metrics: Array.from(document.querySelectorAll('[data-metric]')).map((metric) => ({ key: metric.dataset.metric, value: metric.textContent.trim() })),
+      }, null, 2));
+    }
     showToast(`Relatório ${button.dataset.export.toUpperCase()} exportado com sucesso.`);
   });
 });
@@ -360,6 +382,10 @@ preferenceButtons.forEach((button) => {
 
 tableActionButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    if (button.dataset.tableAction?.includes('atualizada')) updateChart('diario');
+    if (button.dataset.tableAction?.includes('Ordenação')) {
+      Array.from(stationRows).sort((a, b) => b.textContent.localeCompare(a.textContent)).forEach((row) => row.parentElement.append(row));
+    }
     showToast(button.dataset.tableAction);
     closeModal(tableOptionsModal);
   });

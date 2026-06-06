@@ -204,8 +204,13 @@ if (readNotificationButton) {
 }
 
 if (form) {
-  const contractName = new URLSearchParams(window.location.search).get('contrato') || 'ESA';
-  const contractData = contractsData[contractName] || contractsData.ESA;
+  const contractParam = new URLSearchParams(window.location.search).get('contrato') || 'contract-esa';
+  const storedContracts = window.PrepilaData ? PrepilaData.getContracts() : [];
+  const storedContract = storedContracts.find((contract) => contract.id === contractParam || contract.acronym === contractParam);
+  const contractName = storedContract?.acronym || contractParam || 'ESA';
+  const contractData = storedContract
+    ? { ...storedContract, value: String(storedContract.value || 0) }
+    : contractsData[contractName] || contractsData.ESA;
 
   fillForm(contractData);
 
@@ -218,6 +223,31 @@ if (form) {
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
+    }
+
+    if (window.PrepilaData) {
+      const formData = new FormData(form);
+      const contracts = PrepilaData.getContracts();
+      const nextContract = {
+        id: storedContract?.id || contractParam || crypto.randomUUID(),
+        organization: formData.get('organization').trim(),
+        acronym: formData.get('acronym').trim().toUpperCase(),
+        owner: formData.get('owner').trim(),
+        email: formData.get('email').trim(),
+        plan: formData.get('plan'),
+        status: formData.get('status'),
+        value: Number(formData.get('value') || 0),
+        billing: formData.get('billing'),
+        startDate: formData.get('startDate'),
+        endDate: formData.get('endDate'),
+        sla: formData.get('sla'),
+        renewal: formData.get('renewal'),
+        notes: formData.get('notes').trim(),
+      };
+      const exists = contracts.some((contract) => contract.id === nextContract.id);
+      PrepilaData.saveContracts(exists
+        ? contracts.map((contract) => contract.id === nextContract.id ? nextContract : contract)
+        : [nextContract, ...contracts]);
     }
 
     statusMessage.textContent = 'Alterações salvas com sucesso.';

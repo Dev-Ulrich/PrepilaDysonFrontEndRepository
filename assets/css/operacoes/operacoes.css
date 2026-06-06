@@ -356,12 +356,28 @@ h1 {
 }
 
 .date-filter select,
+.date-filter input,
 .station-details select {
   min-height: 38px;
   color: var(--text);
   border: 0;
   background: transparent;
   outline: 0;
+}
+
+.operation-date-range {
+  flex-wrap: wrap;
+}
+
+.operation-date-range input {
+  width: 136px;
+}
+
+.operation-date-range span:last-of-type {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .metrics-grid {
@@ -941,6 +957,10 @@ h1 {
   width: min(500px, 100%);
 }
 
+.operation-dialog {
+  width: min(760px, 100%);
+}
+
 .modal-close {
   position: absolute;
   top: 14px;
@@ -1015,6 +1035,8 @@ h1 {
 
 .actions-list button:hover,
 .actions-list button:focus-visible,
+.operation-field input:focus,
+.operation-field select:focus,
 .icon-button:hover,
 .icon-button:focus-visible,
 .ghost-button:hover,
@@ -1025,6 +1047,46 @@ h1 {
 .details-link:focus-visible {
   border-color: var(--cyan);
   box-shadow: var(--shadow);
+}
+
+.operation-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.operation-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.operation-field {
+  display: grid;
+  gap: 8px;
+}
+
+.operation-field-wide {
+  grid-column: 1 / -1;
+}
+
+.operation-field span {
+  color: #c7d6f3;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.operation-field input,
+.operation-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(3, 12, 31, 0.76);
+  outline: 0;
 }
 
 .toast-message {
@@ -1374,8 +1436,8 @@ h1 {
 
 .operation-row {
   display: grid;
-  grid-template-columns: minmax(190px, 1.1fr) minmax(130px, 0.7fr) minmax(150px, 0.8fr) minmax(132px, 0.7fr) minmax(130px, 0.7fr) minmax(160px, 0.8fr) minmax(130px, 0.75fr) 56px;
-  min-width: 1080px;
+  grid-template-columns: minmax(190px, 1.1fr) minmax(130px, 0.7fr) minmax(150px, 0.8fr) minmax(132px, 0.7fr) minmax(150px, 0.74fr) minmax(170px, 0.82fr) minmax(130px, 0.75fr) minmax(104px, 0.46fr);
+  min-width: 1160px;
   border-bottom: 1px solid rgba(95, 188, 255, 0.16);
 }
 
@@ -1418,6 +1480,10 @@ h1 {
   margin-inline: auto;
 }
 
+.danger-action {
+  color: var(--danger);
+}
+
 @media (max-width: 1180px) {
   .operations-layout,
   .lower-operations-layout {
@@ -1437,6 +1503,10 @@ h1 {
   }
 
   .chart-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .operation-form-grid {
     grid-template-columns: 1fr;
   }
 }

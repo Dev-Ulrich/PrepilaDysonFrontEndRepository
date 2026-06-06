@@ -140,6 +140,28 @@ if (form) {
       return;
     }
 
+    if (window.PrepilaData) {
+      const formData = new FormData(form);
+      const contracts = PrepilaData.getContracts();
+      contracts.unshift({
+        id: crypto.randomUUID(),
+        organization: formData.get('organization').trim(),
+        acronym: formData.get('acronym').trim().toUpperCase(),
+        owner: formData.get('owner').trim(),
+        email: formData.get('email').trim(),
+        plan: formData.get('plan'),
+        status: formData.get('status'),
+        value: Number(formData.get('value') || 0),
+        billing: formData.get('billing'),
+        startDate: formData.get('startDate'),
+        endDate: formData.get('endDate'),
+        sla: formData.get('sla'),
+        renewal: formData.get('renewal'),
+        notes: formData.get('notes').trim(),
+      });
+      PrepilaData.saveContracts(contracts);
+    }
+
     statusMessage.textContent = 'Contrato criado com sucesso.';
     showToast('Novo contrato cadastrado com sucesso.');
   });

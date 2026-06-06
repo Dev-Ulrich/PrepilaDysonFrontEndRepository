@@ -1,288 +1,190 @@
 const sidebar = document.querySelector('#privateSidebar');
 const sidebarToggle = document.querySelector('.sidebar-toggle');
 const sidebarBackdrop = document.querySelector('[data-close-sidebar]');
-const copyButtons = document.querySelectorAll('[data-copy]');
 const notificationButton = document.querySelector('.notification-button');
 const notificationModal = document.querySelector('#notificationModal');
 const notificationCount = document.querySelector('.notification-count');
 const closeNotificationButton = document.querySelector('[data-close-notification]');
 const readNotificationButton = document.querySelector('[data-read-notification]');
 const searchInput = document.querySelector('.contract-search-input');
-const contractRows = document.querySelectorAll('[data-contract-row]');
 const filterButton = document.querySelector('[data-filter-contracts]');
 const exportReportButton = document.querySelector('[data-export-report]');
-const actionButtons = document.querySelectorAll('[data-action]');
-const detailButtons = document.querySelectorAll('[data-detail-contract]');
-const toast = document.querySelector('#contractsToast');
 const tableOptionsButton = document.querySelector('[data-open-table-options]');
 const tableOptionsModal = document.querySelector('#tableOptionsModal');
 const closeTableOptionsButton = document.querySelector('[data-close-table-options]');
 const tableActionButtons = document.querySelectorAll('[data-table-action]');
-const contractActionButtons = document.querySelectorAll('[data-contract-actions]');
 const contractActionsModal = document.querySelector('#contractActionsModal');
 const closeContractActionsButton = document.querySelector('[data-close-contract-actions]');
 const contractActionsSubtitle = document.querySelector('#contractActionsSubtitle');
 const contractModalActionButtons = document.querySelectorAll('[data-contract-modal-action]');
 const financePeriodButtons = document.querySelectorAll('[data-period]');
 const financeChart = document.querySelector('[data-finance-chart]');
+const contractsTable = document.querySelector('.contracts-table');
+const contractHead = document.querySelector('.contract-head');
+const toast = document.querySelector('#contractsToast');
 
 let activeFilter = 'todos';
-let selectedContract = '';
+let selectedContractId = '';
+let contracts = window.PrepilaData ? PrepilaData.getContracts() : [];
 
 const chartPointsByPeriod = {
-  1: [
-    { x: 45, y: 48 },
-    { x: 58, y: 35 },
-    { x: 72, y: 28 },
-    { x: 88, y: 18 }
-  ],
-  3: [
-    { x: 10, y: 70 },
-    { x: 28, y: 56 },
-    { x: 46, y: 43 },
-    { x: 64, y: 31 },
-    { x: 84, y: 20 }
-  ],
-  6: [
-    { x: 8, y: 68 },
-    { x: 22, y: 50 },
-    { x: 36, y: 38 },
-    { x: 52, y: 44 },
-    { x: 68, y: 26 },
-    { x: 88, y: 16 }
-  ],
-  9: [
-    { x: 6, y: 74 },
-    { x: 17, y: 58 },
-    { x: 28, y: 48 },
-    { x: 39, y: 36 },
-    { x: 50, y: 43 },
-    { x: 61, y: 28 },
-    { x: 72, y: 35 },
-    { x: 83, y: 22 },
-    { x: 94, y: 15 }
-  ],
-  12: [
-    { x: 6, y: 72 },
-    { x: 17, y: 58 },
-    { x: 28, y: 46 },
-    { x: 39, y: 34 },
-    { x: 50, y: 39 },
-    { x: 61, y: 26 },
-    { x: 72, y: 35 },
-    { x: 83, y: 21 },
-    { x: 94, y: 12 }
-  ],
-  24: [
-    { x: 5, y: 78 },
-    { x: 13, y: 70 },
-    { x: 21, y: 63 },
-    { x: 29, y: 54 },
-    { x: 37, y: 58 },
-    { x: 45, y: 44 },
-    { x: 53, y: 36 },
-    { x: 61, y: 42 },
-    { x: 69, y: 31 },
-    { x: 77, y: 25 },
-    { x: 85, y: 19 },
-    { x: 94, y: 10 }
-  ]
+  1: [{ x: 45, y: 48 }, { x: 58, y: 35 }, { x: 72, y: 28 }, { x: 88, y: 18 }],
+  3: [{ x: 10, y: 70 }, { x: 28, y: 56 }, { x: 46, y: 43 }, { x: 64, y: 31 }, { x: 84, y: 20 }],
+  6: [{ x: 8, y: 68 }, { x: 22, y: 50 }, { x: 36, y: 38 }, { x: 52, y: 44 }, { x: 68, y: 26 }, { x: 88, y: 16 }],
+  9: [{ x: 6, y: 74 }, { x: 17, y: 58 }, { x: 28, y: 48 }, { x: 39, y: 36 }, { x: 50, y: 43 }, { x: 61, y: 28 }, { x: 72, y: 35 }, { x: 83, y: 22 }, { x: 94, y: 15 }],
+  12: [{ x: 6, y: 72 }, { x: 17, y: 58 }, { x: 28, y: 46 }, { x: 39, y: 34 }, { x: 50, y: 39 }, { x: 61, y: 26 }, { x: 72, y: 35 }, { x: 83, y: 21 }, { x: 94, y: 12 }],
+  24: [{ x: 5, y: 78 }, { x: 13, y: 70 }, { x: 21, y: 63 }, { x: 29, y: 54 }, { x: 37, y: 58 }, { x: 45, y: 44 }, { x: 53, y: 36 }, { x: 61, y: 42 }, { x: 69, y: 31 }, { x: 77, y: 25 }, { x: 85, y: 19 }, { x: 94, y: 10 }]
 };
 
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
-
-  if (sidebarToggle) {
-    sidebarToggle.setAttribute('aria-expanded', String(isOpen));
-  }
-}
-
-if (sidebarToggle && sidebar) {
-  sidebarToggle.addEventListener('click', () => {
-    setSidebarState(!document.body.classList.contains('sidebar-open'));
-  });
-}
-
-if (sidebarBackdrop) {
-  sidebarBackdrop.addEventListener('click', () => {
-    setSidebarState(false);
-  });
-}
-
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    setSidebarState(false);
-    closeNotificationModal();
-    closeTableOptionsModal();
-    closeContractActionsModal();
-  }
-});
-
-function openNotificationModal() {
-  if (notificationModal) {
-    notificationModal.hidden = false;
-    document.body.classList.add('modal-open');
-    closeNotificationButton?.focus();
-  }
-}
-
-function closeNotificationModal() {
-  if (notificationModal) {
-    notificationModal.hidden = true;
-    document.body.classList.remove('modal-open');
-  }
-}
-
-function openTableOptionsModal() {
-  if (tableOptionsModal) {
-    tableOptionsModal.hidden = false;
-    document.body.classList.add('modal-open');
-    closeTableOptionsButton?.focus();
-  }
-}
-
-function closeTableOptionsModal() {
-  if (tableOptionsModal) {
-    tableOptionsModal.hidden = true;
-    document.body.classList.remove('modal-open');
-  }
-}
-
-function openContractActionsModal(contractName) {
-  selectedContract = contractName;
-  const selectedRow = getSelectedContractRow();
-
-  if (contractActionsSubtitle) {
-    contractActionsSubtitle.textContent = `Contrato selecionado: ${contractName}.`;
-  }
-
-  if (selectedRow) {
-    highlightContract(contractName);
-  }
-
-  if (contractActionsModal) {
-    contractActionsModal.hidden = false;
-    document.body.classList.add('modal-open');
-    closeContractActionsButton?.focus();
-  }
-}
-
-function closeContractActionsModal() {
-  if (contractActionsModal) {
-    contractActionsModal.hidden = true;
-    document.body.classList.remove('modal-open');
-  }
+  if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', String(isOpen));
 }
 
 function showToast(message) {
-  if (!toast) {
-    return;
-  }
-
+  if (!toast) return;
   toast.textContent = message;
   toast.hidden = false;
-
   window.clearTimeout(showToast.timeoutId);
   showToast.timeoutId = window.setTimeout(() => {
     toast.hidden = true;
   }, 2600);
 }
 
-function filterContracts() {
+function openModal(modal, focusTarget) {
+  if (!modal) return;
+  modal.hidden = false;
+  document.body.classList.add('modal-open');
+  focusTarget?.focus();
+}
+
+function closeModal(modal) {
+  if (!modal) return;
+  modal.hidden = true;
+  document.body.classList.remove('modal-open');
+}
+
+function closeAllModals() {
+  closeModal(notificationModal);
+  closeModal(tableOptionsModal);
+  closeModal(contractActionsModal);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  })[char]);
+}
+
+function formatCurrency(value) {
+  return Number(value || 0).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+}
+
+function formatDate(value) {
+  if (!value) return 'Sem data';
+  const [year, month, day] = value.split('-');
+  return `${day}/${month}/${year}`;
+}
+
+function normalizeStatus(status) {
+  const normalized = String(status || '').toLowerCase();
+  if (normalized.includes('suspenso')) return 'suspenso';
+  if (normalized.includes('pendente') || normalized.includes('vencendo')) return 'vencendo';
+  return 'ativo';
+}
+
+function statusMarkup(status) {
+  const normalized = normalizeStatus(status);
+  const config = {
+    ativo: ['active', 'Ativo'],
+    vencendo: ['warning', status === 'Pendente' ? 'Pendente' : 'Vencendo'],
+    suspenso: ['suspended', 'Suspenso'],
+  }[normalized];
+  return `<strong class="status-pill ${config[0]}" data-contract-status-pill>● ${config[1]}</strong>`;
+}
+
+function getFilteredContracts() {
   const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
-
-  contractRows.forEach((row) => {
-    const matchesSearch = row.textContent.toLowerCase().includes(query);
-    const matchesFilter = activeFilter === 'todos' || row.dataset.contractStatus === activeFilter;
-
-    row.hidden = !matchesSearch || !matchesFilter;
+  return contracts.filter((contract) => {
+    const matchesSearch = `${contract.acronym} ${contract.organization} ${contract.owner} ${contract.plan}`.toLowerCase().includes(query);
+    const matchesFilter = activeFilter === 'todos' || normalizeStatus(contract.status) === activeFilter;
+    return matchesSearch && matchesFilter;
   });
 }
 
-function getSelectedContractRow() {
-  return Array.from(contractRows).find((row) => row.dataset.contractName === selectedContract);
+function createContractRow(contract) {
+  const status = normalizeStatus(contract.status);
+  return `
+    <div class="contract-row" role="row" data-contract-row data-contract-id="${contract.id}" data-contract-name="${escapeHtml(contract.acronym)}" data-contract-status="${status}">
+      <span role="cell"><strong>${escapeHtml(contract.acronym)}</strong><small>${escapeHtml(contract.organization)}</small></span>
+      <span role="cell">${escapeHtml(contract.plan)}</span>
+      <span role="cell">${statusMarkup(contract.status)}</span>
+      <span role="cell" data-contract-validity>📅 ${formatDate(contract.endDate)} <small>${escapeHtml(contract.renewal)}</small></span>
+      <span role="cell">${formatCurrency(contract.value)} <small>${escapeHtml(contract.billing)}</small></span>
+      <span role="cell"><button class="icon-button" type="button" aria-label="Mais ações ${escapeHtml(contract.acronym)}" data-contract-actions="${contract.id}">⋮</button></span>
+    </div>
+  `;
 }
 
-function highlightContract(contractName) {
-  contractRows.forEach((row) => {
-    row.classList.toggle('is-highlighted', row.dataset.contractName === contractName);
-  });
+function renderContracts() {
+  if (!contractsTable || !contractHead) return;
+  contractsTable.innerHTML = '';
+  contractsTable.append(contractHead);
+  contractsTable.insertAdjacentHTML('beforeend', getFilteredContracts().map(createContractRow).join(''));
+}
+
+function saveContracts() {
+  if (window.PrepilaData) PrepilaData.saveContracts(contracts);
+}
+
+function openContractActions(contractId) {
+  selectedContractId = contractId;
+  const contract = contracts.find((item) => item.id === contractId);
+  if (!contract) return;
+
+  if (contractActionsSubtitle) {
+    contractActionsSubtitle.textContent = `Contrato selecionado: ${contract.acronym}.`;
+  }
+
+  openModal(contractActionsModal, closeContractActionsButton);
 }
 
 function updateFinanceChart(period) {
-  if (!financeChart) {
-    return;
-  }
-
+  if (!financeChart) return;
   const points = chartPointsByPeriod[period] || chartPointsByPeriod[12];
-
-  financeChart.innerHTML = points
-    .map((point) => `<span style="--x: ${point.x}%; --y: ${point.y}%"></span>`)
-    .join('');
+  financeChart.innerHTML = points.map((point) => `<span style="--x: ${point.x}%; --y: ${point.y}%"></span>`).join('');
 }
 
-copyButtons.forEach((button) => {
-  button.addEventListener('click', async () => {
-    const text = button.dataset.copy;
+function exportContracts(filename = 'contratos.json') {
+  if (window.PrepilaData) PrepilaData.downloadFile(filename, JSON.stringify(contracts, null, 2));
+}
 
-    try {
-      await navigator.clipboard.writeText(text);
-      button.classList.add('copied');
-      button.textContent = '✓';
+if (sidebarToggle && sidebar) sidebarToggle.addEventListener('click', () => setSidebarState(!document.body.classList.contains('sidebar-open')));
+if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', () => setSidebarState(false));
 
-      window.setTimeout(() => {
-        button.classList.remove('copied');
-        button.textContent = '📋';
-      }, 1200);
-    } catch {
-      button.textContent = '!';
-    }
-  });
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    setSidebarState(false);
+    closeAllModals();
+  }
 });
 
-if (notificationButton) {
-  notificationButton.addEventListener('click', openNotificationModal);
-}
+if (notificationButton) notificationButton.addEventListener('click', () => openModal(notificationModal, closeNotificationButton));
+if (closeNotificationButton) closeNotificationButton.addEventListener('click', () => closeModal(notificationModal));
+if (tableOptionsButton) tableOptionsButton.addEventListener('click', () => openModal(tableOptionsModal, closeTableOptionsButton));
+if (closeTableOptionsButton) closeTableOptionsButton.addEventListener('click', () => closeModal(tableOptionsModal));
+if (closeContractActionsButton) closeContractActionsButton.addEventListener('click', () => closeModal(contractActionsModal));
 
-if (closeNotificationButton) {
-  closeNotificationButton.addEventListener('click', closeNotificationModal);
-}
-
-if (notificationModal) {
-  notificationModal.addEventListener('click', (event) => {
-    if (event.target === notificationModal) {
-      closeNotificationModal();
-    }
+[notificationModal, tableOptionsModal, contractActionsModal].forEach((modal) => {
+  if (!modal) return;
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeModal(modal);
   });
-}
-
-if (tableOptionsButton) {
-  tableOptionsButton.addEventListener('click', openTableOptionsModal);
-}
-
-if (closeTableOptionsButton) {
-  closeTableOptionsButton.addEventListener('click', closeTableOptionsModal);
-}
-
-if (tableOptionsModal) {
-  tableOptionsModal.addEventListener('click', (event) => {
-    if (event.target === tableOptionsModal) {
-      closeTableOptionsModal();
-    }
-  });
-}
-
-if (closeContractActionsButton) {
-  closeContractActionsButton.addEventListener('click', closeContractActionsModal);
-}
-
-if (contractActionsModal) {
-  contractActionsModal.addEventListener('click', (event) => {
-    if (event.target === contractActionsModal) {
-      closeContractActionsModal();
-    }
-  });
-}
+});
 
 if (readNotificationButton) {
   readNotificationButton.addEventListener('click', () => {
@@ -290,105 +192,90 @@ if (readNotificationButton) {
       notificationCount.textContent = '0';
       notificationCount.classList.add('is-read');
     }
-
     readNotificationButton.textContent = '✓✓ Lido';
-    closeNotificationModal();
+    closeModal(notificationModal);
   });
 }
 
-if (searchInput) {
-  searchInput.addEventListener('input', filterContracts);
-}
+if (searchInput) searchInput.addEventListener('input', renderContracts);
 
 if (filterButton) {
   filterButton.addEventListener('click', () => {
-    const nextFilter = {
-      todos: 'ativo',
-      ativo: 'vencendo',
-      vencendo: 'todos'
-    };
-
+    const nextFilter = { todos: 'ativo', ativo: 'vencendo', vencendo: 'suspenso', suspenso: 'todos' };
     activeFilter = nextFilter[activeFilter];
     filterButton.textContent = `🔎 Filtros: ${activeFilter}`;
-    filterContracts();
+    renderContracts();
     showToast(`Filtro aplicado: ${activeFilter}.`);
   });
 }
 
-actionButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    showToast(button.dataset.action);
+if (contractsTable) {
+  contractsTable.addEventListener('click', (event) => {
+    const actionButton = event.target.closest('[data-contract-actions]');
+    if (actionButton) openContractActions(actionButton.dataset.contractActions);
   });
-});
+}
 
 tableActionButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    showToast(button.dataset.tableAction);
-    closeTableOptionsModal();
-  });
-});
-
-contractActionButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    openContractActionsModal(button.dataset.contractActions);
+    const action = button.dataset.tableAction || '';
+    if (action.includes('Atualizada')) {
+      contracts = window.PrepilaData ? PrepilaData.getContracts() : contracts;
+      renderContracts();
+    }
+    if (action.includes('exportados')) exportContracts('tabela-contratos.json');
+    showToast(action);
+    closeModal(tableOptionsModal);
   });
 });
 
 contractModalActionButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const action = button.dataset.contractModalAction;
-    const selectedRow = getSelectedContractRow();
-
-    if (!selectedRow) {
+    const contract = contracts.find((item) => item.id === selectedContractId);
+    if (!contract) {
       showToast('Contrato não encontrado.');
       return;
     }
 
     if (action === 'visualizar') {
-      showToast('Pdf do contrato exportado.');
-      closeContractActionsModal();
-      return;
+      const content = JSON.stringify(contract, null, 2);
+      if (window.PrepilaData) PrepilaData.downloadFile(`${contract.acronym}-contrato.json`, content);
+      showToast(`Contrato ${contract.acronym} exportado.`);
     }
 
     if (action === 'editar') {
-      window.location.href = `editar-contrato.html?contrato=${encodeURIComponent(selectedContract)}`;
+      window.location.href = `editar-contrato.html?contrato=${encodeURIComponent(contract.id)}`;
       return;
     }
 
     if (action === 'renovar') {
-      const statusPill = selectedRow.querySelector('[data-contract-status-pill]');
-      const validityCell = selectedRow.querySelector('[data-contract-validity]');
-
-      selectedRow.dataset.contractStatus = 'ativo';
-      statusPill.className = 'status-pill active';
-      statusPill.textContent = '● Ativo';
-      validityCell.innerHTML = '📅 15/09/2027 <small>Renovado por 12 meses</small>';
-      showToast(`Contrato ${selectedContract} renovado com sucesso.`);
-      closeContractActionsModal();
-      return;
+      const endDate = new Date(`${contract.endDate || '2026-06-06'}T00:00:00`);
+      endDate.setFullYear(endDate.getFullYear() + 1);
+      contract.endDate = endDate.toISOString().slice(0, 10);
+      contract.status = 'Ativo';
+      saveContracts();
+      renderContracts();
+      showToast(`Contrato ${contract.acronym} renovado com sucesso.`);
     }
 
     if (action === 'suspender') {
-      const statusPill = selectedRow.querySelector('[data-contract-status-pill]');
-
-      selectedRow.dataset.contractStatus = 'suspenso';
-      statusPill.className = 'status-pill suspended';
-      statusPill.textContent = '● Suspenso';
-      showToast(`Contrato ${selectedContract} suspenso.`);
-      closeContractActionsModal();
+      contract.status = 'Suspenso';
+      saveContracts();
+      renderContracts();
+      showToast(`Contrato ${contract.acronym} suspenso.`);
     }
+
+    closeModal(contractActionsModal);
   });
 });
 
-detailButtons.forEach((button) => {
+document.querySelectorAll('[data-detail-contract]').forEach((button) => {
   button.addEventListener('click', () => {
-    const contractName = button.dataset.detailContract;
-
-    contractRows.forEach((row) => {
-      row.classList.toggle('is-highlighted', row.dataset.contractName === contractName);
-    });
-
-    showToast(`Pdf do vencimento ${contractName} exportado com sucesso.`);
+    const contract = contracts.find((item) => item.acronym === button.dataset.detailContract);
+    if (!contract) return showToast('Contrato não encontrado.');
+    if (window.PrepilaData) PrepilaData.downloadFile(`${contract.acronym}-vencimento.json`, JSON.stringify(contract, null, 2));
+    showToast(`Dados de ${contract.acronym} exportados.`);
   });
 });
 
@@ -401,10 +288,12 @@ financePeriodButtons.forEach((button) => {
   });
 });
 
-updateFinanceChart('12');
-
 if (exportReportButton) {
   exportReportButton.addEventListener('click', () => {
+    exportContracts('relatorio-contratos.json');
     showToast('Relatório exportado com sucesso.');
   });
 }
+
+updateFinanceChart('12');
+renderContracts();

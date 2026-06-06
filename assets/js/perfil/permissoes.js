@@ -115,6 +115,9 @@ if (readNotificationButton) {
 
 if (exportPermissionsButton) {
   exportPermissionsButton.addEventListener('click', () => {
+    if (window.PrepilaData) {
+      PrepilaData.downloadFile('permissoes-perfil.json', JSON.stringify(PrepilaData.getRoles(), null, 2));
+    }
     showToast('Permissões exportadas com sucesso.');
   });
 }

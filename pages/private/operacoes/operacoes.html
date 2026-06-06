@@ -88,14 +88,13 @@
             <span aria-hidden="true">🔔</span>
             <strong class="notification-count">2</strong>
           </button>
-          <label class="date-filter">
+          <label class="date-filter operation-date-range">
             <span aria-hidden="true">📅</span>
-            <select aria-label="Período das operações" data-period-select>
-              <option>31/05/2026 - 06/06/2026</option>
-              <option>24/05/2026 - 30/05/2026</option>
-              <option>01/06/2026 - 06/06/2026</option>
-            </select>
+            <input type="date" aria-label="Data inicial das operações" value="2026-05-31" data-start-date>
+            <span aria-hidden="true">até</span>
+            <input type="date" aria-label="Data final das operações" value="2026-06-06" data-end-date>
           </label>
+          <button class="primary-action" type="button" data-open-operation-modal>+ Nova operação</button>
           <button class="admin-level" type="button" data-open-filters aria-haspopup="dialog" aria-controls="filtersModal">
             <span aria-hidden="true">🔎</span>
             <span>Filtros</span>
@@ -295,7 +294,7 @@
             </ul>
           </div>
 
-          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver relatório completo ›</a>
+          <a class="details-link" href="/pages/private/relatorios/relatorios.html?origem=operacoes">Ver relatório completo ›</a>
         </aside>
       </section>
 
@@ -305,6 +304,7 @@
             <span class="section-icon" aria-hidden="true">🧾</span>
             <h2 id="recent-title">Operações recentes</h2>
           </div>
+          <button class="primary-action" type="button" data-open-operation-modal>+ Adicionar</button>
         </div>
 
         <div class="operations-table" role="table" aria-label="Operações recentes">
@@ -324,54 +324,54 @@
             <span role="cell"><b class="type-chip transfer">Transferência</b></span>
             <span role="cell">EN-01 → EN-03</span>
             <span role="cell"><b class="status-badge progress">Em andamento</b></span>
-            <span role="cell">06/06 14:20</span>
-            <span role="cell">06/06 15:30</span>
+            <span role="cell">06/06/2026 14:20</span>
+            <span role="cell">06/06/2026 15:30</span>
             <span role="cell"><span class="person">👨‍💼</span> Carlos M.</span>
-            <span role="cell"><button class="icon-button" type="button" aria-label="Ações transferência" data-row-action>⋮</button></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Editar transferência" data-edit-operation>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir transferência" data-delete-operation>🗑</button></span>
           </div>
           <div class="operation-row" role="row" data-table-row data-status="pendente">
             <span role="cell">Ajuste orbital</span>
             <span role="cell"><b class="type-chip orbital">Ajuste</b></span>
             <span role="cell">205-07</span>
             <span role="cell"><b class="status-badge pending">Pendente</b></span>
-            <span role="cell">06/06 13:50</span>
-            <span role="cell">06/06 15:00</span>
+            <span role="cell">06/06/2026 13:50</span>
+            <span role="cell">06/06/2026 15:00</span>
             <span role="cell"><span class="person">👩‍💼</span> Mariana S.</span>
-            <span role="cell"><button class="icon-button" type="button" aria-label="Ações ajuste" data-row-action>⋮</button></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Editar ajuste" data-edit-operation>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir ajuste" data-delete-operation>🗑</button></span>
           </div>
           <div class="operation-row" role="row" data-table-row data-status="concluida">
             <span role="cell">Redistribuição de energia</span>
             <span role="cell"><b class="type-chip energy">Energia</b></span>
             <span role="cell">Setor Sul</span>
             <span role="cell"><b class="status-badge done">Concluída</b></span>
-            <span role="cell">06/06 12:10</span>
-            <span role="cell">06/06 12:41</span>
+            <span role="cell">06/06/2026 12:10</span>
+            <span role="cell">06/06/2026 12:41</span>
             <span role="cell"><span class="person">👨‍🚀</span> João P.</span>
-            <span role="cell"><button class="icon-button" type="button" aria-label="Ações energia" data-row-action>⋮</button></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Editar energia" data-edit-operation>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir energia" data-delete-operation>🗑</button></span>
           </div>
           <div class="operation-row" role="row" data-table-row data-status="pendente">
             <span role="cell">Manutenção preventiva</span>
             <span role="cell"><b class="type-chip maintenance">Manutenção</b></span>
             <span role="cell">EN-04</span>
             <span role="cell"><b class="status-badge pending">Pendente</b></span>
-            <span role="cell">06/06 11:20</span>
-            <span role="cell">06/06 14:00</span>
+            <span role="cell">06/06/2026 11:20</span>
+            <span role="cell">06/06/2026 14:00</span>
             <span role="cell"><span class="person">🧑‍🔧</span> Lucas R.</span>
-            <span role="cell"><button class="icon-button" type="button" aria-label="Ações manutenção" data-row-action>⋮</button></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Editar manutenção" data-edit-operation>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir manutenção" data-delete-operation>🗑</button></span>
           </div>
           <div class="operation-row" role="row" data-table-row data-status="concluida">
             <span role="cell">Calibração de sensores</span>
             <span role="cell"><b class="type-chip calibration">Calibração</b></span>
             <span role="cell">EN-08</span>
             <span role="cell"><b class="status-badge done">Concluída</b></span>
-            <span role="cell">06/06 09:05</span>
-            <span role="cell">06/06 09:15</span>
+            <span role="cell">06/06/2026 09:05</span>
+            <span role="cell">06/06/2026 09:15</span>
             <span role="cell"><span class="person">👩‍💻</span> Renata L.</span>
-            <span role="cell"><button class="icon-button" type="button" aria-label="Ações calibração" data-row-action>⋮</button></span>
+            <span role="cell"><button class="icon-button" type="button" aria-label="Editar calibração" data-edit-operation>✎</button><button class="icon-button danger-action" type="button" aria-label="Excluir calibração" data-delete-operation>🗑</button></span>
           </div>
         </div>
 
-        <a class="details-link compact-link" href="/pages/private/relatorios/relatorios.html">Ver todas as operações ›</a>
+        <a class="details-link compact-link" href="#recent-operations">Ver todas as operações ›</a>
       </section>
 
       <footer class="private-footer">
@@ -422,9 +422,80 @@
     </div>
   </div>
 
+  <div class="notification-modal" id="operationModal" role="dialog" aria-modal="true" aria-labelledby="operationTitle" hidden>
+    <div class="notification-dialog operation-dialog">
+      <button class="modal-close" type="button" aria-label="Fechar operação" data-close-operation-modal>×</button>
+      <div class="modal-heading">
+        <span class="section-icon" aria-hidden="true">⚙️</span>
+        <div>
+          <h2 id="operationTitle" data-operation-modal-title>Nova operação</h2>
+          <p data-operation-modal-description>Cadastre uma operação e defina datas livremente.</p>
+        </div>
+      </div>
+
+      <form class="operation-form" data-operation-form>
+        <input type="hidden" name="operationId">
+
+        <div class="operation-form-grid">
+          <label class="operation-field">
+            <span>Operação</span>
+            <input type="text" name="name" placeholder="Ex: Transferência de carga" required>
+          </label>
+
+          <label class="operation-field">
+            <span>Tipo</span>
+            <select name="type" required>
+              <option value="transfer">Transferência</option>
+              <option value="orbital">Ajuste</option>
+              <option value="energy">Energia</option>
+              <option value="maintenance">Manutenção</option>
+              <option value="calibration">Calibração</option>
+            </select>
+          </label>
+
+          <label class="operation-field">
+            <span>Estação(s)</span>
+            <input type="text" name="station" placeholder="Ex: EN-01 → EN-03" required>
+          </label>
+
+          <label class="operation-field">
+            <span>Status</span>
+            <select name="status" required>
+              <option value="andamento">Em andamento</option>
+              <option value="pendente">Pendente</option>
+              <option value="concluida">Concluída</option>
+            </select>
+          </label>
+
+          <label class="operation-field">
+            <span>Início</span>
+            <input type="datetime-local" name="start" required>
+          </label>
+
+          <label class="operation-field">
+            <span>Previsão término</span>
+            <input type="datetime-local" name="end" required>
+          </label>
+
+          <label class="operation-field operation-field-wide">
+            <span>Responsável</span>
+            <input type="text" name="owner" placeholder="Ex: Carlos M." required>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button class="ghost-button" type="button" data-close-operation-modal>Cancelar</button>
+          <button class="ghost-button" type="reset">Limpar</button>
+          <button class="primary-action" type="submit">Salvar operação</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <p class="toast-message" id="operationsToast" role="status" hidden></p>
 
   <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/private-data.js"></script>
   <script src="/assets/js/operacoes/operacoes.js"></script>
 </body>
 </html>

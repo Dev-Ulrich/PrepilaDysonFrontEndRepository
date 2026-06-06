@@ -186,9 +186,33 @@ if (roleForm) {
     }
 
     const roleName = roleForm.elements.roleName.value.trim();
+    const checkedPermissions = getCheckedPermissionsCount();
+    const permissionLevel = checkedPermissions >= 12 ? 'total' : checkedPermissions >= 8 ? 'editar' : checkedPermissions >= 4 ? 'ver' : 'nao';
+
+    if (window.PrepilaData) {
+      const roles = PrepilaData.getRoles();
+      roles.unshift({
+        id: crypto.randomUUID(),
+        name: roleName,
+        scope: roleForm.elements.scope.value,
+        icon: roleForm.elements.icon.value,
+        color: roleForm.elements.scope.value === 'total' ? 'admin' : roleForm.elements.scope.value === 'operacao' ? 'operator' : roleForm.elements.scope.value === 'gestao' ? 'manager' : 'viewer',
+        description: roleForm.elements.description.value.trim(),
+        users: 0,
+        status: roleForm.elements.status.value,
+        permissions: {
+          users: roleForm.elements.usersView.checked ? permissionLevel : 'nao',
+          contracts: roleForm.elements.contractsView.checked ? permissionLevel : 'nao',
+          operations: roleForm.elements.operationsView.checked ? permissionLevel : 'nao',
+          reports: roleForm.elements.reportsView.checked ? permissionLevel : 'nao',
+          audit: roleForm.elements.reportsAudit.checked ? 'ver' : 'nao',
+        },
+      });
+      PrepilaData.saveRoles(roles);
+    }
 
     if (formStatus) {
-      formStatus.textContent = `Papel ${roleName} criado e aguardando sincronização.`;
+      formStatus.textContent = `Papel ${roleName} criado com ${checkedPermissions} permissões.`;
     }
 
     showToast(`Papel ${roleName} criado com sucesso.`);

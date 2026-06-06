@@ -1816,7 +1816,7 @@ h1 {
 
 .permission-role-list article {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
   gap: 14px;
   align-items: center;
   min-height: 78px;
@@ -1842,6 +1842,11 @@ h1 {
 .permission-role-list b {
   color: var(--text);
   font-size: 1.25rem;
+}
+
+.role-actions {
+  display: flex;
+  gap: 8px;
 }
 
 .admin-permissions-table {

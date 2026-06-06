@@ -135,7 +135,9 @@ if (readNotificationButton) {
 
 if (refreshButton) {
   refreshButton.addEventListener('click', () => {
-    if (activeAlerts) {
+    if (activeAlerts && window.PrepilaData) {
+      activeAlerts.textContent = String(Math.max(3, PrepilaData.getAlerts().length || 7));
+    } else if (activeAlerts) {
       activeAlerts.textContent = activeAlerts.textContent === '7' ? '6' : '7';
     }
 
@@ -178,6 +180,19 @@ if (closeActionsButton) {
 
 actionButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    const action = button.dataset.action || '';
+    if (action.includes('exportado') && window.PrepilaData) {
+      PrepilaData.downloadFile('dashboard-operacional.json', JSON.stringify({
+        alerts: PrepilaData.getAlerts(),
+        operations: PrepilaData.getOperations(),
+        contracts: PrepilaData.getContracts(),
+      }, null, 2));
+    }
+    if (action.includes('críticos')) {
+      document.querySelectorAll('.alert-item, .timeline-item').forEach((item) => {
+        item.classList.toggle('is-highlighted', item.textContent.toLowerCase().includes('crític') || item.textContent.toLowerCase().includes('alerta'));
+      });
+    }
     showToast(button.dataset.action);
     closeModal(actionsModal);
   });

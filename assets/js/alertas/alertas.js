@@ -26,11 +26,14 @@ const alertActionButtons = document.querySelectorAll('[data-alert-actions]');
 const detailTopButtons = document.querySelectorAll('[data-open-alert]');
 const quickActionButtons = document.querySelectorAll('[data-quick-action]');
 const alertCount = document.querySelector('[data-alert-count]');
+const pagination = document.querySelector('.pagination');
 const toast = document.querySelector('#alertsToast');
 
 let activePriority = 'todos';
 let activeStatus = 'todos';
 let selectedAlert = '';
+let currentPage = 1;
+const pageSize = 5;
 
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
@@ -175,19 +178,22 @@ function handleAlertModalAction(action) {
 
 function filterAlerts() {
   const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
-  let visibleCount = 0;
+  const matchingRows = [];
 
   alertRows.forEach((row) => {
     const matchesSearch = row.textContent.toLowerCase().includes(query);
     const matchesPriority = activePriority === 'todos' || row.dataset.priority === activePriority;
     const matchesStatus = activeStatus === 'todos' || row.dataset.status === activeStatus;
-    const isVisible = matchesSearch && matchesPriority && matchesStatus;
+    if (matchesSearch && matchesPriority && matchesStatus) matchingRows.push(row);
+  });
 
-    row.hidden = !isVisible;
+  const totalPages = Math.max(1, Math.ceil(matchingRows.length / pageSize));
+  currentPage = Math.min(currentPage, totalPages);
+  const start = (currentPage - 1) * pageSize;
+  const pageRows = matchingRows.slice(start, start + pageSize);
 
-    if (isVisible) {
-      visibleCount += 1;
-    }
+  alertRows.forEach((row) => {
+    row.hidden = !pageRows.includes(row);
   });
 
   topAlerts.forEach((card) => {
@@ -198,7 +204,17 @@ function filterAlerts() {
   });
 
   if (alertCount) {
-    alertCount.textContent = `Exibindo ${visibleCount} de 28 alertas`;
+    const first = matchingRows.length ? start + 1 : 0;
+    const last = Math.min(start + pageSize, matchingRows.length);
+    alertCount.textContent = `Exibindo ${first} a ${last} de ${matchingRows.length} alertas`;
+  }
+
+  if (pagination) {
+    pagination.innerHTML = `
+      <button type="button" data-alert-page="prev" ${currentPage === 1 ? 'disabled' : ''}>‹</button>
+      ${Array.from({ length: totalPages }, (_, index) => `<button class="${index + 1 === currentPage ? 'active' : ''}" type="button" data-alert-page="${index + 1}">${index + 1}</button>`).join('')}
+      <button type="button" data-alert-page="next" ${currentPage === totalPages ? 'disabled' : ''}>›</button>
+    `;
   }
 }
 
@@ -280,6 +296,7 @@ priorityButtons.forEach((button) => {
     priorityButtons.forEach((item) => item.classList.remove('active'));
     button.classList.add('active');
     activePriority = button.dataset.filterPriority;
+    currentPage = 1;
     filterAlerts();
     showToast(`Filtro aplicado: ${button.textContent.trim()}.`);
   });
@@ -296,12 +313,16 @@ if (statusFilterButton) {
 
     activeStatus = nextStatus[activeStatus];
     statusFilterButton.textContent = `🔎 Filtros: ${activeStatus}`;
+    currentPage = 1;
     filterAlerts();
   });
 }
 
 if (searchInput) {
-  searchInput.addEventListener('input', filterAlerts);
+  searchInput.addEventListener('input', () => {
+    currentPage = 1;
+    filterAlerts();
+  });
 }
 
 viewAlertButtons.forEach((button) => {
@@ -334,6 +355,13 @@ quickActionButtons.forEach((button) => {
 
 settingsActionButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    if (button.dataset.settingsAction?.includes('exportado') && window.PrepilaData) {
+      PrepilaData.downloadFile('relatorio-alertas.json', JSON.stringify(Array.from(alertRows).map((row) => ({
+        name: row.dataset.alertName,
+        status: row.dataset.status,
+        priority: row.dataset.priority,
+      })), null, 2));
+    }
     showToast(button.dataset.settingsAction);
     closeModal(settingsModal);
   });
@@ -344,5 +372,17 @@ alertModalActionButtons.forEach((button) => {
     handleAlertModalAction(button.dataset.alertModalAction);
   });
 });
+
+if (pagination) {
+  pagination.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-alert-page]');
+    if (!button || button.disabled) return;
+    const action = button.dataset.alertPage;
+    if (action === 'prev') currentPage = Math.max(1, currentPage - 1);
+    else if (action === 'next') currentPage += 1;
+    else currentPage = Number(action);
+    filterAlerts();
+  });
+}
 
 filterAlerts();

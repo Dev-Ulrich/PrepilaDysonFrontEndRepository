@@ -186,7 +186,7 @@
           </div>
         </article>
 
-        <aside class="monitor-panel station-details" aria-labelledby="station-title">
+        <aside class="monitor-panel station-details" id="station-details-panel" aria-labelledby="station-title">
           <div class="panel-heading">
             <div>
               <span class="section-icon" aria-hidden="true">🛰️</span>
@@ -220,7 +220,7 @@
             <article><small>Temperatura</small><strong data-station-temp>36°C</strong><span class="success-text">Normal</span></article>
           </div>
 
-          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver detalhes completos ›</a>
+          <a class="details-link" href="#station-details-panel">Ver detalhes completos ›</a>
         </aside>
       </section>
 
@@ -256,7 +256,7 @@
           </div>
         </article>
 
-        <aside class="monitor-panel assets-panel" aria-labelledby="assets-title">
+        <aside class="monitor-panel assets-panel" id="assets-panel" aria-labelledby="assets-title">
           <div class="panel-heading">
             <div>
               <span class="section-icon" aria-hidden="true">🧭</span>
@@ -274,12 +274,12 @@
             </ul>
           </div>
 
-          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver todos os ativos ›</a>
+          <a class="details-link" href="#assets-panel">Ver todos os ativos ›</a>
         </aside>
       </section>
 
       <section class="bottom-grid" aria-label="Painéis auxiliares de monitoramento">
-        <article class="monitor-panel compact-panel" aria-labelledby="environment-title">
+        <article class="monitor-panel compact-panel" id="environment-panel" aria-labelledby="environment-title">
           <div class="panel-heading">
             <div>
               <span class="section-icon" aria-hidden="true">☀️</span>
@@ -292,10 +292,10 @@
             <article><span>🌬️</span><small>Vento solar</small><strong>Moderado</strong><em class="success-text">↑ 8%</em></article>
             <article><span>🧲</span><small>Perturbações</small><strong>Baixa</strong><em>Estável</em></article>
           </div>
-          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver análise completa ›</a>
+          <a class="details-link" href="#environment-panel">Ver análise completa ›</a>
         </article>
 
-        <article class="monitor-panel compact-panel" aria-labelledby="systems-title">
+        <article class="monitor-panel compact-panel" id="systems-panel" aria-labelledby="systems-title">
           <div class="panel-heading">
             <div>
               <span class="section-icon" aria-hidden="true">🖥️</span>
@@ -308,7 +308,7 @@
             <article><span>Sistema de Controle</span><strong>97,5%</strong><i style="width: 97.5%"></i></article>
             <article><span>Comunicações</span><strong>95,1%</strong><i style="width: 95.1%"></i></article>
           </div>
-          <a class="details-link" href="/pages/private/relatorios/relatorios.html">Ver todos os sistemas ›</a>
+          <a class="details-link" href="#systems-panel">Ver todos os sistemas ›</a>
         </article>
 
         <article class="monitor-panel compact-panel" aria-labelledby="events-title">
@@ -377,6 +377,7 @@
   <p class="toast-message" id="monitorToast" role="status" hidden></p>
 
   <script src="/assets/js/private-session.js"></script>
+  <script src="/assets/js/private-data.js"></script>
   <script src="/assets/js/monitoramento/monitoramento.js"></script>
 </body>
 </html>

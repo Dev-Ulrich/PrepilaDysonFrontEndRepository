@@ -48,7 +48,7 @@ const userEmojis = [
 ];
 
 let currentPage = 1;
-let users = readInitialUsers();
+let users = window.PrepilaData ? PrepilaData.getUsers() : readInitialUsers();
 
 function setSidebarState(isOpen) {
   document.body.classList.toggle('sidebar-open', isOpen);
@@ -324,6 +324,7 @@ function saveUser(event) {
         phone: formData.get('phone').trim(),
       }
       : user);
+    if (window.PrepilaData) PrepilaData.saveUsers(users);
     showToast(`Usuário ${name} atualizado.`);
   } else {
     users.unshift({
@@ -337,6 +338,7 @@ function saveUser(event) {
       emoji: userEmojis[users.length % userEmojis.length],
       isCurrentUser: false,
     });
+    if (window.PrepilaData) PrepilaData.saveUsers(users);
     currentPage = 1;
     showToast(`Usuário ${name} criado com sucesso.`);
   }
@@ -359,6 +361,7 @@ function deleteUser(userId) {
   }
 
   users = users.filter((item) => item.id !== userId);
+  if (window.PrepilaData) PrepilaData.saveUsers(users);
   showToast(`Usuário ${user.name} excluído.`);
   renderUsers();
 }
