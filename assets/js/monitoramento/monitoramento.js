@@ -12,7 +12,8 @@ const closeFiltersButton = document.querySelector('[data-close-filters]');
 const mapFilterButtons = document.querySelectorAll('[data-map-filter]');
 const stationPins = document.querySelectorAll('[data-station]');
 const stationSelect = document.querySelector('[data-station-select]');
-const periodSelect = document.querySelector('[data-period-select]');
+const startDateInput = document.querySelector('[data-start-date]');
+const endDateInput = document.querySelector('[data-end-date]');
 const stationLocation = document.querySelector('[data-station-location]');
 const stationStatus = document.querySelector('[data-station-status]');
 const stationUpdate = document.querySelector('[data-station-update]');
@@ -20,6 +21,7 @@ const stationEnergy = document.querySelector('[data-station-energy]');
 const stationEfficiency = document.querySelector('[data-station-efficiency]');
 const stationIntegrity = document.querySelector('[data-station-integrity]');
 const stationTemp = document.querySelector('[data-station-temp]');
+const stationSatellite = document.querySelector('[data-station-satellite]');
 const activeStations = document.querySelector('[data-active-stations]');
 const incidentCount = document.querySelector('[data-incident-count]');
 const efficiency = document.querySelector('[data-efficiency]');
@@ -35,7 +37,9 @@ const stations = {
     efficiency: '96,4%',
     integrity: '94%',
     temp: '36°C',
-    tone: 'success'
+    tone: 'success',
+    satelliteColor: 'green',
+    satelliteLabel: 'Satélite verde Prepila Dyson orbitando a Terra'
   },
   'EN-03': {
     location: 'América Sul - 15,8° S',
@@ -45,7 +49,9 @@ const stations = {
     efficiency: '94,8%',
     integrity: '91%',
     temp: '34°C',
-    tone: 'success'
+    tone: 'success',
+    satelliteColor: 'blue',
+    satelliteLabel: 'Satélite azul Prepila Dyson orbitando a Terra'
   },
   'EN-04': {
     location: 'Atlântico Leste - 3,1° N',
@@ -55,7 +61,9 @@ const stations = {
     efficiency: '88,5%',
     integrity: '83%',
     temp: '39°C',
-    tone: 'warning'
+    tone: 'warning',
+    satelliteColor: 'yellow',
+    satelliteLabel: 'Satélite amarelo Prepila Dyson em manutenção'
   },
   'EN-05': {
     location: 'Órbita GEO - 15,3° S',
@@ -65,7 +73,9 @@ const stations = {
     efficiency: '89,2%',
     integrity: '78%',
     temp: '42°C',
-    tone: 'danger'
+    tone: 'danger',
+    satelliteColor: 'red',
+    satelliteLabel: 'Satélite vermelho Prepila Dyson em alerta'
   },
   'EN-07': {
     location: 'Ásia Oriental - 35,6° N',
@@ -75,7 +85,9 @@ const stations = {
     efficiency: '97,1%',
     integrity: '96%',
     temp: '33°C',
-    tone: 'success'
+    tone: 'success',
+    satelliteColor: 'purple',
+    satelliteLabel: 'Satélite roxo Prepila Dyson orbitando a Terra'
   },
   'EN-08': {
     location: 'Índico Sul - 24,4° S',
@@ -85,7 +97,9 @@ const stations = {
     efficiency: '93,6%',
     integrity: '90%',
     temp: '37°C',
-    tone: 'success'
+    tone: 'success',
+    satelliteColor: 'cyan',
+    satelliteLabel: 'Satélite ciano Prepila Dyson orbitando a Terra'
   },
   'EN-09': {
     location: 'Cone Sul - 38,2° S',
@@ -95,7 +109,9 @@ const stations = {
     efficiency: '41,7%',
     integrity: '58%',
     temp: '29°C',
-    tone: 'warning'
+    tone: 'warning',
+    satelliteColor: 'gray',
+    satelliteLabel: 'Satélite cinza Prepila Dyson inativo'
   },
   'EN-10': {
     location: 'Oceania - 27,7° S',
@@ -105,7 +121,9 @@ const stations = {
     efficiency: '0%',
     integrity: 'Projeto',
     temp: '--',
-    tone: 'success'
+    tone: 'success',
+    satelliteColor: 'orange',
+    satelliteLabel: 'Satélite laranja Prepila Dyson planejado'
   }
 };
 
@@ -219,6 +237,10 @@ function selectStation(stationId, options = {}) {
   if (stationEfficiency) stationEfficiency.textContent = station.efficiency;
   if (stationIntegrity) stationIntegrity.textContent = station.integrity;
   if (stationTemp) stationTemp.textContent = station.temp;
+  if (stationSatellite) {
+    stationSatellite.className = `satellite-preview satellite-${station.satelliteColor}`;
+    stationSatellite.setAttribute('aria-label', station.satelliteLabel);
+  }
 
   setTone(stationStatus, station.tone);
   if (!options.silent) {
@@ -243,7 +265,7 @@ function updatePeriod(period) {
   const snapshot = periodSnapshots[period];
 
   if (!snapshot) {
-    return;
+    return false;
   }
 
   if (activeStations) activeStations.textContent = snapshot.stations;
@@ -251,7 +273,51 @@ function updatePeriod(period) {
   if (efficiency) efficiency.textContent = snapshot.efficiency;
   if (energyLine) energyLine.setAttribute('points', snapshot.line);
 
-  showToast(`Período atualizado: ${period}.`);
+  return true;
+}
+
+function formatDate(value) {
+  if (!value) {
+    return '';
+  }
+
+  const [year, month, day] = value.split('-');
+  return `${day}/${month}/${year}`;
+}
+
+function updateDateRange() {
+  const start = startDateInput?.value;
+  const end = endDateInput?.value;
+
+  if (!start || !end) {
+    showToast('Escolha a data inicial e final.');
+    return;
+  }
+
+  if (start > end) {
+    showToast('A data inicial não pode ser maior que a final.');
+    return;
+  }
+
+  const formattedStart = formatDate(start);
+  const formattedEnd = formatDate(end);
+  const hasSnapshot = updatePeriod(`${formattedStart} - ${formattedEnd}`);
+
+  if (!hasSnapshot) {
+    const startDate = new Date(`${start}T00:00:00`);
+    const endDate = new Date(`${end}T00:00:00`);
+    const days = Math.max(1, Math.round((endDate - startDate) / 86400000) + 1);
+
+    if (activeStations) activeStations.textContent = String(Math.max(3, Math.min(10, 4 + Math.round(days / 4))));
+    if (incidentCount) incidentCount.textContent = String(Math.max(0, Math.min(6, Math.round(days / 5))));
+    if (efficiency) efficiency.textContent = `${Math.min(98.4, 89 + days * 0.72).toFixed(1).replace('.', ',')}%`;
+    if (energyLine) {
+      const offset = Math.min(12, days);
+      energyLine.setAttribute('points', `1,${34 - offset} 15,${30 - Math.floor(offset / 3)} 29,28 43,${35 - Math.floor(offset / 2)} 57,26 71,${24 - Math.floor(offset / 3)} 85,21 99,${25 - Math.floor(offset / 4)}`);
+    }
+  }
+
+  showToast(`Período atualizado: ${formattedStart} até ${formattedEnd}.`);
 }
 
 if (sidebarToggle && sidebar) {
@@ -333,11 +399,13 @@ if (stationSelect) {
   });
 }
 
-if (periodSelect) {
-  periodSelect.addEventListener('change', () => {
-    updatePeriod(periodSelect.value);
-  });
-}
+[startDateInput, endDateInput].forEach((input) => {
+  if (!input) {
+    return;
+  }
+
+  input.addEventListener('change', updateDateRange);
+});
 
 mapFilterButtons.forEach((button) => {
   button.addEventListener('click', () => {

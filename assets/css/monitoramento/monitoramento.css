@@ -356,12 +356,49 @@ h1 {
 }
 
 .date-filter select,
+.date-filter input,
 .station-details select {
   min-height: 38px;
   color: var(--text);
   border: 0;
   background: transparent;
   outline: 0;
+  color-scheme: dark;
+}
+
+.operation-date-range {
+  flex-wrap: wrap;
+}
+
+.operation-date-range input {
+  width: 136px;
+}
+
+.station-select {
+  min-width: 104px;
+  padding: 0 34px 0 12px;
+  border: 1px solid rgba(95, 188, 255, 0.42) !important;
+  border-radius: 12px;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--text) 50%) calc(100% - 17px) 16px / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--text) 50%, transparent 50%) calc(100% - 12px) 16px / 6px 6px no-repeat,
+    rgba(3, 12, 31, 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 18px rgba(38, 223, 255, 0.08);
+  font-weight: 900;
+  cursor: pointer;
+  appearance: none;
+}
+
+.station-select:hover,
+.station-select:focus-visible {
+  border-color: rgba(38, 223, 255, 0.76) !important;
+  box-shadow: var(--shadow);
+}
+
+.station-select option {
+  color: var(--text);
+  background: #041027;
+  font-weight: 800;
 }
 
 .metrics-grid {
@@ -642,12 +679,144 @@ h1 {
   margin-top: 18px;
 }
 
-.station-hero img {
+.satellite-preview {
+  --satellite-color: var(--success);
+  position: relative;
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 176px;
-  object-fit: cover;
+  overflow: hidden;
   border: 1px solid rgba(95, 188, 255, 0.24);
   border-radius: 12px;
+  background:
+    radial-gradient(circle at 72% 24%, color-mix(in srgb, var(--satellite-color) 35%, transparent), transparent 22%),
+    radial-gradient(circle at 28% 76%, rgba(95, 188, 255, 0.2), transparent 28%),
+    linear-gradient(145deg, rgba(3, 13, 36, 0.96), rgba(6, 26, 56, 0.76));
+  box-shadow: inset 0 0 34px rgba(95, 188, 255, 0.12);
+}
+
+.satellite-preview::before {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(244, 248, 255, 0.9), transparent 0 7px),
+    radial-gradient(circle at 62% 58%, rgba(38, 223, 255, 0.52), transparent 0 9px),
+    linear-gradient(145deg, rgba(24, 62, 128, 0.96), rgba(2, 8, 24, 0.9));
+  box-shadow: 0 0 28px rgba(38, 223, 255, 0.18);
+}
+
+.satellite-preview::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  background-image:
+    radial-gradient(circle, rgba(244, 248, 255, 0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(244, 248, 255, 0.48) 0 1px, transparent 1.5px);
+  background-position: 10px 12px, 44px 38px;
+  background-size: 58px 42px, 72px 54px;
+  opacity: 0.72;
+}
+
+.satellite-orbit {
+  position: absolute;
+  width: 82%;
+  height: 52%;
+  border: 1px solid color-mix(in srgb, var(--satellite-color) 62%, transparent);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+  opacity: 0.52;
+}
+
+.satellite-illustration {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 64px 54px 64px;
+  align-items: center;
+  gap: 10px;
+  transform: rotate(-12deg);
+  filter: drop-shadow(0 0 22px color-mix(in srgb, var(--satellite-color) 45%, transparent));
+}
+
+.satellite-core {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border: 2px solid rgba(244, 248, 255, 0.72);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(244, 248, 255, 0.88), rgba(144, 169, 209, 0.72)),
+    var(--satellite-color);
+  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.38);
+}
+
+.satellite-core::before,
+.satellite-core::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--satellite-color);
+  transform: translateX(-50%);
+}
+
+.satellite-core::before {
+  top: -23px;
+}
+
+.satellite-core::after {
+  bottom: -23px;
+}
+
+.satellite-panel {
+  height: 44px;
+  border: 2px solid color-mix(in srgb, var(--satellite-color) 78%, #f4f8ff);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent 31%, rgba(244, 248, 255, 0.48) 32% 34%, transparent 35% 64%, rgba(244, 248, 255, 0.48) 65% 67%, transparent 68%),
+    linear-gradient(135deg, color-mix(in srgb, var(--satellite-color) 88%, #061a38), color-mix(in srgb, var(--satellite-color) 42%, #041028));
+}
+
+.satellite-panel.left {
+  transform: skewY(8deg);
+}
+
+.satellite-panel.right {
+  transform: skewY(-8deg);
+}
+
+.satellite-green { --satellite-color: var(--success); }
+.satellite-red { --satellite-color: var(--danger); }
+.satellite-yellow { --satellite-color: var(--warning); }
+.satellite-blue { --satellite-color: var(--blue); }
+.satellite-purple { --satellite-color: var(--purple); }
+.satellite-cyan { --satellite-color: var(--cyan); }
+.satellite-gray { --satellite-color: #9dadc8; }
+.satellite-orange { --satellite-color: #ff8f3d; }
+
+@supports not (color: color-mix(in srgb, white, black)) {
+  .satellite-preview {
+    background:
+      radial-gradient(circle at 72% 24%, rgba(38, 223, 255, 0.22), transparent 22%),
+      radial-gradient(circle at 28% 76%, rgba(95, 188, 255, 0.2), transparent 28%),
+      linear-gradient(145deg, rgba(3, 13, 36, 0.96), rgba(6, 26, 56, 0.76));
+  }
+
+  .satellite-orbit {
+    border-color: rgba(244, 248, 255, 0.42);
+  }
+
+  .satellite-panel {
+    border-color: rgba(244, 248, 255, 0.7);
+  }
 }
 
 .station-hero dl {
