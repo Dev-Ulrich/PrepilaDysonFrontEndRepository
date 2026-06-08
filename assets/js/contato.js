@@ -106,3 +106,16 @@ if (contactForm) {
 window.addEventListener("scroll", updateHeaderBackground, { passive: true });
 window.addEventListener("load", updateHeaderBackground);
 updateHeaderBackground();
+
+window.watsonAssistantChatOptions = {
+  integrationID: "7721fd3b-7e06-4afc-a3b7-8d4f690c9ef1",
+  region: "https://integrations.au-syd.assistant.watson.appdomain.cloud",
+  serviceInstanceID: "388da1e1-e3f5-44cd-b178-bf833e35f19b",
+  onLoad: async (instance) => { await instance.render(); }
+};
+
+setTimeout(() => {
+  const script = document.createElement("script");
+  script.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || "latest") + "/WatsonAssistantChatEntry.js";
+  document.head.appendChild(script);
+});
