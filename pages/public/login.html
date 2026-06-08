@@ -84,5 +84,18 @@
   </div>
 
   <script src="/assets/js/login.js"></script>
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "7721fd3b-7e06-4afc-a3b7-8d4f690c9ef1", // The ID of this integration.
+      region: "https://integrations.au-syd.assistant.watson.appdomain.cloud", // The region your integration is hosted in.
+      serviceInstanceID: "388da1e1-e3f5-44cd-b178-bf833e35f19b", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
 </body>
 </html>
