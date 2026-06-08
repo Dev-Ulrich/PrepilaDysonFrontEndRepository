@@ -20,7 +20,7 @@
 - [Credenciais de Teste](#credenciais-de-teste)
 - [Prévia Visual do Projeto](#prévia-visual-do-projeto)
 - [Roadmap](#roadmap)
-- [Repositório e Vídeo Pitch](#repositório-e-vídeo-pitch)
+- [Repositório](#repositório)
 - [Equipe](#equipe)
 - [Contato](#contato)
 - [Licença](#licença)
@@ -478,15 +478,13 @@ As imagens abaixo representam algumas das principais telas e recursos desenvolvi
 
 ---
 
-## Repositório e Vídeo Pitch
+## Repositório
 
 Link público do projeto no GitHub:
 
 ```txt
 https://github.com/Dev-Ulrich/PrepilaDysonFrontEnd
 ```
-
-O link público do vídeo pitch será adicionado após a publicação.
 
 ---
 
