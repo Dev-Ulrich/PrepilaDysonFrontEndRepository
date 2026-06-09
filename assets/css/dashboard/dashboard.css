@@ -653,6 +653,11 @@ h1 {
   box-shadow: 0 0 18px rgba(38, 223, 255, 0.42);
 }
 
+.bar-fill-92 { width: 92%; }
+.bar-fill-93 { width: 93%; }
+.bar-fill-94 { width: 94%; }
+.bar-fill-96 { width: 96%; }
+
 .activity-panel {
   margin-top: 22px;
 }

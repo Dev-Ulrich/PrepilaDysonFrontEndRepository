@@ -1314,8 +1314,6 @@ h1 {
 
 .line-chart span {
   position: absolute;
-  left: var(--x);
-  top: var(--y);
   width: 12px;
   height: 12px;
   border: 3px solid #bfeaff;
@@ -1323,6 +1321,70 @@ h1 {
   background: var(--blue);
   box-shadow: 0 0 18px rgba(38, 223, 255, 0.8);
 }
+
+.chart-x-5 { left: 5%; }
+.chart-x-6 { left: 6%; }
+.chart-x-8 { left: 8%; }
+.chart-x-10 { left: 10%; }
+.chart-x-13 { left: 13%; }
+.chart-x-17 { left: 17%; }
+.chart-x-21 { left: 21%; }
+.chart-x-22 { left: 22%; }
+.chart-x-28 { left: 28%; }
+.chart-x-29 { left: 29%; }
+.chart-x-36 { left: 36%; }
+.chart-x-37 { left: 37%; }
+.chart-x-39 { left: 39%; }
+.chart-x-45 { left: 45%; }
+.chart-x-46 { left: 46%; }
+.chart-x-50 { left: 50%; }
+.chart-x-52 { left: 52%; }
+.chart-x-53 { left: 53%; }
+.chart-x-58 { left: 58%; }
+.chart-x-61 { left: 61%; }
+.chart-x-64 { left: 64%; }
+.chart-x-68 { left: 68%; }
+.chart-x-69 { left: 69%; }
+.chart-x-72 { left: 72%; }
+.chart-x-77 { left: 77%; }
+.chart-x-83 { left: 83%; }
+.chart-x-84 { left: 84%; }
+.chart-x-85 { left: 85%; }
+.chart-x-88 { left: 88%; }
+.chart-x-94 { left: 94%; }
+.chart-y-10 { top: 10%; }
+.chart-y-12 { top: 12%; }
+.chart-y-15 { top: 15%; }
+.chart-y-16 { top: 16%; }
+.chart-y-18 { top: 18%; }
+.chart-y-19 { top: 19%; }
+.chart-y-20 { top: 20%; }
+.chart-y-21 { top: 21%; }
+.chart-y-22 { top: 22%; }
+.chart-y-25 { top: 25%; }
+.chart-y-26 { top: 26%; }
+.chart-y-28 { top: 28%; }
+.chart-y-31 { top: 31%; }
+.chart-y-34 { top: 34%; }
+.chart-y-35 { top: 35%; }
+.chart-y-36 { top: 36%; }
+.chart-y-38 { top: 38%; }
+.chart-y-39 { top: 39%; }
+.chart-y-42 { top: 42%; }
+.chart-y-43 { top: 43%; }
+.chart-y-44 { top: 44%; }
+.chart-y-46 { top: 46%; }
+.chart-y-48 { top: 48%; }
+.chart-y-50 { top: 50%; }
+.chart-y-54 { top: 54%; }
+.chart-y-56 { top: 56%; }
+.chart-y-58 { top: 58%; }
+.chart-y-63 { top: 63%; }
+.chart-y-68 { top: 68%; }
+.chart-y-70 { top: 70%; }
+.chart-y-72 { top: 72%; }
+.chart-y-74 { top: 74%; }
+.chart-y-78 { top: 78%; }
 
 .activity-list,
 .expiring-list {
@@ -1388,6 +1450,10 @@ h1 {
   border-radius: inherit;
   background: linear-gradient(90deg, var(--blue), var(--cyan));
 }
+
+.bar-fill-40 { width: 40%; }
+.bar-fill-48 { width: 48%; }
+.bar-fill-62 { width: 62%; }
 
 .progress-bar.accent i {
   background: linear-gradient(90deg, #8b2fff, #f725ff);

@@ -156,7 +156,7 @@ function openContractActions(contractId) {
 function updateFinanceChart(period) {
   if (!financeChart) return;
   const points = chartPointsByPeriod[period] || chartPointsByPeriod[12];
-  financeChart.innerHTML = points.map((point) => `<span style="--x: ${point.x}%; --y: ${point.y}%"></span>`).join('');
+  financeChart.innerHTML = points.map((point) => `<span class="chart-x-${point.x} chart-y-${point.y}"></span>`).join('');
 }
 
 function exportContracts(filename = 'contratos.json') {

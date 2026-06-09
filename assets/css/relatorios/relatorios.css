@@ -494,14 +494,48 @@ h1 {
 
 .sparkline i {
   position: absolute;
-  left: var(--x);
-  top: var(--y);
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--blue);
   box-shadow: 0 0 12px rgba(38, 223, 255, 0.8);
 }
+
+.point-x-5 { left: 5%; }
+.point-x-18 { left: 18%; }
+.point-x-31 { left: 31%; }
+.point-x-44 { left: 44%; }
+.point-x-57 { left: 57%; }
+.point-x-70 { left: 70%; }
+.point-x-83 { left: 83%; }
+.point-x-95 { left: 95%; }
+.point-y-30 { top: 30%; }
+.point-y-31 { top: 31%; }
+.point-y-32 { top: 32%; }
+.point-y-36 { top: 36%; }
+.point-y-37 { top: 37%; }
+.point-y-38 { top: 38%; }
+.point-y-39 { top: 39%; }
+.point-y-40 { top: 40%; }
+.point-y-41 { top: 41%; }
+.point-y-42 { top: 42%; }
+.point-y-44 { top: 44%; }
+.point-y-45 { top: 45%; }
+.point-y-46 { top: 46%; }
+.point-y-47 { top: 47%; }
+.point-y-50 { top: 50%; }
+.point-y-52 { top: 52%; }
+.point-y-56 { top: 56%; }
+.point-y-57 { top: 57%; }
+.point-y-58 { top: 58%; }
+.point-y-59 { top: 59%; }
+.point-y-60 { top: 60%; }
+.point-y-62 { top: 62%; }
+.point-y-63 { top: 63%; }
+.point-y-64 { top: 64%; }
+.point-y-65 { top: 65%; }
+.point-y-66 { top: 66%; }
+.point-y-68 { top: 68%; }
 
 .sparkline i::after {
   content: "";

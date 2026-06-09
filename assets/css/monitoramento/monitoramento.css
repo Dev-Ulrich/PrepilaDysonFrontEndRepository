@@ -1026,6 +1026,11 @@ h1 {
   box-shadow: 0 0 18px rgba(38, 227, 102, 0.32);
 }
 
+.bar-fill-95-1 { width: 95.1%; }
+.bar-fill-96-2 { width: 96.2%; }
+.bar-fill-97-5 { width: 97.5%; }
+.bar-fill-98-7 { width: 98.7%; }
+
 .event-list article {
   display: grid;
   grid-template-columns: auto 1fr auto;
